@@ -8,12 +8,17 @@
     {
       "speaker": "Player",
       "content": "I am so nervous and I don't know what to do now, my Senpai gave me suggestion what I should do on the first day.",
-      "duration": 8.0
+      "duration": 7.0
     },
     {
       "speaker": "Player",
       "content": "I remember I wrote it down in the notes, let me check it...",
       "duration": 5.0
+    },
+    {
+      "speaker": "System",
+      "content": "- Press (E) to open your inventory.\r\n- Find the StickyNotes in the inventory.\r\n- Click the StickyNotes.",
+      "duration": 6.0
     }
   ]
 }

@@ -6,12 +6,13 @@ using UnityEngine.UI;
 public class Dialog : MonoBehaviour
 {
     private Text TextComponent;
+    [SerializeField] private GameObject speakerGameObject;
 
     void Awake()
     {
         TextComponent = GetComponent<Text>();
     }
-    
+
     public void ShowDialog(string text)
     {
         StartCoroutine(TypeText(text));
@@ -22,12 +23,17 @@ public class Dialog : MonoBehaviour
         foreach (var item in text.ToCharArray())
         {
             TextComponent.text += item;
-            yield return new WaitForSeconds(0.05f);
+            yield return new WaitForSeconds(0.04f);
         }
     }
 
     public void ClearText()
     {
         TextComponent.text = "";
+    }
+
+    public void SetSpeaker(string speaker)
+    {
+        speakerGameObject.GetComponent<Text>().text = speaker;
     }
 }
