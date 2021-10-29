@@ -1,0 +1,14 @@
+﻿{
+  "data": [
+    {
+      "speaker": "Player",
+      "content": "It's the first day of my university life, I am so excited :D",
+      "duration": 5.0
+    },
+    {
+      "speaker": "Player",
+      "content": "I am so nervous and I don't know what to do now, my Senpai gave me suggestion what I should do on the first day.",
+      "duration": 8.0
+    }
+  ]
+}
