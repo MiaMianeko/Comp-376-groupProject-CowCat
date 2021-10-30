@@ -21,7 +21,7 @@ public class SchoolFrontSceneManager : MonoBehaviour
     {
         // Initialize the member variables
         _dialog = FindObjectOfType<Dialog>();
-        string jsonData1 = File.ReadAllText(Application.dataPath + "/Dialogs/dialog1.json");
+        string jsonData1 = File.ReadAllText(Application.dataPath + "/Dialogs/SchoolFrontDialog1.json");
         DialogData dialogData1 = JsonUtility.FromJson<DialogData>(jsonData1);
 
         // Start Play the first Dialog
@@ -60,7 +60,7 @@ public class SchoolFrontSceneManager : MonoBehaviour
     {
         bagGameObject.SetActive(false);
         dialogGameObject.SetActive(true);
-        string jsonData2 = File.ReadAllText(Application.dataPath + "/Dialogs/dialog2.json");
+        string jsonData2 = File.ReadAllText(Application.dataPath + "/Dialogs/SchoolFrontDialog2.json");
         DialogData dialogData2 = JsonUtility.FromJson<DialogData>(jsonData2);
         // Start Play the first Dialog
         StartCoroutine(OutputDialog(dialogData2, nameof(ChangeToBirksSence)));
