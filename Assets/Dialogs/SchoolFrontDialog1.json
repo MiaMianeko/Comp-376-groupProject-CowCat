@@ -2,17 +2,23 @@
   "data": [
     {
       "speaker": "Player",
-      "content": "It's the first day of my university life, I am so excited :D",
+      "content": "First day of University... It's exciting, this is the start of a new chapter of my life...",
       "duration": 5.0
     },
     {
       "speaker": "Player",
-      "content": "I am so nervous and I don't know what to do now, my Senpai gave me suggestion what I should do on the first day.",
+      "content": "I wish I could calm my nerves, I've never even set foot in this building before. Ok... Deep Breath... Where to go first?",
+      // I am so nervous and I don't know what to do now, my Senpai gave me suggestion what I should do on the first day.
       "duration": 7.0
     },
     {
       "speaker": "Player",
-      "content": "I remember I wrote it down in the notes, let me check it...",
+      "content": "My older brother told me where to go to get started.",
+      "duration": 7.0
+    },
+    {
+      "speaker": "Player",
+      "content": "I remember I scribbled it down on a note, I just need to read it...",
       "duration": 5.0
     },
     {
