@@ -1,0 +1,24 @@
+﻿{
+  "data": [
+    {
+      "speaker": "Sectary",
+      "content": "Hi, welcome, how can I help you today? ",
+      "duration": 4.0
+    },
+    {
+      "speaker": "Player",
+      "content": "I am new and I want to get a student ID.",
+      "duration": 4.0
+    },
+    {
+      "speaker": "Sectary",
+      "content": "No problem, just go to stand in front of the camera , I will take a picture for you :).",
+      "duration": 5.0
+    },
+    {
+      "speaker": "System",
+      "content": "Press (F) to use the camera.",
+      "duration": 3.0
+    }
+  ]
+}
