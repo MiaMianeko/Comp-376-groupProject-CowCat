@@ -10,9 +10,15 @@ public class ClassroomSceneUserInput : MonoBehaviour
 
     public bool canMove;
 
-    private bool isMoving;
+    private bool isMovingRight;
+
+    private bool isMovingUp;
+
+    private bool isMovingDown;
 
     private SpriteRenderer _spriteRenderer;
+
+    private bool isMoving;
 
     public ClassroomSceneUserInput()
     {
@@ -22,8 +28,11 @@ public class ClassroomSceneUserInput : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        isMoving = false;
+        isMovingRight = false;
+        isMovingUp = false;
+        isMovingDown = false;
         _spriteRenderer = GetComponent<SpriteRenderer>();
+        isMoving = false;
     }
 
     // Update is called once per frame
@@ -33,7 +42,10 @@ public class ClassroomSceneUserInput : MonoBehaviour
         // Obtain input information (See "Horizontal" and "Vertical" in the Input Manager)
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
-
+        if (vertical != 0.0f)
+        {
+            horizontal = 0.0f;
+        }
         Vector3 direction = new Vector3(horizontal, vertical, 0.0f);
         direction = direction.normalized;
 
@@ -66,16 +78,50 @@ public class ClassroomSceneUserInput : MonoBehaviour
         if (direction != Vector3.zero)
         {
             isMoving = true;
-            if (direction.x > 0)
+            if (direction.y > 0)
             {
-                _spriteRenderer.flipX = false;
+                isMovingUp = true;
+                isMovingDown = false;
             }
-            else if (direction.x < 0)
+            else
             {
-                _spriteRenderer.flipX = true;
+                if (direction.y < 0)
+                {
+                    isMovingDown = true;
+                    isMovingUp = false;
+                }
+                else
+                {
+                    if (direction.x > 0)
+                    {
+                        isMovingRight = true;
+                        _spriteRenderer.flipX = false;
+                        isMovingDown = false;
+                        isMovingUp = false;
+                    }
+                    else if (direction.x < 0)
+                    {
+                        isMovingRight = false;
+                        _spriteRenderer.flipX = true;
+                        isMovingDown = false;
+                        isMovingUp = false;
+                    }
+                }
             }
+
+        }
+        else
+        {
+            isMoving = false;
+            isMovingDown = false;
+            isMovingRight = false;
+            isMovingUp = false;
         }
 
-        GetComponent<Animator>().SetBool("isMoving", isMoving);
+
+        GetComponent<Animator>().SetBool("isMovingHorizontal",isMovingRight );
+        GetComponent<Animator>().SetBool("isMovingUp",isMovingUp);
+        GetComponent<Animator>().SetBool("isMovingDown",isMovingDown );
+        GetComponent<Animator>().SetBool("isMoving",isMoving );
     }
 }
