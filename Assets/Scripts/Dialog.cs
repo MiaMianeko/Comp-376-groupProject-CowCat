@@ -9,6 +9,7 @@ public class Dialog : MonoBehaviour
     [SerializeField] private SpriteRenderer speakerSpriteRenderer;
     [SerializeField] private Sprite playerSprite;
     [SerializeField] private Sprite systemSprite;
+    [SerializeField] private Sprite sectarySprite;
 
     [SerializeField] private Image speakerImage;
 
@@ -47,6 +48,9 @@ public class Dialog : MonoBehaviour
             case "System":
                 // speakerSpriteRenderer.sprite = systemSprite;
                 speakerImage.sprite = systemSprite;
+                break;
+            case "Sectary":
+                speakerImage.sprite = sectarySprite;
                 break;
         }
     }

@@ -4,12 +4,15 @@ using UnityEngine;
 
 public class ClassroomSceneUserInput : MonoBehaviour
 {
-    [SerializeField] private float speed = 0.5f;
+    private float speed = 4.0f;
 
     [SerializeField] private GameObject backgroundGameObject;
 
     public bool canMove;
 
+    private bool isMoving;
+
+    private SpriteRenderer _spriteRenderer;
 
     public ClassroomSceneUserInput()
     {
@@ -19,12 +22,14 @@ public class ClassroomSceneUserInput : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        isMoving = false;
+        _spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!canMove) return; 
+        if (!canMove) return;
         // Obtain input information (See "Horizontal" and "Vertical" in the Input Manager)
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
@@ -56,5 +61,21 @@ public class ClassroomSceneUserInput : MonoBehaviour
         delta = direction * speed * Time.deltaTime;
         delta.x = 0;
         backgroundGameObject.gameObject.transform.position -= delta;
+
+
+        if (direction != Vector3.zero)
+        {
+            isMoving = true;
+            if (direction.x > 0)
+            {
+                _spriteRenderer.flipX = false;
+            }
+            else if (direction.x < 0)
+            {
+                _spriteRenderer.flipX = true;
+            }
+        }
+
+        GetComponent<Animator>().SetBool("isMoving", isMoving);
     }
 }
