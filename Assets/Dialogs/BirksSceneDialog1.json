@@ -1,0 +1,19 @@
+﻿{
+  "data": [
+    {
+      "speaker": "Player",
+      "content": "Well, I am in Birks now, it is so bright! ",
+      "duration": 4.0
+    },
+    {
+      "speaker": "Player",
+      "content": "I should talk to the sectary.",
+      "duration": 3.0
+    },
+    {
+      "speaker": "System",
+      "content": "Press (F) to talk to the sectary.",
+      "duration": 3.0
+    }
+  ]
+}

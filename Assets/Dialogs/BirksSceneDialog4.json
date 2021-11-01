@@ -1,0 +1,24 @@
+﻿{
+  "data": [
+    {
+      "speaker": "Camera",
+      "content": "Crack!",
+      "duration": 2.0
+    },
+    {
+      "speaker": "System",
+      "content": "You can check your ID in your inventory now.",
+      "duration": 3.0
+    },
+    {
+      "speaker": "Player",
+      "content": "Thanks! ",
+      "duration": 1.0
+    },
+    {
+      "speaker": "Player",
+      "content": "OK, I need to go to class now! I remember the class room number is B-060.",
+      "duration": 5.0
+    }
+  ]
+}
