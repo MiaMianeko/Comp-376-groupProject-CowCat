@@ -11,6 +11,7 @@ public class SchoolFrontSceneManager : MonoBehaviour
     private bool _canOpenBag;
     [SerializeField] private GameObject dialogGameObject;
     [SerializeField] private GameObject bagGameObject;
+    [SerializeField] private GameObject noteGameObject;
 
     public SchoolFrontSceneManager()
     {
@@ -59,6 +60,13 @@ public class SchoolFrontSceneManager : MonoBehaviour
     public void ReadNote()
     {
         bagGameObject.SetActive(false);
+        dialogGameObject.SetActive(false);
+        noteGameObject.SetActive(true);
+    }
+
+    public void LoadDialog2()
+    {
+        noteGameObject.SetActive(false);
         dialogGameObject.SetActive(true);
         string jsonData2 = File.ReadAllText(Application.dataPath + "/Dialogs/SchoolFrontDialog2.json");
         DialogData dialogData2 = JsonUtility.FromJson<DialogData>(jsonData2);

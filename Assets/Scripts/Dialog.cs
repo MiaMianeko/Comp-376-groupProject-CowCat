@@ -6,7 +6,12 @@ using UnityEngine.UI;
 public class Dialog : MonoBehaviour
 {
     private Text TextComponent;
-    [SerializeField] private GameObject speakerGameObject;
+    [SerializeField] private SpriteRenderer speakerSpriteRenderer;
+    [SerializeField] private Sprite playerSprite;
+    [SerializeField] private Sprite systemSprite;
+    [SerializeField] private Sprite sectarySprite;
+
+    [SerializeField] private Image speakerImage;
 
     void Awake()
     {
@@ -34,6 +39,19 @@ public class Dialog : MonoBehaviour
 
     public void SetSpeaker(string speaker)
     {
-        speakerGameObject.GetComponent<Text>().text = speaker;
+        switch (speaker)
+        {
+            case "Player":
+                // speakerSpriteRenderer.sprite = playerSprite;
+                speakerImage.sprite = playerSprite;
+                break;
+            case "System":
+                // speakerSpriteRenderer.sprite = systemSprite;
+                speakerImage.sprite = systemSprite;
+                break;
+            case "Sectary":
+                speakerImage.sprite = sectarySprite;
+                break;
+        }
     }
 }
