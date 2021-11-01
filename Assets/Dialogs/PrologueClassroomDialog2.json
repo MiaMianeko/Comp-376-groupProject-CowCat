@@ -1,0 +1,19 @@
+﻿{
+  "data": [
+    {
+      "speaker": "Professor",
+      "content": "...",
+      "duration": 2.0
+    },
+    {
+      "speaker": "Professor",
+      "content": "...",
+      "duration": 2.0
+    },
+    {
+      "speaker": "Player",
+      "content": "I was excited last night so I slept only 2 hours, I am a little bit sleepy now... I should concentrate...z...Z...Z...",
+      "duration": 2.0
+    }
+  ]
+} 
