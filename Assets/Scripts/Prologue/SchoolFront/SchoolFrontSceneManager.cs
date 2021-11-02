@@ -20,9 +20,15 @@ public class SchoolFrontSceneManager : MonoBehaviour
 
     void Start()
     {
+        Invoke(nameof(LoadDialog1), 1.0f);
+    }
+
+    public void LoadDialog1()
+    {
         // Initialize the member variables
+        dialogGameObject.SetActive(true);
         _dialog = FindObjectOfType<Dialog>();
-        string jsonData1 = File.ReadAllText(Application.dataPath + "/Dialogs/SchoolFrontDialog1.json");
+        string jsonData1 = File.ReadAllText(Application.streamingAssetsPath + "/Dialogs/SchoolFrontDialog1.json");
         DialogData dialogData1 = JsonUtility.FromJson<DialogData>(jsonData1);
 
         // Start Play the first Dialog
@@ -68,7 +74,7 @@ public class SchoolFrontSceneManager : MonoBehaviour
     {
         noteGameObject.SetActive(false);
         dialogGameObject.SetActive(true);
-        string jsonData2 = File.ReadAllText(Application.dataPath + "/Dialogs/SchoolFrontDialog2.json");
+        string jsonData2 = File.ReadAllText(Application.streamingAssetsPath + "/Dialogs/SchoolFrontDialog2.json");
         DialogData dialogData2 = JsonUtility.FromJson<DialogData>(jsonData2);
         // Start Play the first Dialog
         StartCoroutine(OutputDialog(dialogData2, nameof(ChangeToBirksSence)));

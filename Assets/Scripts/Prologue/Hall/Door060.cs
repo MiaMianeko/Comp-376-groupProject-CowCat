@@ -3,19 +3,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Door060: MonoBehaviour
+public class Door060 : MonoBehaviour
 {
     public bool canInteract;
     private Transform f;
 
-    
+
     // Start is called before the first frame update
     void Start()
     {
         f = transform.Find("F");
         canInteract = false;
         f.GetComponent<SpriteRenderer>().enabled = false;
-        
     }
 
     // Update is called once per frame
@@ -31,7 +30,6 @@ public class Door060: MonoBehaviour
         }
     }
 
-    
 
     private void OnTriggerEnter2D(Collider2D col)
     {
@@ -39,7 +37,6 @@ public class Door060: MonoBehaviour
             canInteract = true;
     }
 
-    
 
     private void OnTriggerExit2D(Collider2D col)
     {

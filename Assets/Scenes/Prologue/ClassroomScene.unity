@@ -138,7 +138,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &143300296
 RectTransform:
   m_ObjectHideFlags: 0
@@ -378,10 +378,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f5b86b618e107943a3e6b688ac55527, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speakerSpriteRenderer: {fileID: 0}
   playerSprite: {fileID: 21300000, guid: 0520af3c8d860ea4f80d077551708631, type: 3}
   systemSprite: {fileID: 21300000, guid: b1538ea14d346994baac240b3157d185, type: 3}
   sectarySprite: {fileID: 0}
+  professorSprite: {fileID: 21300000, guid: 56b50f8c042be824294a4a531056f4b3, type: 3}
   speakerImage: {fileID: 1282341003}
 --- !u!114 &292409721
 MonoBehaviour:
@@ -565,6 +565,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eaeaa7ccf1d738d4cb12298530161a0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 20
   canMove: 0
 --- !u!61 &339215453
 BoxCollider2D:
@@ -1287,7 +1288,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}

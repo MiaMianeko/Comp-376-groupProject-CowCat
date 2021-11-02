@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class UserInput : MonoBehaviour
 {
-    [SerializeField] private float speed = 10.0f;
+    [SerializeField] private float speed = 20.0f;
 
     private Rigidbody2D _rigidbody2D;
     private SpriteRenderer _spriteRenderer;
