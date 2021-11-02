@@ -3,7 +3,7 @@
     {
       "speaker": "Sectary",
       "content": "Hi, welcome, how can I help you today? ",
-      "duration": 4.0
+      "duration": 3.0
     },
     {
       "speaker": "Player",
@@ -18,7 +18,7 @@
     {
       "speaker": "System",
       "content": "Press (F) to use the camera.",
-      "duration": 3.0
+      "duration": 2.0
     }
   ]
 }

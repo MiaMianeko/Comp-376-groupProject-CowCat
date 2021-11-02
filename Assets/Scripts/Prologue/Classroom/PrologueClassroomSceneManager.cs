@@ -13,15 +13,16 @@ public class PrologueClassroomSceneManager : MonoBehaviour
 
     void Start()
     {
-        _dialog = FindObjectOfType<Dialog>();
-        string jsonData1 = File.ReadAllText(Application.dataPath + "/Dialogs/PrologueClassroomDialog1.json");
-        DialogData dialogData1 = JsonUtility.FromJson<DialogData>(jsonData1);
-        StartCoroutine(OutputDialog(dialogData1, nameof(ChangeState)));
+        Invoke(nameof(LoadDialog1), 1.0f);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void LoadDialog1()
     {
+        dialogGameObject.SetActive(true);
+        _dialog = FindObjectOfType<Dialog>();
+        string jsonData1 = File.ReadAllText(Application.streamingAssetsPath + "/Dialogs/PrologueClassroomDialog1.json");
+        DialogData dialogData1 = JsonUtility.FromJson<DialogData>(jsonData1);
+        StartCoroutine(OutputDialog(dialogData1, nameof(ChangeState)));
     }
 
     private IEnumerator OutputDialog(DialogData dialogData, string callbackFunctionName)
@@ -50,7 +51,7 @@ public class PrologueClassroomSceneManager : MonoBehaviour
         dialogGameObject.SetActive(true);
         _dialog = FindObjectOfType<Dialog>();
         FindObjectOfType<UserInput>().canMove = false;
-        string jsonData2 = File.ReadAllText(Application.dataPath + "/Dialogs/PrologueClassroomDialog2.json");
+        string jsonData2 = File.ReadAllText(Application.streamingAssetsPath + "/Dialogs/PrologueClassroomDialog2.json");
         DialogData dialogData1 = JsonUtility.FromJson<DialogData>(jsonData2);
         StartCoroutine(OutputDialog(dialogData1, nameof(SwitchToNextScene)));
     }

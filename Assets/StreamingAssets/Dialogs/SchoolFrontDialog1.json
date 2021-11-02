@@ -7,14 +7,18 @@
     },
     {
       "speaker": "Player",
-      "content": "I wish I could calm my nerves, I've never even set foot in this building before. Ok... Deep Breath... Where to go first?",
-      // I am so nervous and I don't know what to do now, my Senpai gave me suggestion what I should do on the first day.
-      "duration": 7.0
+      "content": "I wish I could calm my nerves, I've never even set foot in this building before. ",
+      "duration": 6.0
+    },
+    {
+      "speaker": "Player",
+      "content": "Ok... Deep Breath... Where to go first? ",
+      "duration": 3.0
     },
     {
       "speaker": "Player",
       "content": "My older brother told me where to go to get started.",
-      "duration": 7.0
+      "duration": 4.0
     },
     {
       "speaker": "Player",
@@ -24,7 +28,7 @@
     {
       "speaker": "System",
       "content": "- Press (E) to open your inventory.\r\n- Find the StickyNotes in the inventory.\r\n- Click the StickyNotes.",
-      "duration": 6.0
+      "duration": 5.0
     }
   ]
 }
