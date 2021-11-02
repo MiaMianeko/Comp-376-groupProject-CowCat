@@ -24,11 +24,13 @@ public class UserInput : MonoBehaviour
         isMovingUp = false;
         isMovingDown = false;
         isMoving = false;
+        canMove = false;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (!canMove) return;
         // Obtain input information (See "Horizontal" and "Vertical" in the Input Manager)
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");

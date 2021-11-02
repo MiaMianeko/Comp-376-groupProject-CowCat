@@ -40,7 +40,7 @@ public class PrologueClassroomSceneManager : MonoBehaviour
     private void ChangeState()
     {
         dialogGameObject.SetActive(false);
-        FindObjectOfType<ClassroomSceneUserInput>().canMove = true;
+        FindObjectOfType<UserInput>().canMove = true;
     }
 
     public void ShowDialog2()
@@ -49,7 +49,7 @@ public class PrologueClassroomSceneManager : MonoBehaviour
         playerInClassGameObject.SetActive(true);
         dialogGameObject.SetActive(true);
         _dialog = FindObjectOfType<Dialog>();
-        FindObjectOfType<ClassroomSceneUserInput>().canMove = false;
+        FindObjectOfType<UserInput>().canMove = false;
         string jsonData2 = File.ReadAllText(Application.dataPath + "/Dialogs/PrologueClassroomDialog2.json");
         DialogData dialogData1 = JsonUtility.FromJson<DialogData>(jsonData2);
         StartCoroutine(OutputDialog(dialogData1, nameof(SwitchToNextScene)));

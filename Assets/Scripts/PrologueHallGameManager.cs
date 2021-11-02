@@ -1,30 +1,33 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 using UnityEngine.SceneManagement;
+
 public class PrologueHallGameManager : MonoBehaviour
 {
     private Dialog _dialog;
     [SerializeField] GameObject Player;
-    
+
     [SerializeField] private GameObject Dialog;
     private bool _canOpenBag;
     [SerializeField] private GameObject dialogGameObject;
     [SerializeField] private GameObject Door060;
+
     public bool end;
+
     // Start is called before the first frame update
     public PrologueHallGameManager()
     {
         _canOpenBag = false;
     }
+
     void Start()
     {
-        Player=GameObject.Find("Player");
+        Player = GameObject.Find("Player");
         Dialog = GameObject.Find("Dialog");
         Door060 = GameObject.Find("Door060");
         end = false;
@@ -54,15 +57,16 @@ public class PrologueHallGameManager : MonoBehaviour
     {
         SceneManager.LoadScene("Scenes/Prologue/ClassroomScene");
     }
+
     private void moveToClass()
     {
         PrologueHallPlayerInput player = Player.GetComponent<PrologueHallPlayerInput>();
         player.canMove = true;
         Dialog.SetActive(false);
     }
+
     private IEnumerator OutputDialog(DialogData dialogData, string callbackFunctionName)
     {
-   
         foreach (var jsonDialogData in dialogData.data)
         {
             print(_dialog);
