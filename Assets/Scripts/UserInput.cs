@@ -2,37 +2,29 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ClassroomSceneUserInput : MonoBehaviour
+public class UserInput : MonoBehaviour
 {
-    private float speed = 4.0f;
+    [SerializeField] private float speed = 10.0f;
 
-    [SerializeField] private GameObject backgroundGameObject;
-
+    private Rigidbody2D _rigidbody2D;
+    private SpriteRenderer _spriteRenderer;
     public bool canMove;
 
     private bool isMovingRight;
-
     private bool isMovingUp;
-
     private bool isMovingDown;
-
-    private SpriteRenderer _spriteRenderer;
-
     private bool isMoving;
-
-    public ClassroomSceneUserInput()
-    {
-        canMove = false;
-    }
 
     // Start is called before the first frame update
     void Start()
     {
+        _rigidbody2D = GetComponent<Rigidbody2D>();
+        _spriteRenderer = GetComponent<SpriteRenderer>();
         isMovingRight = false;
         isMovingUp = false;
         isMovingDown = false;
-        _spriteRenderer = GetComponent<SpriteRenderer>();
         isMoving = false;
+        canMove = false;
     }
 
     // Update is called once per frame
@@ -46,33 +38,13 @@ public class ClassroomSceneUserInput : MonoBehaviour
         {
             horizontal = 0.0f;
         }
+
         Vector3 direction = new Vector3(horizontal, vertical, 0.0f);
         direction = direction.normalized;
 
-        if (backgroundGameObject.gameObject.transform.position.y < 5)
-        {
-            backgroundGameObject.gameObject.transform.position =
-                new Vector3(backgroundGameObject.gameObject.transform.position.x, 5,
-                    backgroundGameObject.gameObject.transform.position.z);
-        }
-
-        if (backgroundGameObject.gameObject.transform.position.y > 16)
-        {
-            backgroundGameObject.gameObject.transform.position =
-                new Vector3(backgroundGameObject.gameObject.transform.position.x, 16,
-                    backgroundGameObject.gameObject.transform.position.z);
-        }
-
-
         // Translate the game object
         Vector3 delta = direction * speed * Time.deltaTime;
-        delta.y = 0;
-        transform.position += delta;
-
-        // Translate the background object
-        delta = direction * speed * Time.deltaTime;
-        delta.x = 0;
-        backgroundGameObject.gameObject.transform.position -= delta;
+        _rigidbody2D.MovePosition(_rigidbody2D.position + new Vector2(delta.x, delta.y));
 
 
         if (direction != Vector3.zero)
@@ -108,7 +80,6 @@ public class ClassroomSceneUserInput : MonoBehaviour
                     }
                 }
             }
-
         }
         else
         {
@@ -118,10 +89,9 @@ public class ClassroomSceneUserInput : MonoBehaviour
             isMovingUp = false;
         }
 
-
-        GetComponent<Animator>().SetBool("isMovingHorizontal",isMovingRight );
-        GetComponent<Animator>().SetBool("isMovingUp",isMovingUp);
-        GetComponent<Animator>().SetBool("isMovingDown",isMovingDown );
-        GetComponent<Animator>().SetBool("isMoving",isMoving );
+        GetComponent<Animator>().SetBool("isMovingHorizontal", isMovingRight);
+        GetComponent<Animator>().SetBool("isMovingUp", isMovingUp);
+        GetComponent<Animator>().SetBool("isMovingDown", isMovingDown);
+        GetComponent<Animator>().SetBool("isMoving", isMoving);
     }
 }

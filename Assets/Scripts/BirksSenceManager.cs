@@ -75,7 +75,7 @@ public class BirksSenceManager: MonoBehaviour
             Dialog.SetActive(true);
             string jsonData4 = File.ReadAllText(Application.dataPath + "/Dialogs/BirksScenedialog4.json");
             DialogData dialogData4 = JsonUtility.FromJson<DialogData>(jsonData4);
-            StartCoroutine(OutputDialog(dialogData4, nameof(chanegeScene)));
+            StartCoroutine(OutputDialog(dialogData4, nameof(changeScene)));
             end = true;
         }
         
@@ -91,12 +91,13 @@ public class BirksSenceManager: MonoBehaviour
         
         print("take pic");
     }
-    void chanegeScene()
+    void changeScene()
     {
         Dialog.SetActive(false);
         //SceneManager.LoadScene("Scenes/Prologue/");
         BirksPlayerInput player = Player.GetComponent<BirksPlayerInput>();
         player.isIteract = false;
+        SceneManager.LoadScene("Scenes/Prologue/PrologueHallScene");
     }
     void moveToSectary()
     {
