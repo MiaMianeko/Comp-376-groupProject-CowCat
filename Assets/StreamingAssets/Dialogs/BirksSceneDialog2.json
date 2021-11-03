@@ -1,7 +1,7 @@
 ﻿{
   "data": [
     {
-      "speaker": "Administrator",
+      "speaker": "Assistant",
       "content": "Hey, welcome, how can I help you today? ",
       "duration": 3.0
     },
@@ -11,7 +11,7 @@
       "duration": 4.0
     },
     {
-      "speaker": "Administrator",
+      "speaker": "Assistant",
       "content": "No problem, just go to stand in front of the camera, I will do the rest!",
       "duration": 5.0
     },
