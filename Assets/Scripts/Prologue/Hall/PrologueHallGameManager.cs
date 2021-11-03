@@ -11,7 +11,7 @@ public class PrologueHallGameManager : MonoBehaviour
 
     void Start()
     {
-        Invoke(nameof(LoadDialog1), 1.0f);
+        Invoke(nameof(LoadDialog1), 3.0f);
     }
 
     public void LoadDialog1()

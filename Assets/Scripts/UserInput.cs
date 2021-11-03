@@ -94,4 +94,5 @@ public class UserInput : MonoBehaviour
         GetComponent<Animator>().SetBool("isMovingDown", isMovingDown);
         GetComponent<Animator>().SetBool("isMoving", isMoving);
     }
+    
 }

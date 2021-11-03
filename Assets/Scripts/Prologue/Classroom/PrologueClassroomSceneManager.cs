@@ -10,7 +10,7 @@ public class PrologueClassroomSceneManager : MonoBehaviour
     [SerializeField] private GameObject dialogGameObject;
     [SerializeField] private GameObject playerInClassGameObject;
     [SerializeField] private GameObject playerGameObject;
-
+    public Animator transition;
     void Start()
     {
         Invoke(nameof(LoadDialog1), 1.0f);
@@ -53,9 +53,14 @@ public class PrologueClassroomSceneManager : MonoBehaviour
         FindObjectOfType<UserInput>().canMove = false;
         string jsonData2 = File.ReadAllText(Application.streamingAssetsPath + "/Dialogs/PrologueClassroomDialog2.json");
         DialogData dialogData1 = JsonUtility.FromJson<DialogData>(jsonData2);
-        StartCoroutine(OutputDialog(dialogData1, nameof(SwitchToNextScene)));
+        StartCoroutine(OutputDialog(dialogData1, nameof(Sleep)));
     }
 
+    private void Sleep()
+    {
+        transition.SetTrigger("End");
+        Invoke(nameof(SwitchToNextScene),4);
+    }
     public void SwitchToNextScene()
     {
         // SceneManager.LoadScene();

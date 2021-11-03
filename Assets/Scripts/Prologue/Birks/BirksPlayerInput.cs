@@ -82,7 +82,7 @@ public class BirksPlayerInput : MonoBehaviour
 
         GetComponent<Animator>().SetBool("isMoving", isMoving);
 
-        // GetComponent<Animator>().SetBool("isInteract", isIteract);
+         GetComponent<Animator>().SetBool("Interact", isInteract);
     }
 
     void OnTriggerEnter2D(Collider2D col)

@@ -10,12 +10,13 @@ public class BirksSenceManager : MonoBehaviour
     [SerializeField] private GameObject flashGameObject;
     [SerializeField] private GameObject dialogGameObject;
     public bool end;
-
+    public Animator transition;
     void Start()
     {
         // Initialize the member variables
         end = false;
-        Invoke(nameof(LoadDialog1), 1.0f);
+        StartCoroutine(LoadBriks());
+        Invoke(nameof(LoadDialog1), 2.0f);
     }
 
     void LoadDialog1()
@@ -57,15 +58,26 @@ public class BirksSenceManager : MonoBehaviour
 
         if (player.isTalked && player.gotPic && !end)
         {
+            //player.isInteract = false;
             dialogGameObject.SetActive(true);
             string jsonData4 = File.ReadAllText(Application.streamingAssetsPath + "/Dialogs/BirksScenedialog4.json");
             DialogData dialogData4 = JsonUtility.FromJson<DialogData>(jsonData4);
-            StartCoroutine(OutputDialog(dialogData4, nameof(ChangeScene)));
+            
+            StartCoroutine(OutputDialog(dialogData4, nameof(LeaveBriks)));
             end = true;
         }
     }
 
+    IEnumerator LoadBriks()
+    {
+        yield return new  WaitForSeconds(2);
+    }
 
+    private void LeaveBriks()
+    {
+        transition.SetTrigger("end");
+        Invoke(nameof(ChangeScene),2);
+    }
     void TakePictures()
     {
         dialogGameObject.SetActive(false);
@@ -74,8 +86,10 @@ public class BirksSenceManager : MonoBehaviour
         player.gotPic = true;
     }
 
+    
     void ChangeScene()
     {
+        
         dialogGameObject.SetActive(false);
         //SceneManager.LoadScene("Scenes/Prologue/");
         BirksPlayerInput player = playerGameObject.GetComponent<BirksPlayerInput>();
@@ -112,4 +126,5 @@ public class BirksSenceManager : MonoBehaviour
 
         Invoke(callbackFunctionName, 0);
     }
+    
 }
