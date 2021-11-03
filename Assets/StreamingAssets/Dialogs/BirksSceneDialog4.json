@@ -1,11 +1,6 @@
 ﻿{
   "data": [
     {
-      "speaker": "Camera",
-      "content": "Crack!",
-      "duration": 2.0
-    },
-    {
       "speaker": "System",
       "content": "You can check your ID in your inventory now.",
       "duration": 3.0

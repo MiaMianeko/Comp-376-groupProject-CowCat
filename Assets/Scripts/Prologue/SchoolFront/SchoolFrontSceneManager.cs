@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class SchoolFrontSceneManager : MonoBehaviour
 {
+    public Animator transition;
     private Dialog _dialog;
     private bool _canOpenBag;
     [SerializeField] private GameObject dialogGameObject;
@@ -20,7 +21,9 @@ public class SchoolFrontSceneManager : MonoBehaviour
 
     void Start()
     {
-        Invoke(nameof(LoadDialog1), 1.0f);
+       StartCoroutine(LoadLevel()); 
+       Invoke(nameof(LoadDialog1), 2.0f);
+        
     }
 
     public void LoadDialog1()
@@ -77,11 +80,25 @@ public class SchoolFrontSceneManager : MonoBehaviour
         string jsonData2 = File.ReadAllText(Application.streamingAssetsPath + "/Dialogs/SchoolFrontDialog2.json");
         DialogData dialogData2 = JsonUtility.FromJson<DialogData>(jsonData2);
         // Start Play the first Dialog
-        StartCoroutine(OutputDialog(dialogData2, nameof(ChangeToBirksSence)));
+        StartCoroutine(OutputDialog(dialogData2, nameof(LeaveScene)));
     }
 
     private void ChangeToBirksSence()
     {
+        
         SceneManager.LoadScene("Scenes/Prologue/BirksScene");
+    }
+
+    IEnumerator LoadLevel()
+    {
+        transition.SetTrigger("Start");
+        yield return new WaitForSeconds(2.0f);
+    }
+
+    public void LeaveScene()
+    {
+        transition.SetTrigger("End");
+        Invoke(nameof(ChangeToBirksSence),3);
+        
     }
 }
