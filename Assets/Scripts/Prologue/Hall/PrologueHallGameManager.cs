@@ -8,6 +8,7 @@ public class PrologueHallGameManager : MonoBehaviour
     private Dialog _dialog;
     [SerializeField] GameObject playerGameObject;
     [SerializeField] private GameObject dialogGameObject;
+    [SerializeField] private AudioSource doorOpenAudioClip;
 
     void Start()
     {
@@ -33,7 +34,8 @@ public class PrologueHallGameManager : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.F))
             {
-                ChangeScene();
+                doorOpenAudioClip.Play();
+                Invoke(nameof(ChangeScene), 1.3f);
             }
         }
     }

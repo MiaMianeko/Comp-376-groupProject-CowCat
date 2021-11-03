@@ -9,6 +9,7 @@ public class BirksSenceManager : MonoBehaviour
     [SerializeField] private GameObject playerGameObject;
     [SerializeField] private GameObject flashGameObject;
     [SerializeField] private GameObject dialogGameObject;
+    [SerializeField] private AudioSource crackAudioSource;
     public bool end;
     public Animator transition;
     void Start()
@@ -59,6 +60,7 @@ public class BirksSenceManager : MonoBehaviour
         if (player.isTalked && player.gotPic && !end)
         {
             //player.isInteract = false;
+            crackAudioSource.Play();
             dialogGameObject.SetActive(true);
             string jsonData4 = File.ReadAllText(Application.streamingAssetsPath + "/Dialogs/BirksScenedialog4.json");
             DialogData dialogData4 = JsonUtility.FromJson<DialogData>(jsonData4);
