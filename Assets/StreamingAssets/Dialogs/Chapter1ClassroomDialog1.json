@@ -2,8 +2,28 @@
   "data": [
     {
       "speaker": "Player",
-      "content": "Ohh...WTF... Where are my classmates?",
+      "content": "Oh wow... Can't believer I really fall in sleep.",
       "duration": 5.0
+    },
+    {
+      "speaker": "Player",
+      "content": "There is nobody in the class, how long did I sleep",
+      "duration": 5.0
+    },
+    {
+      "speaker": "Player",
+      "content": "Oh, why the room is so dark?",
+      "duration": 3.0
+    },
+    {
+      "speaker": "Player",
+      "content": "OMG!!!! Why there is so many blood here! What was happening!",
+      "duration": 5.0
+    },
+    {
+      "speaker": "Player",
+      "content": "I need to get out of here!",
+      "duration": 3.0
     }
   ]
 }

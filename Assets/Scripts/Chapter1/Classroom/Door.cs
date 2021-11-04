@@ -8,12 +8,14 @@ public class Door : MonoBehaviour
     // Start is called before the first frame update
     public bool canEnter;
     public Transform F;
+    private bool isFirst;
+
     public Door()
     {
-        
         canEnter = false;
-        
+        isFirst = true;
     }
+
     void Start()
     {
         F = transform.Find("F");
@@ -35,9 +37,24 @@ public class Door : MonoBehaviour
 
         if (canEnter && Input.GetKey(KeyCode.F))
         {
-            print("cnm");
             canEnter = false;
+            if (isFirst)
+            {
+                isFirst = false;
+                FindObjectOfType<ChapterOneClassRoomGameManager>().LoadDialog2();
+                Invoke(nameof(ShowPinPad), 5.1f);
+            }
+            else
+            {
+                ShowPinPad();
+            }
         }
+    }
+
+    private void ShowPinPad()
+    {
+        FindObjectOfType<UserInput>().canMove = false;
+        print(123);
     }
 
     private void OnTriggerEnter2D(Collider2D col)
@@ -50,7 +67,6 @@ public class Door : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D other)
     {
-       
     }
 
     private void OnTriggerExit2D(Collider2D col)
