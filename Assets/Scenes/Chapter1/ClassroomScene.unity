@@ -586,7 +586,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 201904727}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.56, y: -10.98, z: -2.33}
+  m_LocalPosition: {x: -5.24, y: -14.46, z: -2.33}
   m_LocalScale: {x: 0.8685, y: 0.9513, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -3686,7 +3686,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 964919819}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b3d66534be412447916cb4837635f49, type: 3}
+  m_Script: {fileID: 11500000, guid: 9bbac7740d7c04b41a223ae02f8770ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   canInteract: 0
@@ -4107,7 +4107,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '"I hate everyone in this class. I''m gonna come back and kill them all.
+  m_Text: 'I hate everyone in this class. I''m gonna come back and kill them all.
 
     That
     jerk Steve thinks he''s so hot, always laughing. Won''t look so hot with his

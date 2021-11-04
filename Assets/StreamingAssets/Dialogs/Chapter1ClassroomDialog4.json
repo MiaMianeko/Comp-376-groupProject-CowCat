@@ -2,8 +2,28 @@
   "data": [
     {
       "speaker": "Player",
-      "content": "It is a notebook with random drawings. On the cover it is written Danielle.",
-      "duration": 4.0
+      "content": "A notebook with a lot of doodles and very few notes.",
+      "duration": 3.0
+    },
+    {
+      "speaker": "Player",
+      "content": "The same drawing of a heart with the word \"Danielle\" written inside seems to appear a lot...",
+      "duration": 3.0
+    },
+    {
+      "speaker": "Player",
+      "content": "The last page reads: \"SHE'S SITTING NEXT TO ME\"",
+      "duration": 3.0
+    },
+    {
+      "speaker": "Player",
+      "content": "\"SHE'LL FINALLY BE MINE! WHAT SHOULD I DO?'\"",
+      "duration": 3.0
+    },
+    {
+      "speaker": "Player",
+      "content": "...creepy",
+      "duration": 1.0
     }
   ]
 }

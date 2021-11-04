@@ -23,7 +23,7 @@ public class PinPad : MonoBehaviour
     void Update()
     {
         codeText.text = codeTextValue;
-        if (codeTextValue == "3480")
+        if (codeTextValue == "3580")
         {
             FindObjectOfType<ChapterOneClassRoomGameManager>().isChangeScene = true;
         }
