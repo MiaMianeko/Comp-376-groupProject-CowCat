@@ -11,6 +11,7 @@ public class PrologueClassroomSceneManager : MonoBehaviour
     [SerializeField] private GameObject playerInClassGameObject;
     [SerializeField] private GameObject playerGameObject;
     public Animator transition;
+
     void Start()
     {
         Invoke(nameof(LoadDialog1), 1.0f);
@@ -59,10 +60,11 @@ public class PrologueClassroomSceneManager : MonoBehaviour
     private void Sleep()
     {
         transition.SetTrigger("End");
-        Invoke(nameof(SwitchToNextScene),4);
+        Invoke(nameof(SwitchToNextScene), 2);
     }
+
     public void SwitchToNextScene()
     {
-        // SceneManager.LoadScene();
+        SceneManager.LoadScene("Scenes/Chapter1/ClassroomScene");
     }
 }

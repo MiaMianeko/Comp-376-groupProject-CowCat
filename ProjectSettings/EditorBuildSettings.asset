@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Prologue/ClassroomScene.unity
     guid: 80953e2e6fb834e40b9c2113b65117c3
+  - enabled: 1
+    path: Assets/Scenes/Chapter1/ClassroomScene.unity
+    guid: bb603290456f02b4db1b8c7c026df1e3
   m_configObjects: {}
