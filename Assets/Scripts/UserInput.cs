@@ -15,16 +15,21 @@ public class UserInput : MonoBehaviour
     private bool isMovingDown;
     private bool isMoving;
 
-    // Start is called before the first frame update
-    void Start()
+
+    UserInput()
     {
-        _rigidbody2D = GetComponent<Rigidbody2D>();
-        _spriteRenderer = GetComponent<SpriteRenderer>();
         isMovingRight = false;
         isMovingUp = false;
         isMovingDown = false;
         isMoving = false;
         canMove = false;
+    }
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        _rigidbody2D = GetComponent<Rigidbody2D>();
+        _spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -94,5 +99,4 @@ public class UserInput : MonoBehaviour
         GetComponent<Animator>().SetBool("isMovingDown", isMovingDown);
         GetComponent<Animator>().SetBool("isMoving", isMoving);
     }
-    
 }

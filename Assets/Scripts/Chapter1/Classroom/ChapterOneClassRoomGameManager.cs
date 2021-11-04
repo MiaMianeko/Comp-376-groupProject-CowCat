@@ -1,27 +1,31 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
-using UnityEngine.SceneManagement;
 
-public class PrologueClassroomSceneManager : MonoBehaviour
+public class ChapterOneClassRoomGameManager : MonoBehaviour
 {
+    private UserInput _userInput;
+
     private Dialog _dialog;
     [SerializeField] private GameObject dialogGameObject;
-    [SerializeField] private GameObject playerInClassGameObject;
     [SerializeField] private GameObject playerGameObject;
     public Animator transition;
 
     void Start()
     {
+        _userInput = FindObjectOfType<UserInput>();
+        _userInput.canMove = false;
         Invoke(nameof(LoadDialog1), 1.0f);
     }
 
+    // Start is called before the first frame update
     public void LoadDialog1()
     {
         dialogGameObject.SetActive(true);
         _dialog = FindObjectOfType<Dialog>();
-        string jsonData1 = File.ReadAllText(Application.streamingAssetsPath + "/Dialogs/PrologueClassroomDialog1.json");
+        string jsonData1 = File.ReadAllText(Application.streamingAssetsPath + "/Dialogs/Chapter1ClassroomDialog1.json");
         DialogData dialogData1 = JsonUtility.FromJson<DialogData>(jsonData1);
         StartCoroutine(OutputDialog(dialogData1, nameof(ChangeState)));
     }
@@ -42,29 +46,6 @@ public class PrologueClassroomSceneManager : MonoBehaviour
     private void ChangeState()
     {
         dialogGameObject.SetActive(false);
-        FindObjectOfType<UserInput>().canMove = true;
-    }
-
-    public void ShowDialog2()
-    {
-        Destroy(playerGameObject);
-        playerInClassGameObject.SetActive(true);
-        dialogGameObject.SetActive(true);
-        _dialog = FindObjectOfType<Dialog>();
-        FindObjectOfType<UserInput>().canMove = false;
-        string jsonData2 = File.ReadAllText(Application.streamingAssetsPath + "/Dialogs/PrologueClassroomDialog2.json");
-        DialogData dialogData1 = JsonUtility.FromJson<DialogData>(jsonData2);
-        StartCoroutine(OutputDialog(dialogData1, nameof(Sleep)));
-    }
-
-    private void Sleep()
-    {
-        transition.SetTrigger("End");
-        Invoke(nameof(SwitchToNextScene), 2);
-    }
-
-    public void SwitchToNextScene()
-    {
-        SceneManager.LoadScene("Scenes/Chapter1/ClassroomScene");
+        _userInput.canMove = true;
     }
 }

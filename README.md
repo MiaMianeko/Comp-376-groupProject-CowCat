@@ -1,2 +1,15 @@
-# Comp-376-groupProject-CowCat
-This repo is the project of team CowCat for course comp 376
+# Comp-376 Group Project CowCat
+This repo is the project of team CowCat for course COMP376.
+
+
+
+
+
+### Development Dependence
+
+- Cinemachine
+
+- Universal RP
+
+  
+
