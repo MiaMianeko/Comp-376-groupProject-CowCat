@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,12 +10,12 @@ public class UserInput : MonoBehaviour
     private Rigidbody2D _rigidbody2D;
     private SpriteRenderer _spriteRenderer;
     public bool canMove;
-
+    public bool canInteract;
     private bool isMovingRight;
     private bool isMovingUp;
     private bool isMovingDown;
     private bool isMoving;
-
+    private Transform F;
 
     UserInput()
     {
@@ -23,11 +24,15 @@ public class UserInput : MonoBehaviour
         isMovingDown = false;
         isMoving = false;
         canMove = false;
+        canInteract = false;
     }
 
     // Start is called before the first frame update
     void Start()
     {
+        F = transform.Find("F");
+        if(F!=null)
+            F.GetComponent<SpriteRenderer>().enabled = false;
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
     }
@@ -39,11 +44,25 @@ public class UserInput : MonoBehaviour
         // Obtain input information (See "Horizontal" and "Vertical" in the Input Manager)
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
+        F = transform.Find("F");
+        
         if (vertical != 0.0f)
         {
             horizontal = 0.0f;
         }
 
+        if (F != null)
+        {
+            if (canInteract)
+            {
+            
+                F.GetComponent<SpriteRenderer>().enabled = true;
+            }
+            else
+            {
+                F.GetComponent<SpriteRenderer>().enabled = false;
+            }
+        }
         Vector3 direction = new Vector3(horizontal, vertical, 0.0f);
         direction = direction.normalized;
 
@@ -98,5 +117,21 @@ public class UserInput : MonoBehaviour
         GetComponent<Animator>().SetBool("isMovingUp", isMovingUp);
         GetComponent<Animator>().SetBool("isMovingDown", isMovingDown);
         GetComponent<Animator>().SetBool("isMoving", isMoving);
+    }
+
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.tag == "Note")
+        {
+            canInteract = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D col)
+    {
+        if (col.tag == "Note")
+        {
+            canInteract = false;
+        }
     }
 }
