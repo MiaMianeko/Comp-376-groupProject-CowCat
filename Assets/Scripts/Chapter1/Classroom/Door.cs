@@ -5,10 +5,13 @@ using UnityEngine;
 
 public class Door : MonoBehaviour
 {
+    [SerializeField] private GameObject pinPadGameObject;
+
     // Start is called before the first frame update
     public bool canEnter;
     public Transform F;
     private bool isFirst;
+
 
     public Door()
     {
@@ -54,7 +57,7 @@ public class Door : MonoBehaviour
     private void ShowPinPad()
     {
         FindObjectOfType<UserInput>().canMove = false;
-        print(123);
+        pinPadGameObject.SetActive(true);
     }
 
     private void OnTriggerEnter2D(Collider2D col)

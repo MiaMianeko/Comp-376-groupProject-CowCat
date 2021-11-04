@@ -12,6 +12,12 @@ public class ChapterOneClassRoomGameManager : MonoBehaviour
     [SerializeField] private GameObject dialogGameObject;
     [SerializeField] private GameObject playerGameObject;
     public Animator transition;
+    public bool isChangeScene;
+
+    public ChapterOneClassRoomGameManager()
+    {
+        isChangeScene = false;
+    }
 
     void Start()
     {
@@ -35,6 +41,15 @@ public class ChapterOneClassRoomGameManager : MonoBehaviour
         dialogGameObject.SetActive(true);
         _dialog = FindObjectOfType<Dialog>();
         string jsonData1 = File.ReadAllText(Application.streamingAssetsPath + "/Dialogs/Chapter1ClassroomDialog2.json");
+        DialogData dialogData1 = JsonUtility.FromJson<DialogData>(jsonData1);
+        StartCoroutine(OutputDialog(dialogData1, nameof(ChangeState)));
+    }
+
+    public void LoadDialog3()
+    {
+        dialogGameObject.SetActive(true);
+        _dialog = FindObjectOfType<Dialog>();
+        string jsonData1 = File.ReadAllText(Application.streamingAssetsPath + "/Dialogs/Chapter1ClassroomDialog3.json");
         DialogData dialogData1 = JsonUtility.FromJson<DialogData>(jsonData1);
         StartCoroutine(OutputDialog(dialogData1, nameof(ChangeState)));
     }
