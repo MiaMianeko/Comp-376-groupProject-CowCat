@@ -46,7 +46,7 @@ public class Dialog : MonoBehaviour
             case "System":
                 speakerImage.sprite = systemSprite;
                 break;
-            case "Sectary":
+            case "Assistant":
                 speakerImage.sprite = sectarySprite;
                 break;
             case "Professor":

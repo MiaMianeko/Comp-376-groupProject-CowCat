@@ -7,12 +7,12 @@
     },
     {
       "speaker": "Player",
-      "content": "Thanks! ",
+      "content": "Thanks!",
       "duration": 1.0
     },
     {
       "speaker": "Player",
-      "content": "OK, I need to go to class now! I remember the class room number is B-060.",
+      "content": "Ok, that's done. Oh crap! Class starts soon! I have to get to room B-060.",
       "duration": 5.0
     }
   ]

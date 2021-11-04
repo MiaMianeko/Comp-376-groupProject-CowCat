@@ -1,18 +1,23 @@
 ﻿{
   "data": [
     {
-      "speaker": "Sectary",
-      "content": "Hi, welcome, how can I help you today? ",
+      "speaker": "Assistant",
+      "content": "Hey, welcome, how can I help you today? ",
       "duration": 3.0
     },
     {
       "speaker": "Player",
-      "content": "I am new and I want to get a student ID.",
+      "content": "Hi! Erm... I'm looking to get my student ID.",
       "duration": 4.0
     },
     {
-      "speaker": "Sectary",
-      "content": "No problem, just go to stand in front of the camera , I will take a picture for you :).",
+      "speaker": "Assistant",
+      "content": "No problem, just go to stand in front of the camera, I will do the rest!",
+      "duration": 5.0
+    },
+    {
+      "speaker": "Player",
+      "content": "(This is easy! She seems friendly. I don't know why I was so stressed out...)",
       "duration": 5.0
     },
     {
