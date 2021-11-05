@@ -80,6 +80,14 @@ public class ChapterOneClassRoomGameManager : MonoBehaviour
         DialogData dialogData1 = JsonUtility.FromJson<DialogData>(jsonData1);
         StartCoroutine(OutputDialog(dialogData1, nameof(ChangeState)));
     }
+    public void LoadDialog7()
+    {
+        dialogGameObject.SetActive(true);
+        _dialog = FindObjectOfType<Dialog>();
+        string jsonData1 = File.ReadAllText(Application.streamingAssetsPath + "/Dialogs/Chapter1ClassroomDialog7.json");
+        DialogData dialogData1 = JsonUtility.FromJson<DialogData>(jsonData1);
+        StartCoroutine(OutputDialog(dialogData1, nameof(ChangeState)));
+    }
 
     private IEnumerator OutputDialog(DialogData dialogData, string callbackFunctionName)
     {

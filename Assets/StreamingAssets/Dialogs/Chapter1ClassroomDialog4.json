@@ -10,10 +10,15 @@
       "content": "The same drawing of a heart with the word \"Danielle\" written inside seems to appear a lot...",
       "duration": 3.0
     },
+        {
+      "speaker": "Player",
+      "content": "There's something written on the last page...",
+      "duration": 3.0
+    },
     {
       "speaker": "Player",
-      "content": "The last page reads: \"SHE'S SITTING NEXT TO ME\"",
-      "duration": 3.0
+      "content": "\"SHE'S SITTING NEXT TO ME\"",
+      "duration": 2.0
     },
     {
       "speaker": "Player",

@@ -45,7 +45,7 @@ public class Door : MonoBehaviour
             {
                 isFirst = false;
                 FindObjectOfType<ChapterOneClassRoomGameManager>().LoadDialog2();
-                Invoke(nameof(ShowPinPad), 5.1f);
+                Invoke(nameof(ShowPinPad), 8.1f);
             }
             else
             {

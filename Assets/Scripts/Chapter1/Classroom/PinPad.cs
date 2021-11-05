@@ -17,6 +17,7 @@ public class PinPad : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
     }
 
     // Update is called once per frame
@@ -26,6 +27,8 @@ public class PinPad : MonoBehaviour
         if (codeTextValue == "3850")
         {
             FindObjectOfType<ChapterOneClassRoomGameManager>().isChangeScene = true;
+            gameObject.SetActive(false);
+            FindObjectOfType<ChapterOneClassRoomGameManager>().LoadDialog7();
         }
         else if (codeTextValue.Length >= 4)
         {
