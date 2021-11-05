@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,18 +18,20 @@ public class Dialog : MonoBehaviour
         TextComponent = GetComponent<Text>();
     }
 
-    public void ShowDialog(string text)
+    public IEnumerator TypeText(string text)
     {
-        StartCoroutine(TypeText(text));
-    }
-
-    private IEnumerator TypeText(string text)
-    {
-        foreach (var item in text.ToCharArray())
+        float t = 0;
+        int charIndex = 0;
+        while (charIndex < text.Length)
         {
-            TextComponent.text += item;
-            yield return new WaitForSeconds(0.04f);
+            t += Time.deltaTime * 50;
+            charIndex = Mathf.FloorToInt(t);
+            charIndex = Mathf.Clamp(charIndex, 0, text.Length);
+            TextComponent.text = text.Substring(0, charIndex);
+            yield return null;
         }
+
+        TextComponent.text = text;
     }
 
     public void ClearText()
