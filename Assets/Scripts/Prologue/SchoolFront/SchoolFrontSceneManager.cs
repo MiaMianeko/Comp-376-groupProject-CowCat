@@ -21,9 +21,8 @@ public class SchoolFrontSceneManager : MonoBehaviour
 
     void Start()
     {
-       StartCoroutine(LoadLevel()); 
-       Invoke(nameof(LoadDialog1), 2.0f);
-        
+        StartCoroutine(LoadLevel());
+        Invoke(nameof(LoadDialog1), 2.0f);
     }
 
     public void LoadDialog1()
@@ -54,8 +53,8 @@ public class SchoolFrontSceneManager : MonoBehaviour
         {
             _dialog.SetSpeaker(jsonDialogData.speaker);
             _dialog.ClearText();
-            _dialog.ShowDialog(jsonDialogData.content);
-            yield return new WaitForSeconds(jsonDialogData.duration);
+            yield return _dialog.TypeText(jsonDialogData.content);
+            yield return new WaitUntil(() => Input.GetKeyUp(KeyCode.Space));
         }
 
         Invoke(callbackFunctionName, 0);
@@ -85,7 +84,6 @@ public class SchoolFrontSceneManager : MonoBehaviour
 
     private void ChangeToBirksSence()
     {
-        
         SceneManager.LoadScene("Scenes/Prologue/BirksScene");
     }
 
@@ -98,7 +96,6 @@ public class SchoolFrontSceneManager : MonoBehaviour
     public void LeaveScene()
     {
         transition.SetTrigger("End");
-        Invoke(nameof(ChangeToBirksSence),3);
-        
+        Invoke(nameof(ChangeToBirksSence), 3);
     }
 }

@@ -58,8 +58,8 @@ public class PrologueHallGameManager : MonoBehaviour
         {
             _dialog.SetSpeaker(jsonDialogData.speaker);
             _dialog.ClearText();
-            _dialog.ShowDialog(jsonDialogData.content);
-            yield return new WaitForSeconds(jsonDialogData.duration);
+            yield return _dialog.TypeText(jsonDialogData.content);
+            yield return new WaitUntil(() => Input.GetKeyUp(KeyCode.Space));
         }
 
         Invoke(callbackFunctionName, 0);

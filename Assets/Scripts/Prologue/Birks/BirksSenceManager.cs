@@ -12,6 +12,7 @@ public class BirksSenceManager : MonoBehaviour
     [SerializeField] private AudioSource crackAudioSource;
     public bool end;
     public Animator transition;
+
     void Start()
     {
         // Initialize the member variables
@@ -64,7 +65,7 @@ public class BirksSenceManager : MonoBehaviour
             dialogGameObject.SetActive(true);
             string jsonData4 = File.ReadAllText(Application.streamingAssetsPath + "/Dialogs/BirksScenedialog4.json");
             DialogData dialogData4 = JsonUtility.FromJson<DialogData>(jsonData4);
-            
+
             StartCoroutine(OutputDialog(dialogData4, nameof(LeaveBriks)));
             end = true;
         }
@@ -72,14 +73,15 @@ public class BirksSenceManager : MonoBehaviour
 
     IEnumerator LoadBriks()
     {
-        yield return new  WaitForSeconds(2);
+        yield return new WaitForSeconds(2);
     }
 
     private void LeaveBriks()
     {
         transition.SetTrigger("end");
-        Invoke(nameof(ChangeScene),2);
+        Invoke(nameof(ChangeScene), 2);
     }
+
     void TakePictures()
     {
         dialogGameObject.SetActive(false);
@@ -88,10 +90,9 @@ public class BirksSenceManager : MonoBehaviour
         player.gotPic = true;
     }
 
-    
+
     void ChangeScene()
     {
-        
         dialogGameObject.SetActive(false);
         //SceneManager.LoadScene("Scenes/Prologue/");
         BirksPlayerInput player = playerGameObject.GetComponent<BirksPlayerInput>();
@@ -122,11 +123,10 @@ public class BirksSenceManager : MonoBehaviour
         {
             _dialog.SetSpeaker(jsonDialogData.speaker);
             _dialog.ClearText();
-            _dialog.ShowDialog(jsonDialogData.content);
-            yield return new WaitForSeconds(jsonDialogData.duration);
+            yield return _dialog.TypeText(jsonDialogData.content);
+            yield return new WaitUntil(() => Input.GetKeyUp(KeyCode.Space));
         }
 
         Invoke(callbackFunctionName, 0);
     }
-    
 }
