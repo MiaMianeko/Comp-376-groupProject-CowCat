@@ -1,7 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
+using System.Threading.Tasks;
 using UnityEngine.SceneManagement;
 
 
@@ -21,23 +23,23 @@ public class SchoolFrontSceneManager : MonoBehaviour
 
     void Start()
     {
-        StartCoroutine(LoadLevel());
-        Invoke(nameof(LoadDialog1), 2.0f);
+        StartCoroutine(LoadLevel(() => LoadDialog1()));
     }
 
-    public void LoadDialog1()
+    private void LoadDialog1()
     {
         // Initialize the member variables
         dialogGameObject.SetActive(true);
         _dialog = FindObjectOfType<Dialog>();
-        string jsonData1 = File.ReadAllText(Application.streamingAssetsPath + "/Dialogs/SchoolFrontDialog1.json");
-        DialogData dialogData1 = JsonUtility.FromJson<DialogData>(jsonData1);
 
-        // Start Play the first Dialog
-        StartCoroutine(OutputDialog(dialogData1, nameof(OpenBagAsync)));
+        StartCoroutine(FileReader.GetText(Application.streamingAssetsPath + "/Dialogs/SchoolFrontDialog1.json",
+            jsonData1 =>
+            {
+                DialogData dialogData1 = JsonUtility.FromJson<DialogData>(jsonData1);
+                StartCoroutine(OutputDialog(dialogData1, nameof(OpenBagAsync)));
+            }));
     }
 
-    // Update is calsled once per frame
     void Update()
     {
         if (Input.GetButtonDown("Bag") && _canOpenBag)
@@ -54,7 +56,7 @@ public class SchoolFrontSceneManager : MonoBehaviour
             _dialog.SetSpeaker(jsonDialogData.speaker);
             _dialog.ClearText();
             yield return _dialog.TypeText(jsonDialogData.content);
-            yield return new WaitUntil(() => Input.GetKeyUp(KeyCode.Space));
+            yield return new WaitUntil(() => Input.GetButtonDown("Skip"));
         }
 
         Invoke(callbackFunctionName, 0);
@@ -76,10 +78,13 @@ public class SchoolFrontSceneManager : MonoBehaviour
     {
         noteGameObject.SetActive(false);
         dialogGameObject.SetActive(true);
-        string jsonData2 = File.ReadAllText(Application.streamingAssetsPath + "/Dialogs/SchoolFrontDialog2.json");
-        DialogData dialogData2 = JsonUtility.FromJson<DialogData>(jsonData2);
-        // Start Play the first Dialog
-        StartCoroutine(OutputDialog(dialogData2, nameof(LeaveScene)));
+
+        StartCoroutine(FileReader.GetText(Application.streamingAssetsPath + "/Dialogs/SchoolFrontDialog2.json",
+            jsonData =>
+            {
+                DialogData dialogData = JsonUtility.FromJson<DialogData>(jsonData);
+                StartCoroutine(OutputDialog(dialogData, nameof(LeaveScene)));
+            }));
     }
 
     private void ChangeToBirksSence()
@@ -87,10 +92,11 @@ public class SchoolFrontSceneManager : MonoBehaviour
         SceneManager.LoadScene("Scenes/Prologue/BirksScene");
     }
 
-    IEnumerator LoadLevel()
+    IEnumerator LoadLevel(Action callback)
     {
         transition.SetTrigger("Start");
         yield return new WaitForSeconds(2.0f);
+        callback();
     }
 
     public void LeaveScene()

@@ -1,11 +1,11 @@
-﻿{
+{
   "data": [
     {
       "speaker": "Player",
       "content": "It is a math notebook. The notes are written cleanly and thoroughly.",
       "duration": 4.0
     },
-        {
+    {
       "speaker": "Player",
       "content": "The inside cover says \"Property of Steve, your future boss\"",
       "duration": 4.0

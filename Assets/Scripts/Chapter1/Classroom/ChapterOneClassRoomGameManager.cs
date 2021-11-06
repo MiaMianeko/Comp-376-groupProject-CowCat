@@ -31,63 +31,85 @@ public class ChapterOneClassRoomGameManager : MonoBehaviour
     {
         dialogGameObject.SetActive(true);
         _dialog = FindObjectOfType<Dialog>();
-        string jsonData1 = File.ReadAllText(Application.streamingAssetsPath + "/Dialogs/Chapter1ClassroomDialog1.json");
-        DialogData dialogData1 = JsonUtility.FromJson<DialogData>(jsonData1);
-        StartCoroutine(OutputDialog(dialogData1, nameof(ChangeState)));
+        StartCoroutine(FileReader.GetText(Application.streamingAssetsPath + "/Dialogs/Chapter1ClassroomDialog1.json",
+            jsonData =>
+            {
+                DialogData dialogData = JsonUtility.FromJson<DialogData>(jsonData);
+                StartCoroutine(OutputDialog(dialogData, nameof(ChangeState)));
+            }));
     }
 
     public void LoadDialog2()
     {
         dialogGameObject.SetActive(true);
         _dialog = FindObjectOfType<Dialog>();
-        string jsonData1 = File.ReadAllText(Application.streamingAssetsPath + "/Dialogs/Chapter1ClassroomDialog2.json");
-        DialogData dialogData1 = JsonUtility.FromJson<DialogData>(jsonData1);
-        StartCoroutine(OutputDialog(dialogData1, nameof(ChangeState)));
+
+        StartCoroutine(FileReader.GetText(Application.streamingAssetsPath + "/Dialogs/Chapter1ClassroomDialog2.json",
+            jsonData =>
+            {
+                DialogData dialogData = JsonUtility.FromJson<DialogData>(jsonData);
+                StartCoroutine(OutputDialog(dialogData, nameof(ChangeState)));
+            }));
     }
 
     public void LoadDialog3()
     {
         dialogGameObject.SetActive(true);
         _dialog = FindObjectOfType<Dialog>();
-        string jsonData1 = File.ReadAllText(Application.streamingAssetsPath + "/Dialogs/Chapter1ClassroomDialog3.json");
-        DialogData dialogData1 = JsonUtility.FromJson<DialogData>(jsonData1);
-        StartCoroutine(OutputDialog(dialogData1, nameof(ChangeState)));
+        StartCoroutine(FileReader.GetText(Application.streamingAssetsPath + "/Dialogs/Chapter1ClassroomDialog3.json",
+            jsonData =>
+            {
+                DialogData dialogData = JsonUtility.FromJson<DialogData>(jsonData);
+                StartCoroutine(OutputDialog(dialogData, nameof(ChangeState)));
+            }));
     }
 
     public void LoadDialog4()
     {
         dialogGameObject.SetActive(true);
         _dialog = FindObjectOfType<Dialog>();
-        string jsonData1 = File.ReadAllText(Application.streamingAssetsPath + "/Dialogs/Chapter1ClassroomDialog4.json");
-        DialogData dialogData1 = JsonUtility.FromJson<DialogData>(jsonData1);
-        StartCoroutine(OutputDialog(dialogData1, nameof(ChangeState)));
+        StartCoroutine(FileReader.GetText(Application.streamingAssetsPath + "/Dialogs/Chapter1ClassroomDialog4.json",
+            jsonData =>
+            {
+                DialogData dialogData = JsonUtility.FromJson<DialogData>(jsonData);
+                StartCoroutine(OutputDialog(dialogData, nameof(ChangeState)));
+            }));
     }
 
     public void LoadDialog5()
     {
         dialogGameObject.SetActive(true);
         _dialog = FindObjectOfType<Dialog>();
-        string jsonData1 = File.ReadAllText(Application.streamingAssetsPath + "/Dialogs/Chapter1ClassroomDialog5.json");
-        DialogData dialogData1 = JsonUtility.FromJson<DialogData>(jsonData1);
-        StartCoroutine(OutputDialog(dialogData1, nameof(ChangeState)));
+        StartCoroutine(FileReader.GetText(Application.streamingAssetsPath + "/Dialogs/Chapter1ClassroomDialog5.json",
+            jsonData =>
+            {
+                DialogData dialogData = JsonUtility.FromJson<DialogData>(jsonData);
+                StartCoroutine(OutputDialog(dialogData, nameof(ChangeState)));
+            }));
     }
 
     public void LoadDialog6()
     {
         dialogGameObject.SetActive(true);
         _dialog = FindObjectOfType<Dialog>();
-        string jsonData1 = File.ReadAllText(Application.streamingAssetsPath + "/Dialogs/Chapter1ClassroomDialog6.json");
-        DialogData dialogData1 = JsonUtility.FromJson<DialogData>(jsonData1);
-        StartCoroutine(OutputDialog(dialogData1, nameof(ChangeState)));
+        StartCoroutine(FileReader.GetText(Application.streamingAssetsPath + "/Dialogs/Chapter1ClassroomDialog6.json",
+            jsonData =>
+            {
+                DialogData dialogData = JsonUtility.FromJson<DialogData>(jsonData);
+                StartCoroutine(OutputDialog(dialogData, nameof(ChangeState)));
+            }));
     }
 
     public void LoadDialog7()
     {
         dialogGameObject.SetActive(true);
         _dialog = FindObjectOfType<Dialog>();
-        string jsonData1 = File.ReadAllText(Application.streamingAssetsPath + "/Dialogs/Chapter1ClassroomDialog7.json");
-        DialogData dialogData1 = JsonUtility.FromJson<DialogData>(jsonData1);
-        StartCoroutine(OutputDialog(dialogData1, nameof(ChangeState)));
+        StartCoroutine(FileReader.GetText(Application.streamingAssetsPath + "/Dialogs/Chapter1ClassroomDialog7.json",
+            jsonData =>
+            {
+                DialogData dialogData = JsonUtility.FromJson<DialogData>(jsonData);
+                StartCoroutine(OutputDialog(dialogData, nameof(ChangeState)));
+            }));
     }
 
     private IEnumerator OutputDialog(DialogData dialogData, string callbackFunctionName)
@@ -97,7 +119,7 @@ public class ChapterOneClassRoomGameManager : MonoBehaviour
             _dialog.SetSpeaker(jsonDialogData.speaker);
             _dialog.ClearText();
             yield return _dialog.TypeText(jsonDialogData.content);
-            yield return new WaitUntil(() => Input.GetKeyUp(KeyCode.Space));
+            yield return new WaitUntil(() => Input.GetButtonDown("Skip"));
         }
 
         Invoke(callbackFunctionName, 0);

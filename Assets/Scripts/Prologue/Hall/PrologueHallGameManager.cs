@@ -19,11 +19,14 @@ public class PrologueHallGameManager : MonoBehaviour
     {
         dialogGameObject.SetActive(true);
         _dialog = FindObjectOfType<Dialog>();
-        string jsonData1 = File.ReadAllText(Application.streamingAssetsPath + "/Dialogs/ProloguehallSceneDialog1.json");
-        DialogData dialogData1 = JsonUtility.FromJson<DialogData>(jsonData1);
-        UserInput player = playerGameObject.GetComponent<UserInput>();
-        player.canMove = false;
-        StartCoroutine(OutputDialog(dialogData1, nameof(ReleaseMoveLock)));
+        StartCoroutine(FileReader.GetText(Application.streamingAssetsPath + "/Dialogs/PrologueHallSceneDialog1.json",
+            jsonData =>
+            {
+                DialogData dialogData = JsonUtility.FromJson<DialogData>(jsonData);
+                UserInput player = playerGameObject.GetComponent<UserInput>();
+                player.canMove = false;
+                StartCoroutine(OutputDialog(dialogData, nameof(ReleaseMoveLock)));
+            }));
     }
 
     // Update is called once per frame
@@ -59,7 +62,7 @@ public class PrologueHallGameManager : MonoBehaviour
             _dialog.SetSpeaker(jsonDialogData.speaker);
             _dialog.ClearText();
             yield return _dialog.TypeText(jsonDialogData.content);
-            yield return new WaitUntil(() => Input.GetKeyUp(KeyCode.Space));
+            yield return new WaitUntil(() => Input.GetButtonDown("Skip"));
         }
 
         Invoke(callbackFunctionName, 0);
