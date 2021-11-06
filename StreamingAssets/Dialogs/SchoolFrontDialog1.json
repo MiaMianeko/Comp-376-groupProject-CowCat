@@ -1,4 +1,4 @@
-﻿{
+{
   "data": [
     {
       "speaker": "Player",
@@ -22,12 +22,12 @@
     },
     {
       "speaker": "Player",
-      "content": "I remember I scribbled it down on a note, I just need to read it...",
+      "content": "I remember I scribbled it down in my notebook, I just need to read it...",
       "duration": 5.0
     },
     {
       "speaker": "System",
-      "content": "- Press (E) to open your inventory.\r\n- Find the StickyNotes in the inventory.\r\n- Click the StickyNotes.",
+      "content": "- Press (E) to open your inventory.\r\n- Find the notebook in the inventory.\r\n- Click the notebook.",
       "duration": 5.0
     }
   ]

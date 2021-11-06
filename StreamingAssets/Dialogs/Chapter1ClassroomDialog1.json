@@ -1,0 +1,34 @@
+{
+  "data": [
+    {
+      "speaker": "Player",
+      "content": "Oh no... Did I actually fall asleep during my first class? Ugh...",
+      "duration": 5.0
+    },
+    {
+      "speaker": "Player",
+      "content": "Everyone else is gone... How long was I out?",
+      "duration": 4.0
+    },
+    {
+      "speaker": "Player",
+      "content": "They could have woken me up, or at least left the lights on...",
+      "duration": 4.0
+    },
+    {
+      "speaker": "Player",
+      "content": "I'm still groggy... Good thing my phone has a flashlight.",
+      "duration": 3.0
+    },
+    {
+      "speaker": "Player",
+      "content": "Hang on... is that... BLOOD!?",
+      "duration": 2.0
+    },
+    {
+      "speaker": "Player",
+      "content": "I... I have to get out of here!",
+      "duration": 3.0
+    }
+  ]
+}

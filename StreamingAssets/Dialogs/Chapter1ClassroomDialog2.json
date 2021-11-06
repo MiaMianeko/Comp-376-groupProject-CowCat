@@ -1,0 +1,14 @@
+{
+  "data": [
+    {
+      "speaker": "Player",
+      "content": "It won't open! I'm locked in here!",
+      "duration": 3.0
+    },
+    {
+      "speaker": "Player",
+      "content": "Hang on... It seems the door can be opened with a code... I need to figure out what it is.",
+      "duration": 5.0
+    }
+  ]
+}
