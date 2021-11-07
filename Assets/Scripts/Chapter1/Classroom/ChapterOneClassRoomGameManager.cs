@@ -1,8 +1,6 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System.IO;
 
 public class ChapterOneClassRoomGameManager : MonoBehaviour
 {
@@ -43,7 +41,7 @@ public class ChapterOneClassRoomGameManager : MonoBehaviour
     {
         dialogGameObject.SetActive(true);
         _dialog = FindObjectOfType<Dialog>();
-
+        _userInput.canMove = false;
         StartCoroutine(FileReader.GetText(Application.streamingAssetsPath + "/Dialogs/Chapter1ClassroomDialog2.json",
             jsonData =>
             {
@@ -56,6 +54,7 @@ public class ChapterOneClassRoomGameManager : MonoBehaviour
     {
         dialogGameObject.SetActive(true);
         _dialog = FindObjectOfType<Dialog>();
+        _userInput.canMove = false;
         StartCoroutine(FileReader.GetText(Application.streamingAssetsPath + "/Dialogs/Chapter1ClassroomDialog3.json",
             jsonData =>
             {
@@ -68,6 +67,7 @@ public class ChapterOneClassRoomGameManager : MonoBehaviour
     {
         dialogGameObject.SetActive(true);
         _dialog = FindObjectOfType<Dialog>();
+        _userInput.canMove = false;
         StartCoroutine(FileReader.GetText(Application.streamingAssetsPath + "/Dialogs/Chapter1ClassroomDialog4.json",
             jsonData =>
             {
@@ -80,6 +80,7 @@ public class ChapterOneClassRoomGameManager : MonoBehaviour
     {
         dialogGameObject.SetActive(true);
         _dialog = FindObjectOfType<Dialog>();
+        _userInput.canMove = false;
         StartCoroutine(FileReader.GetText(Application.streamingAssetsPath + "/Dialogs/Chapter1ClassroomDialog5.json",
             jsonData =>
             {
@@ -92,6 +93,7 @@ public class ChapterOneClassRoomGameManager : MonoBehaviour
     {
         dialogGameObject.SetActive(true);
         _dialog = FindObjectOfType<Dialog>();
+        _userInput.canMove = false;
         StartCoroutine(FileReader.GetText(Application.streamingAssetsPath + "/Dialogs/Chapter1ClassroomDialog6.json",
             jsonData =>
             {
@@ -104,6 +106,7 @@ public class ChapterOneClassRoomGameManager : MonoBehaviour
     {
         dialogGameObject.SetActive(true);
         _dialog = FindObjectOfType<Dialog>();
+        _userInput.canMove = false;
         StartCoroutine(FileReader.GetText(Application.streamingAssetsPath + "/Dialogs/Chapter1ClassroomDialog7.json",
             jsonData =>
             {
