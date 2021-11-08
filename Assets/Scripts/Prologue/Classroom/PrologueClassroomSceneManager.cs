@@ -21,9 +21,13 @@ public class PrologueClassroomSceneManager : MonoBehaviour
     {
         dialogGameObject.SetActive(true);
         _dialog = FindObjectOfType<Dialog>();
-        string jsonData1 = File.ReadAllText(Application.streamingAssetsPath + "/Dialogs/PrologueClassroomDialog1.json");
-        DialogData dialogData1 = JsonUtility.FromJson<DialogData>(jsonData1);
-        StartCoroutine(OutputDialog(dialogData1, nameof(ChangeState)));
+
+        StartCoroutine(FileReader.GetText(Application.streamingAssetsPath + "/Dialogs/PrologueClassroomDialog1.json",
+            jsonData =>
+            {
+                DialogData dialogData = JsonUtility.FromJson<DialogData>(jsonData);
+                StartCoroutine(OutputDialog(dialogData, nameof(ChangeState)));
+            }));
     }
 
     private IEnumerator OutputDialog(DialogData dialogData, string callbackFunctionName)
@@ -32,8 +36,8 @@ public class PrologueClassroomSceneManager : MonoBehaviour
         {
             _dialog.SetSpeaker(jsonDialogData.speaker);
             _dialog.ClearText();
-            _dialog.ShowDialog(jsonDialogData.content);
-            yield return new WaitForSeconds(jsonDialogData.duration);
+            yield return _dialog.TypeText(jsonDialogData.content);
+            yield return new WaitUntil(() => Input.GetButtonDown("Skip"));
         }
 
         Invoke(callbackFunctionName, 0);
@@ -52,9 +56,12 @@ public class PrologueClassroomSceneManager : MonoBehaviour
         dialogGameObject.SetActive(true);
         _dialog = FindObjectOfType<Dialog>();
         FindObjectOfType<UserInput>().canMove = false;
-        string jsonData2 = File.ReadAllText(Application.streamingAssetsPath + "/Dialogs/PrologueClassroomDialog2.json");
-        DialogData dialogData1 = JsonUtility.FromJson<DialogData>(jsonData2);
-        StartCoroutine(OutputDialog(dialogData1, nameof(Sleep)));
+        StartCoroutine(FileReader.GetText(Application.streamingAssetsPath + "/Dialogs/PrologueClassroomDialog2.json",
+            jsonData =>
+            {
+                DialogData dialogData = JsonUtility.FromJson<DialogData>(jsonData);
+                StartCoroutine(OutputDialog(dialogData, nameof(Sleep)));
+            }));
     }
 
     private void Sleep()

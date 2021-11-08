@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using System.Collections;
 using System.IO;
@@ -12,25 +13,40 @@ public class BirksSenceManager : MonoBehaviour
     [SerializeField] private AudioSource crackAudioSource;
     public bool end;
     public Animator transition;
+
     void Start()
     {
         // Initialize the member variables
         end = false;
-        StartCoroutine(LoadBriks());
-        Invoke(nameof(LoadDialog1), 2.0f);
+        StartCoroutine(LoadBriks(() => LoadDialog1()));
+    }
+
+    private IEnumerator LoadBriks(Action callback)
+    {
+        yield return new WaitForSeconds(2);
+        callback();
     }
 
     void LoadDialog1()
     {
         dialogGameObject.SetActive(true);
         _dialog = FindObjectOfType<Dialog>();
-        string jsonData1 = File.ReadAllText(Application.streamingAssetsPath + "/Dialogs/BirksScenedialog1.json");
-        DialogData dialogData1 = JsonUtility.FromJson<DialogData>(jsonData1);
-        BirksPlayerInput player = playerGameObject.GetComponent<BirksPlayerInput>();
-        player.canMove = false;
 
-        // Start Play the first Dialog
-        StartCoroutine(OutputDialog(dialogData1, nameof(MoveToSectary)));
+        StartCoroutine(FileReader.GetText(Application.streamingAssetsPath + "/Dialogs/BirksSceneDialog1.json",
+            jsonData =>
+            {
+                DialogData dialogData = JsonUtility.FromJson<DialogData>(jsonData);
+                playerGameObject.GetComponent<BirksPlayerInput>().canMove = false;
+                StartCoroutine(OutputDialog(dialogData, nameof(MoveToSectary)));
+            }));
+    }
+
+
+    void MoveToSectary()
+    {
+        dialogGameObject.SetActive(false);
+        BirksPlayerInput player = playerGameObject.GetComponent<BirksPlayerInput>();
+        player.canMove = true;
     }
 
     // Update is calsled once per frame
@@ -40,21 +56,25 @@ public class BirksSenceManager : MonoBehaviour
         if (player.canTalk && player.isInteract)
         {
             dialogGameObject.SetActive(true);
-            string jsonData2 = File.ReadAllText(Application.streamingAssetsPath + "/Dialogs/BirksScenedialog2.json");
-            DialogData dialogData2 = JsonUtility.FromJson<DialogData>(jsonData2);
-            player.canTalk = false;
-            StartCoroutine(OutputDialog(dialogData2, nameof(MoveToCamera)));
+            StartCoroutine(FileReader.GetText(Application.streamingAssetsPath + "/Dialogs/BirksSceneDialog2.json",
+                jsonData =>
+                {
+                    DialogData dialogData = JsonUtility.FromJson<DialogData>(jsonData);
+                    player.canTalk = false;
+                    StartCoroutine(OutputDialog(dialogData, nameof(MoveToCamera)));
+                }));
         }
 
         if (player.canTakePicture && player.isInteract)
         {
             dialogGameObject.SetActive(true);
-            string jsonData3 = File.ReadAllText(Application.streamingAssetsPath + "/Dialogs/BirksScenedialog3.json");
-            DialogData dialogData3 = JsonUtility.FromJson<DialogData>(jsonData3);
-            StartCoroutine(OutputDialog(dialogData3, nameof(TakePictures)));
-
-
             player.canTakePicture = false;
+            StartCoroutine(FileReader.GetText(Application.streamingAssetsPath + "/Dialogs/BirksSceneDialog3.json",
+                jsonData =>
+                {
+                    DialogData dialogData = JsonUtility.FromJson<DialogData>(jsonData);
+                    StartCoroutine(OutputDialog(dialogData, nameof(TakePictures)));
+                }));
         }
 
         if (player.isTalked && player.gotPic && !end)
@@ -62,24 +82,22 @@ public class BirksSenceManager : MonoBehaviour
             //player.isInteract = false;
             crackAudioSource.Play();
             dialogGameObject.SetActive(true);
-            string jsonData4 = File.ReadAllText(Application.streamingAssetsPath + "/Dialogs/BirksScenedialog4.json");
-            DialogData dialogData4 = JsonUtility.FromJson<DialogData>(jsonData4);
-            
-            StartCoroutine(OutputDialog(dialogData4, nameof(LeaveBriks)));
-            end = true;
+            StartCoroutine(FileReader.GetText(Application.streamingAssetsPath + "/Dialogs/BirksSceneDialog4.json",
+                jsonData =>
+                {
+                    DialogData dialogData = JsonUtility.FromJson<DialogData>(jsonData);
+                    StartCoroutine(OutputDialog(dialogData, nameof(LeaveBriks)));
+                    end = true;
+                }));
         }
-    }
-
-    IEnumerator LoadBriks()
-    {
-        yield return new  WaitForSeconds(2);
     }
 
     private void LeaveBriks()
     {
         transition.SetTrigger("end");
-        Invoke(nameof(ChangeScene),2);
+        Invoke(nameof(ChangeScene), 2);
     }
+
     void TakePictures()
     {
         dialogGameObject.SetActive(false);
@@ -88,24 +106,13 @@ public class BirksSenceManager : MonoBehaviour
         player.gotPic = true;
     }
 
-    
     void ChangeScene()
     {
-        
         dialogGameObject.SetActive(false);
-        //SceneManager.LoadScene("Scenes/Prologue/");
         BirksPlayerInput player = playerGameObject.GetComponent<BirksPlayerInput>();
         player.isInteract = false;
         SceneManager.LoadScene("Scenes/Prologue/PrologueHallScene");
     }
-
-    void MoveToSectary()
-    {
-        dialogGameObject.SetActive(false);
-        BirksPlayerInput player = playerGameObject.GetComponent<BirksPlayerInput>();
-        player.canMove = true;
-    }
-
 
     void MoveToCamera()
     {
@@ -122,11 +129,10 @@ public class BirksSenceManager : MonoBehaviour
         {
             _dialog.SetSpeaker(jsonDialogData.speaker);
             _dialog.ClearText();
-            _dialog.ShowDialog(jsonDialogData.content);
-            yield return new WaitForSeconds(jsonDialogData.duration);
+            yield return _dialog.TypeText(jsonDialogData.content);
+            yield return new WaitUntil(() => Input.GetButtonDown("Skip"));
         }
 
         Invoke(callbackFunctionName, 0);
     }
-    
 }
