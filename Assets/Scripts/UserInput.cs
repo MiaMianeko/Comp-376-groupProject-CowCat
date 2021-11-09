@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class UserInput : MonoBehaviour
 {
-    [SerializeField] private float speed = 20.0f;
+    private float speed = 10.0f;
 
     private Rigidbody2D _rigidbody2D;
     private SpriteRenderer _spriteRenderer;
@@ -31,7 +31,7 @@ public class UserInput : MonoBehaviour
     void Start()
     {
         F = transform.Find("F");
-        if(F!=null)
+        if (F != null)
             F.GetComponent<SpriteRenderer>().enabled = false;
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
@@ -45,7 +45,7 @@ public class UserInput : MonoBehaviour
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
         F = transform.Find("F");
-        
+
         if (vertical != 0.0f)
         {
             horizontal = 0.0f;
@@ -55,7 +55,6 @@ public class UserInput : MonoBehaviour
         {
             if (canInteract)
             {
-            
                 F.GetComponent<SpriteRenderer>().enabled = true;
             }
             else
@@ -63,11 +62,12 @@ public class UserInput : MonoBehaviour
                 F.GetComponent<SpriteRenderer>().enabled = false;
             }
         }
+
         Vector3 direction = new Vector3(horizontal, vertical, 0.0f);
         direction = direction.normalized;
 
         // Translate the game object
-        Vector3 delta = direction * speed * Time.deltaTime;
+        Vector3 delta = direction * speed * Time.fixedDeltaTime;
         _rigidbody2D.MovePosition(_rigidbody2D.position + new Vector2(delta.x, delta.y));
 
 
