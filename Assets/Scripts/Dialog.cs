@@ -57,4 +57,17 @@ public class Dialog : MonoBehaviour
                 break;
         }
     }
+
+    public IEnumerator OutputDialog(DialogData dialogData, Action callback)
+    {
+        foreach (var jsonDialogData in dialogData.data)
+        {
+            SetSpeaker(jsonDialogData.speaker);
+            ClearText();
+            yield return TypeText(jsonDialogData.content);
+            yield return new WaitUntil(() => Input.GetButtonDown("Skip"));
+        }
+
+        callback();
+    }
 }

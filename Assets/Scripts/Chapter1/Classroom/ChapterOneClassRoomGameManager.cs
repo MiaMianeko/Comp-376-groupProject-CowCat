@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ChapterOneClassRoomGameManager : MonoBehaviour
 {
@@ -9,16 +10,11 @@ public class ChapterOneClassRoomGameManager : MonoBehaviour
     private Dialog _dialog;
     [SerializeField] private GameObject dialogGameObject;
     [SerializeField] private GameObject playerGameObject;
-    public Animator transition;
-    public bool isChangeScene;
-
-    public ChapterOneClassRoomGameManager()
-    {
-        isChangeScene = false;
-    }
-
+    [SerializeField] private AudioSource doorOpenAudioSource;
+        
     void Start()
     {
+        
         _userInput = FindObjectOfType<UserInput>();
         _userInput.canMove = false;
         Invoke(nameof(LoadDialog1), 1.0f);
@@ -104,6 +100,7 @@ public class ChapterOneClassRoomGameManager : MonoBehaviour
 
     public void LoadDialog7()
     {
+        doorOpenAudioSource.Play();
         dialogGameObject.SetActive(true);
         _dialog = FindObjectOfType<Dialog>();
         _userInput.canMove = false;
@@ -111,7 +108,7 @@ public class ChapterOneClassRoomGameManager : MonoBehaviour
             jsonData =>
             {
                 DialogData dialogData = JsonUtility.FromJson<DialogData>(jsonData);
-                StartCoroutine(OutputDialog(dialogData, nameof(ChangeState)));
+                StartCoroutine(OutputDialog(dialogData, nameof(SwitchToNextScene)));
             }));
     }
 
@@ -132,5 +129,10 @@ public class ChapterOneClassRoomGameManager : MonoBehaviour
     {
         dialogGameObject.SetActive(false);
         _userInput.canMove = true;
+    }
+
+    public void SwitchToNextScene()
+    {
+        SceneManager.LoadScene("Hall");
     }
 }
