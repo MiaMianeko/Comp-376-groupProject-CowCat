@@ -23,4 +23,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Chapter1/Hall.unity
     guid: 4ac1d86c60c3d5c4a8e16a29671ad02c
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 5334986dc31626b48bf8a2d66165bf63
+  - enabled: 1
+    path: Assets/Scenes/ChapterSelect.unity
+    guid: 099eac70b96d9654aa5b10f08ea95df4
   m_configObjects: {}
