@@ -1483,7 +1483,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1664165358}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 607948476}
+        m_TargetAssemblyTypeName: Button, Assembly-CSharp
+        m_MethodName: clickSceneChange
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Scenes/LoadGame
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1664165358
 MonoBehaviour:
   m_ObjectHideFlags: 0

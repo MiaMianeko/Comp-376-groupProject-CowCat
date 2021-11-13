@@ -40,6 +40,7 @@ public class Button : MonoBehaviour , IPointerEnterHandler, IPointerExitHandler
 
     public void clickSceneChange(string sceneName)
     {
+        if (sceneName != "")
         SceneManager.LoadScene(sceneName);
     }
 }
