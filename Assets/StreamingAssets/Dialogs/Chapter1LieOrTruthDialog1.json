@@ -2,7 +2,11 @@
   "data": [
     {
       "speaker": "Player",
-      "content": "..."
+      "content": "Ugh... Where am I?"
+    },
+    {
+      "speaker": "Player",
+      "content": "Oh! At least I'm not alone anymore."
     }
   ]
 }

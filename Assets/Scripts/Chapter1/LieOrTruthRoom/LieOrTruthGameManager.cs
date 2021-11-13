@@ -5,11 +5,12 @@ using UnityEngine;
 public class LieOrTruthGameManager : MonoBehaviour
 {
     [SerializeField] private GameObject dialogGameObject;
+    [SerializeField] private GameObject paintingWallObject;
     private Dialog _dialog;
     private UserInput _userInput;
     public int roundNumber = 1;
-    
-    
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,5 +34,10 @@ public class LieOrTruthGameManager : MonoBehaviour
                     _userInput.canMove = true;
                 }));
             }));
+    }
+
+    public void ReleasePaintingBlock()
+    {
+        Destroy(paintingWallObject);
     }
 }

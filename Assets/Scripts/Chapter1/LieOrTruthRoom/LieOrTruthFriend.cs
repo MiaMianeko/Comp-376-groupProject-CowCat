@@ -1,17 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.PlayerLoop;
 
-public class PaintingTwo : Interactable
+
+public class LieOrTruthFriend : Interactable
 {
     [SerializeField] private GameObject dialogGameObject;
     private Dialog _dialog;
     private UserInput _userInput;
-    private LieOrTruthGameManager _lieOrTruthGameManager;
+    public int roundNumber = 1;
 
-    private void Awake()
+    void Start()
     {
-        _lieOrTruthGameManager = FindObjectOfType<LieOrTruthGameManager>();
+        _userInput = FindObjectOfType<UserInput>();
     }
 
     void Update()
@@ -26,12 +28,11 @@ public class PaintingTwo : Interactable
             dialogGameObject.SetActive(true);
             _dialog = FindObjectOfType<Dialog>();
 
-
-            switch (_lieOrTruthGameManager.roundNumber)
+            switch (roundNumber)
             {
                 case 1:
                     StartCoroutine(FileReader.GetText(
-                        Application.streamingAssetsPath + "/Dialogs/Painting2Dialog1.json",
+                        Application.streamingAssetsPath + "/Dialogs/Chapter1LieOrTruthDialog2.json",
                         jsonData =>
                         {
                             DialogData dialogData = JsonUtility.FromJson<DialogData>(jsonData);
@@ -39,19 +40,8 @@ public class PaintingTwo : Interactable
                             {
                                 dialogGameObject.SetActive(false);
                                 _userInput.canMove = true;
-                            }));
-                        }));
-                    break;
-                case 2:
-                    StartCoroutine(FileReader.GetText(
-                        Application.streamingAssetsPath + "/Dialogs/Painting2Dialog2.json",
-                        jsonData =>
-                        {
-                            DialogData dialogData = JsonUtility.FromJson<DialogData>(jsonData);
-                            StartCoroutine(_dialog.OutputDialog(dialogData, () =>
-                            {
-                                dialogGameObject.SetActive(false);
-                                _userInput.canMove = true;
+                                roundNumber++;
+                                FindObjectOfType<LieOrTruthGameManager>().ReleasePaintingBlock();
                             }));
                         }));
                     break;

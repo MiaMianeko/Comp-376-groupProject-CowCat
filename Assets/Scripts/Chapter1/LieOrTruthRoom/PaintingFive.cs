@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PaintingTwo : Interactable
+public class PaintingFive : Interactable
 {
     [SerializeField] private GameObject dialogGameObject;
     private Dialog _dialog;
@@ -31,7 +31,7 @@ public class PaintingTwo : Interactable
             {
                 case 1:
                     StartCoroutine(FileReader.GetText(
-                        Application.streamingAssetsPath + "/Dialogs/Painting2Dialog1.json",
+                        Application.streamingAssetsPath + "/Dialogs/Painting5Dialog1.json",
                         jsonData =>
                         {
                             DialogData dialogData = JsonUtility.FromJson<DialogData>(jsonData);
@@ -44,7 +44,7 @@ public class PaintingTwo : Interactable
                     break;
                 case 2:
                     StartCoroutine(FileReader.GetText(
-                        Application.streamingAssetsPath + "/Dialogs/Painting2Dialog2.json",
+                        Application.streamingAssetsPath + "/Dialogs/Painting5Dialog2.json",
                         jsonData =>
                         {
                             DialogData dialogData = JsonUtility.FromJson<DialogData>(jsonData);
