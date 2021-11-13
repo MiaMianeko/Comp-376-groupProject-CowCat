@@ -121,7 +121,7 @@ public class UserInput : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.tag == "Note")
+        if (col.CompareTag("Interactable"))
         {
             canInteract = true;
         }
@@ -129,7 +129,7 @@ public class UserInput : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D col)
     {
-        if (col.tag == "Note")
+        if (col.CompareTag("Interactable"))
         {
             canInteract = false;
         }
