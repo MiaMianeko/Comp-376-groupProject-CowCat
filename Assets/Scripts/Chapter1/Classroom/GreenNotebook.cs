@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GreenNotebook : InteractableThing
+public class GreenNotebook : Interactable
 {
     void Update()
     {

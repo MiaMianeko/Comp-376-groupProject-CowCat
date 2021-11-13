@@ -8,6 +8,7 @@ TagManager:
   - Camera
   - Room060
   - Door
+  - Interactable
   layers:
   - Default
   - TransparentFX
