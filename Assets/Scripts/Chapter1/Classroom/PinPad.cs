@@ -8,10 +8,12 @@ public class PinPad : MonoBehaviour
     [SerializeField] private Text codeText;
 
     private string codeTextValue;
+    private int tryCount;
 
     public PinPad()
     {
         codeTextValue = "";
+        tryCount = 0;
     }
 
     // Start is called before the first frame update
@@ -30,9 +32,10 @@ public class PinPad : MonoBehaviour
         }
         else if (codeTextValue.Length >= 4)
         {
+            tryCount++;
             codeTextValue = "";
             gameObject.SetActive(false);
-            FindObjectOfType<ChapterOneClassRoomGameManager>().LoadDialog3();
+            FindObjectOfType<ChapterOneClassRoomGameManager>().LoadDialog3(tryCount >= 3);
         }
     }
 

@@ -11,10 +11,9 @@ public class ChapterOneClassRoomGameManager : MonoBehaviour
     [SerializeField] private GameObject dialogGameObject;
     [SerializeField] private GameObject playerGameObject;
     [SerializeField] private AudioSource doorOpenAudioSource;
-        
+
     void Start()
     {
-        
         _userInput = FindObjectOfType<UserInput>();
         _userInput.canMove = false;
         Invoke(nameof(LoadDialog1), 1.0f);
@@ -46,7 +45,7 @@ public class ChapterOneClassRoomGameManager : MonoBehaviour
             }));
     }
 
-    public void LoadDialog3()
+    public void LoadDialog3(bool isExceed)
     {
         dialogGameObject.SetActive(true);
         _dialog = FindObjectOfType<Dialog>();
@@ -55,7 +54,18 @@ public class ChapterOneClassRoomGameManager : MonoBehaviour
             jsonData =>
             {
                 DialogData dialogData = JsonUtility.FromJson<DialogData>(jsonData);
-                StartCoroutine(OutputDialog(dialogData, nameof(ChangeState)));
+                // StartCoroutine(OutputDialog(dialogData, nameof(ChangeState)));
+                StartCoroutine(_dialog.OutputDialog(dialogData, () =>
+                {
+                    if (isExceed)
+                    {
+                        LoadDialog8();
+                    }
+                    else
+                    {
+                        ChangeState();
+                    }
+                }));
             }));
     }
 
@@ -109,6 +119,19 @@ public class ChapterOneClassRoomGameManager : MonoBehaviour
             {
                 DialogData dialogData = JsonUtility.FromJson<DialogData>(jsonData);
                 StartCoroutine(OutputDialog(dialogData, nameof(SwitchToNextScene)));
+            }));
+    }
+
+    public void LoadDialog8()
+    {
+        dialogGameObject.SetActive(true);
+        _dialog = FindObjectOfType<Dialog>();
+        _userInput.canMove = false;
+        StartCoroutine(FileReader.GetText(Application.streamingAssetsPath + "/Dialogs/Chapter1ClassroomDialog8.json",
+            jsonData =>
+            {
+                DialogData dialogData = JsonUtility.FromJson<DialogData>(jsonData);
+                StartCoroutine(OutputDialog(dialogData, nameof(ChangeState)));
             }));
     }
 
