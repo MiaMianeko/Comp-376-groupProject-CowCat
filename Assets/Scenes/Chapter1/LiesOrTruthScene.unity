@@ -709,6 +709,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogGameObject: {fileID: 1754863250}
+  roundNumber: 1
 --- !u!4 &838760906
 Transform:
   m_ObjectHideFlags: 0
@@ -1080,6 +1081,7 @@ GameObject:
   - component: {fileID: 1339099550}
   - component: {fileID: 1339099549}
   - component: {fileID: 1339099551}
+  - component: {fileID: 1339099552}
   m_Layer: 0
   m_Name: Friend
   m_TagString: Interactable
@@ -1178,6 +1180,25 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.27381057, y: 0.23951535}
   m_EdgeRadius: 0
+--- !u!95 &1339099552
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1339099548}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: eadc71a7a58d640ea902fe9b729e366e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1366582533
 GameObject:
   m_ObjectHideFlags: 0
@@ -1670,7 +1691,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1684708006}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.0089383125, y: -0.0014984608, z: -20}
+  m_LocalPosition: {x: -0.0033240318, y: -0.0014979839, z: -20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
