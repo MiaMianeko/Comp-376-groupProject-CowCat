@@ -7,6 +7,17 @@ public class LieOrTruthGameManager : MonoBehaviour
     [SerializeField] private GameObject dialogGameObject;
     [SerializeField] private GameObject paintingWallObject;
     [SerializeField] private GameObject selectionBoxGameObject1;
+    [SerializeField] private GameObject backgroundGameObject;
+
+    [SerializeField] private Sprite spriteBackground2;
+    [SerializeField] private Sprite spriteBackground3;
+    [SerializeField] private Sprite spriteBackground4;
+
+    [SerializeField] private GameObject painting1TriggerGameObject;
+    [SerializeField] private GameObject painting2TriggerGameObject;
+    [SerializeField] private GameObject painting3TriggerGameObject;
+    [SerializeField] private GameObject painting4TriggerGameObject;
+    [SerializeField] private GameObject painting5TriggerGameObject;
 
     private Dialog _dialog;
     private UserInput _userInput;
@@ -18,6 +29,7 @@ public class LieOrTruthGameManager : MonoBehaviour
         _userInput = FindObjectOfType<UserInput>();
         _userInput.canMove = false;
         Invoke(nameof(LoadDialog1), 1.0f);
+        FindObjectOfType<FriendController>().isFacingUp = true;
     }
 
 
@@ -47,7 +59,22 @@ public class LieOrTruthGameManager : MonoBehaviour
         if (number == 1)
         {
             // Correct answer
-            print(number);
+            CloseSelectionBox1();
+            dialogGameObject.SetActive(true);
+            backgroundGameObject.GetComponent<SpriteRenderer>().sprite = spriteBackground2;
+            Destroy(painting1TriggerGameObject);
+            roundNumber++;
+            StartCoroutine(FileReader.GetText(
+                Application.streamingAssetsPath + "/Dialogs/Chapter1LieOrTruthDialog4.json",
+                jsonData =>
+                {
+                    DialogData dialogData = JsonUtility.FromJson<DialogData>(jsonData);
+                    StartCoroutine(_dialog.OutputDialog(dialogData, () =>
+                    {
+                        dialogGameObject.SetActive(false);
+                        _userInput.canMove = true;
+                    }));
+                }));
         }
         else
         {
@@ -56,8 +83,14 @@ public class LieOrTruthGameManager : MonoBehaviour
         }
     }
 
-    public void ShowSelectionBox()
+    public void ShowSelectionBox1()
     {
         selectionBoxGameObject1.SetActive(true);
+    }
+
+    public void CloseSelectionBox1()
+    {
+        _userInput.canMove = true;
+        selectionBoxGameObject1.SetActive(false);
     }
 }

@@ -6,81 +6,13 @@ using UnityEngine.PlayerLoop;
 
 public class LieOrTruthFriend : Interactable
 {
-    private Rigidbody2D _rigidbody2D;
     [SerializeField] private GameObject dialogGameObject;
     private Dialog _dialog;
     private UserInput _userInput;
     public int roundNumber = 1;
-    public bool isMove = false;
-    public bool isFacingRight = false;
-    public bool isFacingLeft = false;
-    public bool isFacingUp = false;
-    public bool isFacingDown = false;
-
-    private float speed = 10.0f;
-
-    public Vector3 direction = new Vector3(0, 0, 0);
-
-
-    void Start()
-    {
-        _rigidbody2D = GetComponent<Rigidbody2D>();
-        _userInput = FindObjectOfType<UserInput>();
-    }
 
     void Update()
     {
-        Vector3 delta = direction * speed * Time.fixedDeltaTime;
-        _rigidbody2D.MovePosition(_rigidbody2D.position + new Vector2(delta.x, delta.y));
-
-        if (direction.x < 0)
-        {
-            isMove = true;
-            isFacingLeft = true;
-            isFacingUp = false;
-            isFacingDown = false;
-            isFacingRight = false;
-        }
-        else if (direction.x > 0)
-        {
-            isMove = true;
-            isFacingLeft = false;
-            isFacingUp = false;
-            isFacingDown = false;
-            isFacingRight = true;
-        }
-        else
-        {
-            isMove = false;
-            if (direction.y > 0)
-            {
-                isMove = true;
-                isFacingLeft = false;
-                isFacingUp = true;
-                isFacingDown = false;
-                isFacingRight = false;
-            }
-            else if (direction.y < 0)
-            {
-                isMove = true;
-                isFacingLeft = false;
-                isFacingUp = false;
-                isFacingDown = true;
-                isFacingRight = false;
-            }
-            else
-            {
-                isMove = false;
-            }
-        }
-
-        GetComponent<Animator>().SetBool("isFacingLeft", isFacingLeft);
-        GetComponent<Animator>().SetBool("isFacingDown", isFacingDown);
-        GetComponent<Animator>().SetBool("isFacingUp", isFacingUp);
-        GetComponent<Animator>().SetBool("isFacingRight", isFacingRight);
-        GetComponent<Animator>().SetBool("isMove", isMove);
-
-
         if (canInteract && Input.GetKey(KeyCode.F))
         {
             canInteract = false;
@@ -94,6 +26,9 @@ public class LieOrTruthFriend : Interactable
             switch (roundNumber)
             {
                 case 1:
+                    // Introduction
+                    FindObjectOfType<FriendController>().isFacingUp = false;
+                    FindObjectOfType<FriendController>().isFacingRight = true;
                     StartCoroutine(FileReader.GetText(
                         Application.streamingAssetsPath + "/Dialogs/Chapter1LieOrTruthDialog2.json",
                         jsonData =>
@@ -105,10 +40,13 @@ public class LieOrTruthFriend : Interactable
                                 _userInput.canMove = true;
                                 roundNumber++;
                                 FindObjectOfType<LieOrTruthGameManager>().ReleasePaintingBlock();
+                                FindObjectOfType<FriendController>().isFacingRight = false;
+                                FindObjectOfType<FriendController>().isFacingDown = true;
                             }));
                         }));
                     break;
                 case 2:
+                    // Selection Box 1
                     StartCoroutine(FileReader.GetText(
                         Application.streamingAssetsPath + "/Dialogs/Chapter1LieOrTruthDialog3.json",
                         jsonData =>
@@ -117,7 +55,7 @@ public class LieOrTruthFriend : Interactable
                             StartCoroutine(_dialog.OutputDialog(dialogData, () =>
                             {
                                 dialogGameObject.SetActive(false);
-                                roundNumber++;
+                                FindObjectOfType<LieOrTruthGameManager>().ShowSelectionBox1();
                             }));
                         }));
                     break;
