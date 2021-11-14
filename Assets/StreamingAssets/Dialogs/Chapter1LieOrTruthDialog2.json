@@ -1,0 +1,44 @@
+{
+  "data": [
+    {
+      "speaker": "???",
+      "content": "There you are! We need to get out of here!"
+    },
+    {
+      "speaker": "Player",
+      "content": "Right! (He... seems familiar...)"
+    },
+    {
+      "speaker": "Player",
+      "content": "By the way, I'm..."
+    },
+    {
+      "speaker": "???",
+      "content": "Liv! I know! Stop messing around, we have to go."
+    },
+    {
+      "speaker": "Player",
+      "content": "(He must have been from my class earlier... Kind of creepy that he remembers my name... )"
+    },
+    {
+      "speaker": "Player",
+      "content": "(Either way, he seems to be the only other person in here... I better stay on his good side)"
+    },
+    {
+      "speaker": "???",
+      "content": "Have you seen this art? Isn't it great! You can really tell how the artist is feeling!"
+    },
+    {
+      "speaker": "Player",
+      "content": "Erm... I'm not much of an art connoisseur..."
+    },
+    {
+      "speaker": "???",
+      "content": "You have to see! I feel like I can hear the artist speak to me when I look at them!"
+    },
+    {
+      "speaker": "Player",
+      "content": "(Why did then only other person around have to be this weirdo)"
+    }
+  ]
+}

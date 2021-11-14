@@ -5,12 +5,14 @@ using UnityEngine;
 public class LieOrTruthGameManager : MonoBehaviour
 {
     [SerializeField] private GameObject dialogGameObject;
+    [SerializeField] private GameObject paintingWallObject;
+    [SerializeField] private GameObject selectionBoxGameObject1;
+
     private Dialog _dialog;
     private UserInput _userInput;
     public int roundNumber = 1;
-    
-    
-    // Start is called before the first frame update
+
+
     void Start()
     {
         _userInput = FindObjectOfType<UserInput>();
@@ -33,5 +35,29 @@ public class LieOrTruthGameManager : MonoBehaviour
                     _userInput.canMove = true;
                 }));
             }));
+    }
+
+    public void ReleasePaintingBlock()
+    {
+        Destroy(paintingWallObject);
+    }
+
+    public void SelectLiar1(int number)
+    {
+        if (number == 1)
+        {
+            // Correct answer
+            print(number);
+        }
+        else
+        {
+            // Wrong answer
+            print("you are wrong");
+        }
+    }
+
+    public void ShowSelectionBox()
+    {
+        selectionBoxGameObject1.SetActive(true);
     }
 }
