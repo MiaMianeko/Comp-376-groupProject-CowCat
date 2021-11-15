@@ -55,6 +55,19 @@ public class PaintingFour : Interactable
                             }));
                         }));
                     break;
+                case 3:
+                    StartCoroutine(FileReader.GetText(
+                        Application.streamingAssetsPath + "/Dialogs/Painting4Dialog3.json",
+                        jsonData =>
+                        {
+                            DialogData dialogData = JsonUtility.FromJson<DialogData>(jsonData);
+                            StartCoroutine(_dialog.OutputDialog(dialogData, () =>
+                            {
+                                dialogGameObject.SetActive(false);
+                                _userInput.canMove = true;
+                            }));
+                        }));
+                    break;
             }
         }
     }
