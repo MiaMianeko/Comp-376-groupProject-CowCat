@@ -8,6 +8,13 @@ public class SaveGame : MonoBehaviour
 {
     [SerializeField] string currentScene;
 
+    [SerializeField] GameObject gameSavedMessage1;
+
+    [SerializeField] GameObject gameSavedMessage2;
+
+    [SerializeField] GameObject gameSavedMessage3;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,6 +34,7 @@ public class SaveGame : MonoBehaviour
         string jsonSave = save.SaveToString();
 
         File.WriteAllText(Application.streamingAssetsPath + "/SaveData1.json", jsonSave);
+        gameSavedMessage1.SetActive(true);
 
     }
     public void saveGame2()
@@ -42,6 +50,7 @@ public class SaveGame : MonoBehaviour
         string jsonSave = save.SaveToString();
 
         File.WriteAllText(Application.streamingAssetsPath + "/SaveData2.json", jsonSave);
+        gameSavedMessage2.SetActive(true);
 
     }
     public void saveGame3()
@@ -57,6 +66,7 @@ public class SaveGame : MonoBehaviour
         string jsonSave = save.SaveToString();
 
         File.WriteAllText(Application.streamingAssetsPath + "/SaveData3.json", jsonSave);
+        gameSavedMessage3.SetActive(true);
 
     }
 

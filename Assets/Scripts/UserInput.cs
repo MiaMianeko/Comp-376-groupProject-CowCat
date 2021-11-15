@@ -16,6 +16,7 @@ public class UserInput : MonoBehaviour
     private bool isMovingDown;
     private bool isMoving;
     private Transform F;
+    [SerializeField] PauseMenu pauseMenu;
 
     UserInput()
     {
@@ -40,6 +41,14 @@ public class UserInput : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if (canMove && !pauseMenu.menuIsActive && Input.GetKeyDown(KeyCode.Escape))
+        {
+
+            pauseMenu.pauseGame();
+        }
+        if (pauseMenu.menuIsActive && Input.GetKey(KeyCode.Escape)) pauseMenu.clickResumeButton();
+
         if (!canMove) return;
         // Obtain input information (See "Horizontal" and "Vertical" in the Input Manager)
         float horizontal = Input.GetAxisRaw("Horizontal");

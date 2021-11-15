@@ -28,8 +28,7 @@ public class LoadGame : MonoBehaviour
         save1 = SaveGameData.CreateFromJSON(File.ReadAllText(Application.streamingAssetsPath + "/SaveData1.json"));
         save2 = SaveGameData.CreateFromJSON(File.ReadAllText(Application.streamingAssetsPath + "/SaveData2.json"));
         save3 = SaveGameData.CreateFromJSON(File.ReadAllText(Application.streamingAssetsPath + "/SaveData3.json"));
-        Debug.Log(save1.getScene()+"DEBUG THIS SHIT");
-        Debug.Log(save3.scene);
+        
         if (save1.getScene() == "") save1String = "Save 1: No Data";
         else
         {
@@ -37,7 +36,7 @@ public class LoadGame : MonoBehaviour
             save1SceneName = save1.getScene();
             chop = save1SceneName.LastIndexOf('/');
             if (chop> 0)
-            chopEnd = save3SceneName.Length - chop - 6;
+            chopEnd = save1SceneName.Length - chop - 6;
             if (chop > 0) save1SceneName = save1SceneName.Substring(chop+1, chopEnd);
        
             save1String = "Save 1: " + save1SceneName + "  " + save1.monthOfSave + "/" + save1.dayOfSave + " " + save1.hourOfSave + ":" + save1.minuteOfSave;
@@ -48,7 +47,7 @@ public class LoadGame : MonoBehaviour
             save2SceneName = save2.getScene();
             chop = save2SceneName.LastIndexOf('/');
             if (chop > 0)
-                chopEnd = save3SceneName.Length - chop - 6;
+                chopEnd = save2SceneName.Length - chop - 6;
             if (chop > 0) save2SceneName = save2SceneName.Substring(chop + 1, chopEnd);
             save2String = "Save 2: " + save2SceneName + "  " + save2.monthOfSave + "/" + save2.dayOfSave + " " + save2.hourOfSave + ":" + save2.minuteOfSave;
         }
