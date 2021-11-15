@@ -1,8 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.PlayerLoop;
-
 
 public class LieOrTruthFriend : Interactable
 {
@@ -56,6 +54,34 @@ public class LieOrTruthFriend : Interactable
                             {
                                 dialogGameObject.SetActive(false);
                                 FindObjectOfType<LieOrTruthGameManager>().ShowSelectionBox1();
+                            }));
+                        }));
+                    break;
+                case 3:
+                    // Selection Box 2
+                    StartCoroutine(FileReader.GetText(
+                        Application.streamingAssetsPath + "/Dialogs/Chapter1LieOrTruthDialog6.json",
+                        jsonData =>
+                        {
+                            DialogData dialogData = JsonUtility.FromJson<DialogData>(jsonData);
+                            StartCoroutine(_dialog.OutputDialog(dialogData, () =>
+                            {
+                                dialogGameObject.SetActive(false);
+                                FindObjectOfType<LieOrTruthGameManager>().ShowSelectionBox2();
+                            }));
+                        }));
+                    break;
+                case 4:
+                    // Selection Box 3
+                    StartCoroutine(FileReader.GetText(
+                        Application.streamingAssetsPath + "/Dialogs/Chapter1LieOrTruthDialog9.json",
+                        jsonData =>
+                        {
+                            DialogData dialogData = JsonUtility.FromJson<DialogData>(jsonData);
+                            StartCoroutine(_dialog.OutputDialog(dialogData, () =>
+                            {
+                                dialogGameObject.SetActive(false);
+                                FindObjectOfType<LieOrTruthGameManager>().ShowSelectionBox3();
                             }));
                         }));
                     break;
