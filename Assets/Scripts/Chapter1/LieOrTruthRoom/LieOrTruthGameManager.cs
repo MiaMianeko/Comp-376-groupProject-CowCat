@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LieOrTruthGameManager : MonoBehaviour
 {
@@ -20,10 +22,12 @@ public class LieOrTruthGameManager : MonoBehaviour
     [SerializeField] private GameObject painting3TriggerGameObject;
     [SerializeField] private GameObject painting4TriggerGameObject;
     [SerializeField] private GameObject painting5TriggerGameObject;
+    [SerializeField] private GameObject badEndingGameObject;
 
     private Dialog _dialog;
     private UserInput _userInput;
     public int roundNumber = 1;
+    private bool isGameOver = false;
 
 
     void Start()
@@ -32,6 +36,14 @@ public class LieOrTruthGameManager : MonoBehaviour
         _userInput.canMove = false;
         Invoke(nameof(LoadDialog1), 1.0f);
         FindObjectOfType<FriendController>().isFacingUp = true;
+    }
+
+    private void Update()
+    {
+        if (isGameOver && Input.anyKey)
+        {
+           GameOver.ReturnToMainMenu();
+        }
     }
 
 
@@ -93,10 +105,16 @@ public class LieOrTruthGameManager : MonoBehaviour
                         _userInput.canMove = true;
                         print("Game Over!!!");
 
-                        // TODO: Game Over Handle
+                        badEndingGameObject.SetActive(true);
+                        Invoke("ChangeGameStatus", 2.5f);
                     }));
                 }));
         }
+    }
+
+    public void ChangeGameStatus()
+    {
+        isGameOver = true;
     }
 
     public void ShowSelectionBox1()
@@ -148,7 +166,8 @@ public class LieOrTruthGameManager : MonoBehaviour
                         _userInput.canMove = true;
                         print("Game Over!!!");
 
-                        // TODO: Game Over Handle
+                        badEndingGameObject.SetActive(true);
+                        Invoke("ChangeGameStatus", 2.5f);
                     }));
                 }));
         }
@@ -203,7 +222,10 @@ public class LieOrTruthGameManager : MonoBehaviour
                         _userInput.canMove = true;
                         print("Game Over!!!");
 
-                        // TODO: Game Over Handle
+                        badEndingGameObject.SetActive(true);
+                        Invoke("ChangeGameStatus", 2.5f);
+                        
+                        
                     }));
                 }));
         }
