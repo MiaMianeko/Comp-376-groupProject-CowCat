@@ -3699,7 +3699,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 736334103}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.12332082, y: -9.671133, z: -108.2}
+  m_LocalPosition: {x: -0.11675286, y: -9.671139, z: -108.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -6836,7 +6836,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00ae2b03c680aa444be5d99dcf40a765, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentScene: Scenes/Chapter1/LiesOrTruthScene
+  currentScene: Scenes/Chapter1/ClassroomScene
   gameSavedMessage1: {fileID: 326452835}
   gameSavedMessage2: {fileID: 436187154}
   gameSavedMessage3: {fileID: 1119004093}
