@@ -71,7 +71,7 @@ public class UserInput : MonoBehaviour
         // Translate the game object
         Vector3 delta = direction * speed * Time.fixedDeltaTime;
         _rigidbody2D.MovePosition(_rigidbody2D.position + new Vector2(delta.x, delta.y));
-        
+
         if (direction.x < 0)
         {
             isMove = true;

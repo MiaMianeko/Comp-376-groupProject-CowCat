@@ -1,10 +1,9 @@
 using System;
 using UnityEngine;
 using System.Collections;
-using System.IO;
 using UnityEngine.SceneManagement;
 
-public class BirksSenceManager : MonoBehaviour
+public class BirksSceneManager : MonoBehaviour
 {
     private Dialog _dialog;
     [SerializeField] private GameObject playerGameObject;
