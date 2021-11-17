@@ -35,4 +35,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Chapter1/LiesOrTruthScene.unity
     guid: 3b1b26ec7774376459e1f8f129d8eb5c
+  - enabled: 1
+    path: Assets/Scenes/Chapter1/ToyRoomScene.unity
+    guid: cd3535d1d0aa72944aad71ea981a32c9
+  - enabled: 1
+    path: Assets/Scenes/Chapter2/HospitalScene.unity
+    guid: 29b7f831ead9e3e439fca1a6b407348f
   m_configObjects: {}

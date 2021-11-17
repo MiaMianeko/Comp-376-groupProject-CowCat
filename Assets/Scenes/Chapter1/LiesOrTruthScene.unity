@@ -487,9 +487,9 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 421924831}
-  - {fileID: 1322023463}
-  - {fileID: 513578378}
   - {fileID: 400672718}
+  - {fileID: 513578378}
+  - {fileID: 1322023463}
   m_Father: {fileID: 272512173}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1320,7 +1320,7 @@ RectTransform:
   - {fileID: 65885686}
   - {fileID: 1123527577}
   m_Father: {fileID: 1657065115}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -1476,7 +1476,7 @@ RectTransform:
   - {fileID: 49014926}
   - {fileID: 2104007857}
   - {fileID: 1803836022}
-  m_Father: {fileID: 1657065115}
+  m_Father: {fileID: 592931881}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -1898,7 +1898,7 @@ RectTransform:
   m_Children:
   - {fileID: 1448896132}
   m_Father: {fileID: 49014926}
-  m_RootOrder: 3
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2580,7 +2580,6 @@ MonoBehaviour:
   isFacingLeft: 0
   isFacingUp: 0
   isFacingDown: 0
-  pauseMenu: {fileID: 592931882}
 --- !u!50 &477264897
 Rigidbody2D:
   serializedVersion: 4
@@ -3397,9 +3396,10 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 272512173}
   m_Father: {fileID: 1657065115}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3423,6 +3423,7 @@ MonoBehaviour:
   quitConfirm: {fileID: 1803836021}
   mainButtons: {fileID: 49014925}
   menu: {fileID: 272512172}
+  player: {fileID: 477264896}
 --- !u!1 &607697754
 GameObject:
   m_ObjectHideFlags: 0
@@ -4334,7 +4335,7 @@ RectTransform:
   - {fileID: 1479593856}
   - {fileID: 1324201238}
   m_Father: {fileID: 1657065115}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -4530,7 +4531,7 @@ RectTransform:
   m_Children:
   - {fileID: 975665220}
   m_Father: {fileID: 2104007857}
-  m_RootOrder: 3
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -5636,7 +5637,7 @@ RectTransform:
   - {fileID: 158564322}
   - {fileID: 819628576}
   m_Father: {fileID: 1657065115}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -6510,7 +6511,7 @@ RectTransform:
   m_Children:
   - {fileID: 841057259}
   m_Father: {fileID: 49014926}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -7155,7 +7156,7 @@ RectTransform:
   m_Children:
   - {fileID: 640294130}
   m_Father: {fileID: 2104007857}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -8115,7 +8116,6 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
-  - {fileID: 272512173}
   - {fileID: 1754863251}
   - {fileID: 743769658}
   - {fileID: 1031806295}
@@ -8363,7 +8363,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1684708006}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.0015625954, y: -0.0014982224, z: -20}
+  m_LocalPosition: {x: -0.00019025803, y: -0.0014982224, z: -20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -8663,7 +8663,7 @@ RectTransform:
   - {fileID: 2128390737}
   - {fileID: 1338455579}
   m_Father: {fileID: 1657065115}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -9761,9 +9761,9 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1427866612}
-  - {fileID: 1445650351}
-  - {fileID: 1478063897}
   - {fileID: 830373438}
+  - {fileID: 1478063897}
+  - {fileID: 1445650351}
   - {fileID: 588165200}
   - {fileID: 519823651}
   - {fileID: 745829464}

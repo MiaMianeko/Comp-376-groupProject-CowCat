@@ -12,6 +12,7 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] private GameObject quitConfirm;
     [SerializeField] private GameObject mainButtons;
     [SerializeField] private GameObject menu;
+    [SerializeField] private UserInput player;
 
 
     // Start is called before the first frame update
@@ -23,18 +24,29 @@ public class PauseMenu : MonoBehaviour
     }
 
     // Update is called once per frame
+
+    private void Update()
+    {
+        if (player.canMove && !menuIsActive && Input.GetKeyDown(KeyCode.Escape))
+        {
+
+            pauseGame();
+        }
+        else if (menuIsActive && Input.GetKeyDown(KeyCode.Escape))clickResumeButton();
+
+    }
     public void pauseGame()
     {
-        Debug.Log("Inside Pause Game");
+
 
         menu.SetActive(true);
-        Debug.Log("Inside Pause Game After Set Active Fuckery");
+
 
         menuIsActive = true;
 
         mainButtons.SetActive(true);
-        Time.timeScale = 0.0f;
-
+        quitConfirm.SetActive(false);
+        saveMenu.SetActive(false);
     }
 
     public void clickSaveButton()
@@ -66,7 +78,7 @@ public class PauseMenu : MonoBehaviour
     }
     public void clickQuitButtonConfirm()
     {
-        Time.timeScale = 1;
+
         SceneManager.LoadScene("Scenes/MainMenu");
     }
     public void clickResumeButton()
@@ -75,7 +87,7 @@ public class PauseMenu : MonoBehaviour
         saveMenu.SetActive(false);
         quitConfirm.SetActive(false);
         mainButtons.SetActive(false);
-        Time.timeScale = 1;
+
         menu.gameObject.SetActive(false);
 
     }

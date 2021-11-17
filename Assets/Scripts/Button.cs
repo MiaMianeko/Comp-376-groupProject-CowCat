@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
 
-public class Button : MonoBehaviour , IPointerEnterHandler, IPointerExitHandler
+public class Button : MonoBehaviour , IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
 {
     public bool selected;
     private Text buttonText;
@@ -26,7 +26,10 @@ public class Button : MonoBehaviour , IPointerEnterHandler, IPointerExitHandler
     {
         buttonText.color = Color.white;
     }
-
+    public void OnPointerClick(PointerEventData data)
+    {
+        buttonText.color = Color.white;
+    }
 
 
     public void clickQuit()
