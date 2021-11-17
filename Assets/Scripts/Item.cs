@@ -5,7 +5,7 @@ using UnityEngine;
 public class Item : MonoBehaviour
 {
     // Text to be shown when item is "looked at" in the inventory
-    [SerializeField] DialogData examineText;
+
 
     void Start()
     {
