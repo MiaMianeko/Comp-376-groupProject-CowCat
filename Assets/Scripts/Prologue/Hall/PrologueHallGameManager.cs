@@ -1,6 +1,5 @@
 using System.Collections;
 using UnityEngine;
-using System.IO;
 using UnityEngine.SceneManagement;
 
 public class PrologueHallGameManager : MonoBehaviour

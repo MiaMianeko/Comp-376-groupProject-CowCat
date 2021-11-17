@@ -1,10 +1,9 @@
 using System;
 using UnityEngine;
 using System.Collections;
-using System.IO;
 using UnityEngine.SceneManagement;
 
-public class BirksSenceManager : MonoBehaviour
+public class BirksSceneManager : MonoBehaviour
 {
     private Dialog _dialog;
     [SerializeField] private GameObject playerGameObject;
@@ -53,7 +52,7 @@ public class BirksSenceManager : MonoBehaviour
     void Update()
     {
         BirksPlayerInput player = playerGameObject.GetComponent<BirksPlayerInput>();
-        if (player.canTalk && player.isInteract)
+        if (player.canTalk && player.isFacingUp)
         {
             dialogGameObject.SetActive(true);
             StartCoroutine(FileReader.GetText(Application.streamingAssetsPath + "/Dialogs/BirksSceneDialog2.json",
@@ -65,7 +64,7 @@ public class BirksSenceManager : MonoBehaviour
                 }));
         }
 
-        if (player.canTakePicture && player.isInteract)
+        if (player.canTakePicture && player.isFacingUp)
         {
             dialogGameObject.SetActive(true);
             player.canTakePicture = false;
@@ -110,7 +109,7 @@ public class BirksSenceManager : MonoBehaviour
     {
         dialogGameObject.SetActive(false);
         BirksPlayerInput player = playerGameObject.GetComponent<BirksPlayerInput>();
-        player.isInteract = false;
+        player.isFacingUp = false;
         SceneManager.LoadScene("Scenes/Prologue/PrologueHallScene");
     }
 
@@ -120,7 +119,7 @@ public class BirksSenceManager : MonoBehaviour
         BirksPlayerInput player = playerGameObject.GetComponent<BirksPlayerInput>();
         player.canMove = true;
         player.isTalked = true;
-        player.isInteract = false;
+        player.isFacingUp = false;
     }
 
     private IEnumerator OutputDialog(DialogData dialogData, string callbackFunctionName)

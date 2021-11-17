@@ -2551,9 +2551,9 @@ GameObject:
   - component: {fileID: 477264901}
   - component: {fileID: 477264900}
   - component: {fileID: 477264899}
-  - component: {fileID: 477264898}
   - component: {fileID: 477264897}
   - component: {fileID: 477264896}
+  - component: {fileID: 477264898}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -2575,6 +2575,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canMove: 0
   canInteract: 0
+  isMove: 0
+  isFacingRight: 0
+  isFacingLeft: 0
+  isFacingUp: 0
+  isFacingDown: 0
   pauseMenu: {fileID: 592931882}
 --- !u!50 &477264897
 Rigidbody2D:
@@ -8358,7 +8363,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1684708006}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.0012202263, y: -0.0014982224, z: -20}
+  m_LocalPosition: {x: -0.0015625954, y: -0.0014982224, z: -20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

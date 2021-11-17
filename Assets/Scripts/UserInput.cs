@@ -11,19 +11,21 @@ public class UserInput : MonoBehaviour
     private SpriteRenderer _spriteRenderer;
     public bool canMove;
     public bool canInteract;
-    private bool isMovingRight;
-    private bool isMovingUp;
-    private bool isMovingDown;
-    private bool isMoving;
+    public bool isMove = false;
+    public bool isFacingRight = false;
+    public bool isFacingLeft = false;
+    public bool isFacingUp = false;
+    public bool isFacingDown = false;
     private Transform F;
     [SerializeField] PauseMenu pauseMenu;
 
     UserInput()
     {
-        isMovingRight = false;
-        isMovingUp = false;
-        isMovingDown = false;
-        isMoving = false;
+        isFacingRight = false;
+        isFacingDown = false;
+        isFacingUp = false;
+        isFacingLeft = false;
+        isMove = false;
         canMove = false;
         canInteract = false;
     }
@@ -79,54 +81,54 @@ public class UserInput : MonoBehaviour
         Vector3 delta = direction * speed * Time.fixedDeltaTime;
         _rigidbody2D.MovePosition(_rigidbody2D.position + new Vector2(delta.x, delta.y));
 
-
-        if (direction != Vector3.zero)
+        if (direction.x < 0)
         {
-            isMoving = true;
-            if (direction.y > 0)
-            {
-                isMovingUp = true;
-                isMovingDown = false;
-            }
-            else
-            {
-                if (direction.y < 0)
-                {
-                    isMovingDown = true;
-                    isMovingUp = false;
-                }
-                else
-                {
-                    if (direction.x > 0)
-                    {
-                        isMovingRight = true;
-                        _spriteRenderer.flipX = false;
-                        isMovingDown = false;
-                        isMovingUp = false;
-                    }
-                    else if (direction.x < 0)
-                    {
-                        isMovingRight = false;
-                        _spriteRenderer.flipX = true;
-                        isMovingDown = false;
-                        isMovingUp = false;
-                    }
-                }
-            }
+            isMove = true;
+            isFacingLeft = true;
+            isFacingUp = false;
+            isFacingDown = false;
+            isFacingRight = false;
+        }
+        else if (direction.x > 0)
+        {
+            isMove = true;
+            isFacingLeft = false;
+            isFacingUp = false;
+            isFacingDown = false;
+            isFacingRight = true;
         }
         else
         {
-            isMoving = false;
-            isMovingDown = false;
-            isMovingRight = false;
-            isMovingUp = false;
+            isMove = false;
+            if (direction.y > 0)
+            {
+                isMove = true;
+                isFacingLeft = false;
+                isFacingUp = true;
+                isFacingDown = false;
+                isFacingRight = false;
+            }
+            else if (direction.y < 0)
+            {
+                isMove = true;
+                isFacingLeft = false;
+                isFacingUp = false;
+                isFacingDown = true;
+                isFacingRight = false;
+            }
+            else
+            {
+                isMove = false;
+            }
         }
 
-        GetComponent<Animator>().SetBool("isMovingHorizontal", isMovingRight);
-        GetComponent<Animator>().SetBool("isMovingUp", isMovingUp);
-        GetComponent<Animator>().SetBool("isMovingDown", isMovingDown);
-        GetComponent<Animator>().SetBool("isMoving", isMoving);
+        GetComponent<Animator>().SetBool("isFacingLeft", isFacingLeft);
+        GetComponent<Animator>().SetBool("isFacingDown", isFacingDown);
+        GetComponent<Animator>().SetBool("isFacingUp", isFacingUp);
+        GetComponent<Animator>().SetBool("isFacingRight", isFacingRight);
+        GetComponent<Animator>().SetBool("isMove", isMove);
     }
+
 
     private void OnTriggerEnter2D(Collider2D col)
     {
