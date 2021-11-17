@@ -17,8 +17,9 @@ public class BirksPlayerInput : MonoBehaviour
     public bool canTalk;
     public float speed = 0.5f;
     private SpriteRenderer spriteRenderer;
-    private bool isMoving;
+    private bool isMove;
     public bool gotPic;
+    private bool isFacingRight = false;
 
     void Start()
     {
@@ -33,6 +34,8 @@ public class BirksPlayerInput : MonoBehaviour
         F1 = GameObject.Find("F1");
         F2.SetActive(false);
         F1.SetActive(false);
+        isFacingRight = false;
+        isMove = true;
     }
 
     // Update is called once per frame
@@ -60,7 +63,8 @@ public class BirksPlayerInput : MonoBehaviour
 
         if (direction != Vector3.zero)
         {
-            isMoving = true;
+            isFacingRight = true;
+            isMove = true;
             isInteract = false;
             if (direction.x > 0)
             {
@@ -73,16 +77,18 @@ public class BirksPlayerInput : MonoBehaviour
         }
         else
         {
-            isMoving = false;
+            isMove = false;
         }
 
         direction = direction.normalized;
 
         transform.position += direction * speed * Time.deltaTime;
 
-        GetComponent<Animator>().SetBool("isMoving", isMoving);
 
-         GetComponent<Animator>().SetBool("Interact", isInteract);
+        GetComponent<Animator>().SetBool("isMove", isMove);
+        GetComponent<Animator>().SetBool("isFacingRight", isFacingRight);
+
+        // GetComponent<Animator>().SetBool("Interact", isInteract);
     }
 
     void OnTriggerEnter2D(Collider2D col)
