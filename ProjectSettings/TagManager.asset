@@ -49,6 +49,9 @@ TagManager:
   - name: BackGround
     uniqueID: 3142871807
     locked: 0
+  - name: Scene Element
+    uniqueID: 3538742779
+    locked: 0
   - name: Player
     uniqueID: 3732440737
     locked: 0
