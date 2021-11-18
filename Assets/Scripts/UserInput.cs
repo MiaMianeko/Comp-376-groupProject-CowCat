@@ -18,6 +18,7 @@ public class UserInput : MonoBehaviour
     public bool isFacingDown = false;
     private Transform F;
 
+
     UserInput()
     {
         isFacingRight = false;
@@ -42,6 +43,8 @@ public class UserInput : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+
         if (!canMove) return;
         // Obtain input information (See "Horizontal" and "Vertical" in the Input Manager)
         float horizontal = Input.GetAxisRaw("Horizontal");

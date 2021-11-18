@@ -1,0 +1,14 @@
+{
+  "data": [
+    {
+      "speaker": "Player",
+      "content": "This man's body is riddled with marks of the disease that afflicted Lev...",
+      "duration": 3.0
+    },
+    {
+      "speaker": "Player",
+      "content": "Maybe this corpse can help me cure him?",
+      "duration": 3.0
+    }
+  ]
+}
