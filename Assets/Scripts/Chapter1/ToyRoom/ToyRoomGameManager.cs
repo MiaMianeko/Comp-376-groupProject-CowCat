@@ -11,6 +11,7 @@ public class ToyRoomGameManager : MonoBehaviour
     private UserInput _player;
 
     [SerializeField] private GameObject dialogGameObject;
+    [SerializeField] private GameObject selectionBoxObject;
     private Dialog _dialog;
 
     void Start()
@@ -18,6 +19,7 @@ public class ToyRoomGameManager : MonoBehaviour
         _friend = FindObjectOfType<FriendController>();
         _player = FindObjectOfType<UserInput>();
         Invoke(nameof(LoadDialog1), 1.0f);
+        _friend.GetComponent<BoxCollider2D>().enabled = false;
     }
 
     public void LoadDialog1()
@@ -31,7 +33,23 @@ public class ToyRoomGameManager : MonoBehaviour
                 StartCoroutine(_dialog.OutputDialog(dialogData, () =>
                 {
                     dialogGameObject.SetActive(false);
-                    StartCoroutine(FriendMove(() => { print("123"); }));
+                    StartCoroutine(FriendMove(() => { LoadDialog2(); }));
+                }));
+            }));
+    }
+
+    public void LoadDialog2()
+    {
+        dialogGameObject.SetActive(true);
+        _dialog = FindObjectOfType<Dialog>();
+        StartCoroutine(FileReader.GetText(Application.streamingAssetsPath + "/Dialogs/Chapter1ToyRoomDialog2.json",
+            jsonData =>
+            {
+                DialogData dialogData = JsonUtility.FromJson<DialogData>(jsonData);
+                StartCoroutine(_dialog.OutputDialog(dialogData, () =>
+                {
+                    dialogGameObject.SetActive(false);
+                    _player.canMove = true;
                 }));
             }));
     }
@@ -39,12 +57,53 @@ public class ToyRoomGameManager : MonoBehaviour
     public IEnumerator FriendMove(Action callback)
     {
         _friend.direction = Vector3.up;
-        yield return new WaitForSeconds(0.20f);
-        _friend.direction = Vector3.left;
-        yield return new WaitForSeconds(0.10f);
-        _friend.direction = Vector3.up;
-        yield return new WaitForSeconds(0.8f);
+        yield return new WaitForSeconds(1.0f);
         _friend.direction = Vector3.zero;
         callback();
+    }
+
+    public void SelectBox(int choice)
+    {
+        selectionBoxObject.SetActive(false);
+        if (choice == 5)
+        {
+            LoadDialog3();
+        }
+        else
+        {
+            LoadDialog4();
+        }
+    }
+
+    public void LoadDialog3()
+    {
+        dialogGameObject.SetActive(true);
+        _dialog = FindObjectOfType<Dialog>();
+        StartCoroutine(FileReader.GetText(Application.streamingAssetsPath + "/Dialogs/Chapter1ToyRoomDialog2.json",
+            jsonData =>
+            {
+                DialogData dialogData = JsonUtility.FromJson<DialogData>(jsonData);
+                StartCoroutine(_dialog.OutputDialog(dialogData, () =>
+                {
+                    dialogGameObject.SetActive(false);
+                    _player.canMove = true;
+                }));
+            }));
+    }
+
+    public void LoadDialog4()
+    {
+        dialogGameObject.SetActive(true);
+        _dialog = FindObjectOfType<Dialog>();
+        StartCoroutine(FileReader.GetText(Application.streamingAssetsPath + "/Dialogs/Chapter1ToyRoomDialog2.json",
+            jsonData =>
+            {
+                DialogData dialogData = JsonUtility.FromJson<DialogData>(jsonData);
+                StartCoroutine(_dialog.OutputDialog(dialogData, () =>
+                {
+                    dialogGameObject.SetActive(false);
+                    _player.canMove = true;
+                }));
+            }));
     }
 }
