@@ -140,7 +140,7 @@ public class LieOrTruthGameManager : MonoBehaviour
         {
             // Wrong answer
             StartCoroutine(FileReader.GetText(
-                Application.streamingAssetsPath + "/Dialogs/Chapter1LieOrTruthDialog8.json",
+                Application.streamingAssetsPath + "/Dialogs/Chapter1LieOrTruthDialog5.json",
                 jsonData =>
                 {
                     DialogData dialogData = JsonUtility.FromJson<DialogData>(jsonData);
@@ -172,15 +172,15 @@ public class LieOrTruthGameManager : MonoBehaviour
     {
         CloseSelectionBox3();
         dialogGameObject.SetActive(true);
-        if (number == 3)
-        {
+        //if (number == 3)
+        //
             // Correct answer
             backgroundGameObject.GetComponent<SpriteRenderer>().sprite = spriteBackground4;
             Destroy(painting3TriggerGameObject);
             roundNumber++;
             FindObjectOfType<LieOrTruthFriend>().roundNumber++;
             StartCoroutine(FileReader.GetText(
-                Application.streamingAssetsPath + "/Dialogs/Chapter1LieOrTruthDialog7.json",
+                Application.streamingAssetsPath + "/Dialogs/Chapter1LieOrTruthDialog8.json",
                 jsonData =>
                 {
                     DialogData dialogData = JsonUtility.FromJson<DialogData>(jsonData);
@@ -190,7 +190,7 @@ public class LieOrTruthGameManager : MonoBehaviour
                         _userInput.canMove = true;
                     }));
                 }));
-        }
+       /* }
         else
         {
             // Wrong answer
@@ -208,7 +208,7 @@ public class LieOrTruthGameManager : MonoBehaviour
                         // TODO: Game Over Handle
                     }));
                 }));
-        }
+        }*/
     }
 
     public void ShowSelectionBox3()

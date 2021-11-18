@@ -754,51 +754,18 @@ MonoBehaviour:
     minuteOfSave: 0
     dayOfSave: 0
     monthOfSave: 0
-    xpos: 0
-    ypos: 0
-    item1: 
-    item2: 
-    item3: 
-    item4: 
-    item5: 
-    item6: 
-    item7: 
-    item8: 
-    item9: 
   save2:
     scene: 
     hourOfSave: 0
     minuteOfSave: 0
     dayOfSave: 0
     monthOfSave: 0
-    xpos: 0
-    ypos: 0
-    item1: 
-    item2: 
-    item3: 
-    item4: 
-    item5: 
-    item6: 
-    item7: 
-    item8: 
-    item9: 
   save3:
     scene: 
     hourOfSave: 0
     minuteOfSave: 0
     dayOfSave: 0
     monthOfSave: 0
-    xpos: 0
-    ypos: 0
-    item1: 
-    item2: 
-    item3: 
-    item4: 
-    item5: 
-    item6: 
-    item7: 
-    item8: 
-    item9: 
 --- !u!1 &616888521
 GameObject:
   m_ObjectHideFlags: 0
@@ -1249,51 +1216,18 @@ MonoBehaviour:
     minuteOfSave: 0
     dayOfSave: 0
     monthOfSave: 0
-    xpos: 0
-    ypos: 0
-    item1: 
-    item2: 
-    item3: 
-    item4: 
-    item5: 
-    item6: 
-    item7: 
-    item8: 
-    item9: 
   save2:
     scene: 
     hourOfSave: 0
     minuteOfSave: 0
     dayOfSave: 0
     monthOfSave: 0
-    xpos: 0
-    ypos: 0
-    item1: 
-    item2: 
-    item3: 
-    item4: 
-    item5: 
-    item6: 
-    item7: 
-    item8: 
-    item9: 
   save3:
     scene: 
     hourOfSave: 0
     minuteOfSave: 0
     dayOfSave: 0
     monthOfSave: 0
-    xpos: 0
-    ypos: 0
-    item1: 
-    item2: 
-    item3: 
-    item4: 
-    item5: 
-    item6: 
-    item7: 
-    item8: 
-    item9: 
 --- !u!1 &1512621175
 GameObject:
   m_ObjectHideFlags: 0
@@ -1590,7 +1524,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: a36ef3817d06f424392b63361ca5a1cb, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 001ead0af36dc7f4180d465d0ae967ad, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

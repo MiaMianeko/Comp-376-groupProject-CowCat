@@ -2,7 +2,47 @@
   "data": [
     {
       "speaker": "Player",
-      "content": "(Edit later)Chapter1LieOrTruthDialog8.json...."
+      "content": "I... What have I done? I hope I made the right choice..."
+    },
+    {
+      "speaker": "Player",
+      "content": "A loud cackle resonates through my head... It's... the last surviving painting..."
+    },
+    {
+      "speaker": "Player",
+      "content": "(OH MAN! I can't believe you let me live!! I must thank you!)"
+    },
+    {
+      "speaker": "Player",
+      "content": "(For the record, that last guy you slaughtered? He was one of the last genuinely good people I ever knew.)"
+    },
+    {
+      "speaker": "Player",
+      "content": "(Isn't it nice to know you permanently removed some of the good in the world and made it a worse place?)"
+    },
+    {
+      "speaker": "Player",
+      "content": "(Anyways, you're free to go... I have people waiting for me... in my basement...)"
+    },
+    {
+      "speaker": "Player",
+      "content": "(Get out of here, dumbass... HAHAHAHA)"
+    },
+    {
+      "speaker": "???",
+      "content": "There's the door! I guess you did know where to look!"
+    },
+    {
+      "speaker": "Player",
+      "content": "Did you not hear... the voices?"
+    },
+    {
+      "speaker": "???",
+      "content": "... voices?"
+    },
+    {
+      "speaker": "Player",
+      "content": "Let's just go..."
     }
   ]
 }
