@@ -42,7 +42,7 @@ public class LieOrTruthGameManager : MonoBehaviour
     {
         if (isGameOver && Input.anyKey)
         {
-           GameOver.ReturnToMainMenu();
+            SceneManager.LoadScene("MainMenu");
         }
     }
 
@@ -103,7 +103,6 @@ public class LieOrTruthGameManager : MonoBehaviour
                     {
                         dialogGameObject.SetActive(false);
                         _userInput.canMove = true;
-                        print("Game Over!!!");
 
                         badEndingGameObject.SetActive(true);
                         Invoke("ChangeGameStatus", 2.5f);
@@ -224,8 +223,6 @@ public class LieOrTruthGameManager : MonoBehaviour
 
                         badEndingGameObject.SetActive(true);
                         Invoke("ChangeGameStatus", 2.5f);
-                        
-                        
                     }));
                 }));
         }
