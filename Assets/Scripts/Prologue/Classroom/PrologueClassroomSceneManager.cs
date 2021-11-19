@@ -9,6 +9,7 @@ public class PrologueClassroomSceneManager : MonoBehaviour
     [SerializeField] private GameObject dialogGameObject;
     [SerializeField] private GameObject playerInClassGameObject;
     [SerializeField] private GameObject playerGameObject;
+    [SerializeField] private GameObject backgroundGameObject;
     public Animator transition;
 
     void Start()
@@ -50,6 +51,7 @@ public class PrologueClassroomSceneManager : MonoBehaviour
 
     public void ShowDialog2()
     {
+        backgroundGameObject.GetComponent<AudioSource>().Pause();
         Destroy(playerGameObject);
         playerInClassGameObject.SetActive(true);
         dialogGameObject.SetActive(true);
