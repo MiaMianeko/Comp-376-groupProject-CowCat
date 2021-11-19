@@ -24,8 +24,6 @@ public class LieOrTruthGameManager : MonoBehaviour
     [SerializeField] private GameObject painting5TriggerGameObject;
     [SerializeField] private GameObject badEndingGameObject;
 
-    [SerializeField] private GameObject wallPanelTriggerGameObject;
-
     private Dialog _dialog;
     private UserInput _userInput;
     public int roundNumber = 1;
