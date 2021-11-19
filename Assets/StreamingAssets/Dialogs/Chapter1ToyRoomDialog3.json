@@ -1,8 +1,17 @@
 {
   "data": [
     {
-      "speaker": "???",
-      "content": "What do you think?"
+      "speaker": "Friend",
+      "content": "It seems we need to choose the bear which will be alive?"
+    },
+
+    {
+      "speaker": "Friend",
+      "content": "These bears are so cruel... For getting the love from their owner.."
+    },
+    {
+      "speaker": "Friend",
+      "content": "What do you think of it?"
     }
   ]
 }
