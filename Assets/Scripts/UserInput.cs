@@ -17,7 +17,8 @@ public class UserInput : MonoBehaviour
     public bool isFacingUp = false;
     public bool isFacingDown = false;
     private Transform F;
-
+    public bool isControlledBySystem;
+    public Vector3 direction;
 
     UserInput()
     {
@@ -28,6 +29,7 @@ public class UserInput : MonoBehaviour
         isMove = false;
         canMove = false;
         canInteract = false;
+        direction = Vector3.zero;
     }
 
     // Start is called before the first frame update
@@ -43,33 +45,21 @@ public class UserInput : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-
         if (!canMove) return;
         // Obtain input information (See "Horizontal" and "Vertical" in the Input Manager)
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
-        F = transform.Find("F");
 
         if (vertical != 0.0f)
         {
             horizontal = 0.0f;
         }
 
-        if (F != null)
+        if (!isControlledBySystem)
         {
-            if (canInteract)
-            {
-                F.GetComponent<SpriteRenderer>().enabled = true;
-            }
-            else
-            {
-                F.GetComponent<SpriteRenderer>().enabled = false;
-            }
+            direction = new Vector3(horizontal, vertical, 0.0f);
+            direction = direction.normalized;
         }
-
-        Vector3 direction = new Vector3(horizontal, vertical, 0.0f);
-        direction = direction.normalized;
 
         // Translate the game object
         Vector3 delta = direction * speed * Time.fixedDeltaTime;
@@ -121,6 +111,19 @@ public class UserInput : MonoBehaviour
         GetComponent<Animator>().SetBool("isFacingUp", isFacingUp);
         GetComponent<Animator>().SetBool("isFacingRight", isFacingRight);
         GetComponent<Animator>().SetBool("isMove", isMove);
+
+        F = transform.Find("F");
+        if (F != null)
+        {
+            if (canInteract)
+            {
+                F.GetComponent<SpriteRenderer>().enabled = true;
+            }
+            else
+            {
+                F.GetComponent<SpriteRenderer>().enabled = false;
+            }
+        }
     }
 
 
