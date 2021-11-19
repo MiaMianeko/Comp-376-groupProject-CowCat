@@ -1,8 +1,17 @@
 {
   "data": [
     {
-      "speaker": "???",
+      "speaker": "Player",
       "content": "Ohh... It's seems I got correct!"
+    },
+    {
+      "speaker": "Player",
+      "content": "Wait! What is that?  A black hole!!!"
+    },
+    {
+      "speaker": "Player",
+      "content": "OMG!! I feel like I'm going to be sucked into it!!! ohhhh...."
     }
+   
   ]
 }

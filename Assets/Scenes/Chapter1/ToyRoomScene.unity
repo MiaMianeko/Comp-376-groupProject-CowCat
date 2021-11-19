@@ -1970,7 +1970,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 579964843}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.026313782, y: -0.003537178, z: -17.94}
+  m_LocalPosition: {x: 0.027927876, y: -0.0035481453, z: -17.94}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -4282,6 +4282,8 @@ MonoBehaviour:
   isFacingLeft: 0
   isFacingUp: 0
   isFacingDown: 0
+  isControlledBySystem: 0
+  direction: {x: 0, y: 0, z: 0}
 --- !u!50 &1476714989
 Rigidbody2D:
   serializedVersion: 4

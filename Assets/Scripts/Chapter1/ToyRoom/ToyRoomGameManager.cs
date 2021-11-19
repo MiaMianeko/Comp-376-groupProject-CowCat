@@ -37,6 +37,7 @@ public class ToyRoomGameManager : MonoBehaviour
                 {
                     dialogGameObject.SetActive(false);
                     StartCoroutine(FriendMove(() => { LoadDialog2(); }));
+                    
                 }));
             }));
     }
@@ -90,6 +91,8 @@ public class ToyRoomGameManager : MonoBehaviour
                 {
                     dialogGameObject.SetActive(false);
                     _player.canMove = true;
+                    StartCoroutine(ChooseBearAnimationCorrect());
+              
                 }));
             }));
     }
@@ -107,11 +110,27 @@ public class ToyRoomGameManager : MonoBehaviour
                 {
                     dialogGameObject.SetActive(false);
                     _player.canMove = true;
-                    StartCoroutine(ChooseBearAnimation());
+                    StartCoroutine(ChooseBearAnimationIncorrect());
                 }));
             }));
     }
+    void LoadDialog5()
+    {
+        dialogGameObject.SetActive(true);
+        _dialog = FindObjectOfType<Dialog>();
+        StartCoroutine(FileReader.GetText(Application.streamingAssetsPath + "/Dialogs/Chapter1ToyRoomDialog5.json",
+            jsonData =>
+            {
+                DialogData dialogData = JsonUtility.FromJson<DialogData>(jsonData);
+                StartCoroutine(_dialog.OutputDialog(dialogData, () =>
+                {
+                    dialogGameObject.SetActive(false);
+                    _player.GetComponent<SpriteRenderer>().enabled = false;
+                    bearGameObject.GetComponent<Animator>().SetBool("BRCorrect", true);
 
+                }));
+            }));
+    }
     void LoadDialog6()
     {
         dialogGameObject.SetActive(true);
@@ -127,8 +146,20 @@ public class ToyRoomGameManager : MonoBehaviour
                 }));
             }));
     }
-
-    IEnumerator ChooseBearAnimation()
+    IEnumerator ChooseBearAnimationCorrect()
+    {
+        _player.isControlledBySystem = true;
+        _player.direction = Vector3.left;
+        yield return new WaitForSeconds(0.3f);
+        _player.direction = Vector3.down;
+        yield return new WaitForSeconds(0.4f);
+        _player.direction = Vector3.zero;
+        bearGameObject.GetComponent<Animator>().enabled = true;
+        yield return new WaitForSeconds(6.0f);
+        LoadDialog5();
+        
+    }
+    IEnumerator ChooseBearAnimationIncorrect()
     {
         _player.isControlledBySystem = true;
         _player.direction = Vector3.left;
