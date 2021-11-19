@@ -7,7 +7,7 @@ public class MorgueBed : Interactable
     [SerializeField] private GameObject dialogGameObject;
     private Dialog _dialog;
     private UserInput _userInput;
-
+    [SerializeField] LiverExtractionGame puzzles;
 
     private void Awake()
     {
@@ -36,7 +36,7 @@ public class MorgueBed : Interactable
                    StartCoroutine(_dialog.OutputDialog(dialogData, () =>
                       {
                          dialogGameObject.SetActive(false);
-                         _userInput.canMove = true;
+                          puzzles.StartGame();
                       }));
                }));
              
