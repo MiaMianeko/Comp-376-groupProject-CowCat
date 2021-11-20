@@ -868,6 +868,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1144268491}
   - component: {fileID: 1144268490}
+  - component: {fileID: 1144268492}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -905,6 +906,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1144268492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1144268489}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04d96a4cb1ee9d84aba1998254d090d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1212262429
 GameObject:
   m_ObjectHideFlags: 0
@@ -1035,6 +1048,8 @@ MonoBehaviour:
   systemSprite: {fileID: 21300000, guid: b1538ea14d346994baac240b3157d185, type: 3}
   sectarySprite: {fileID: 0}
   professorSprite: {fileID: 0}
+  friendSprite: {fileID: 0}
+  unknownFriendSprite: {fileID: 0}
   speakerImage: {fileID: 56045566}
 --- !u!114 &1465939363
 MonoBehaviour:

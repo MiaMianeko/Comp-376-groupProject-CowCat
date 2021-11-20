@@ -1800,6 +1800,8 @@ MonoBehaviour:
   isFacingLeft: 0
   isFacingUp: 0
   isFacingDown: 0
+  isControlledBySystem: 0
+  direction: {x: 0, y: 0, z: 0}
 --- !u!50 &477264897
 Rigidbody2D:
   serializedVersion: 4
@@ -2918,6 +2920,7 @@ GameObject:
   m_Component:
   - component: {fileID: 838760906}
   - component: {fileID: 838760905}
+  - component: {fileID: 838760907}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -2967,6 +2970,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &838760907
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 838760904}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04d96a4cb1ee9d84aba1998254d090d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &852205231
 GameObject:
   m_ObjectHideFlags: 0
@@ -5288,7 +5303,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1684708006}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.010133266, y: -0.0014982224, z: -20}
+  m_LocalPosition: {x: -0.007640362, y: -0.0014982224, z: -20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
