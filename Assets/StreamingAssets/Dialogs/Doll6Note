@@ -1,0 +1,19 @@
+{
+  "data": [
+    {
+      "speaker": "Player",
+      "content": "There's a note on the back! It reads:",
+      "duration": 3.0
+    },
+    {
+      "speaker": "Player",
+      "content": "Debbie: Hehehe... That bitch Annie is stinking rich! I'll take her place! I know what to do...",
+      "duration": 3.0
+    },
+    {
+      "speaker": "Player",
+      "content": "I'll just suffocate her and take her place in the crib next to mine...",
+      "duration": 3.0
+    }
+  ]
+}

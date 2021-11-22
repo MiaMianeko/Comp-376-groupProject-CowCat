@@ -7,6 +7,20 @@ public class HospitalManager : MonoBehaviour
     [SerializeField] private GameObject dialogGameObject;
     private UserInput _userInput;
     private Dialog _dialog;
+    public bool dollsPickedUp;
+    public bool dollPuzzleSolved;
+    public bool hasAntibiotic;
+    public bool knowsHowToCure;
+    public bool hasLiver;
+    public InventoryManager inventory;
+
+    public bool hasAntibiotics;
+
+    public bool atCrib;
+    public int cribNumber;
+
+    public int dollSelected;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -14,7 +28,8 @@ public class HospitalManager : MonoBehaviour
         _userInput = FindObjectOfType<UserInput>();
         _userInput.canMove = false;
         Invoke(nameof(LoadDialog1), 1.0f);
-       
+        inventory = FindObjectOfType<InventoryManager>();
+        cribNumber = -1;
     }
 
     // Update is called once per frame
@@ -37,5 +52,11 @@ public class HospitalManager : MonoBehaviour
                     _userInput.canMove = true;
                 }));
             }));
+    }
+
+    public void pickUpDolls()
+    {
+        dollsPickedUp = true;
+        inventory.pickUpAllDolls();
     }
 }

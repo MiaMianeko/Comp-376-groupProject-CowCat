@@ -1,0 +1,14 @@
+{
+  "data": [
+    {
+      "speaker": "Player",
+      "content": "There's a note on the back! It reads:",
+      "duration": 3.0
+    },
+        {
+      "speaker": "Player",
+      "content": "Annie: I'm so happy that I only have 1 neighbor, I really hate each of those assholes...",
+      "duration": 3.0
+    }
+  ]
+}

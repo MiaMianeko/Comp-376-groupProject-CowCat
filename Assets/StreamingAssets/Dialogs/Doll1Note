@@ -1,0 +1,14 @@
+{
+  "data": [
+    {
+      "speaker": "Player",
+      "content": "There's a note on the back! It reads:",
+      "duration": 3.0
+    },
+        {
+      "speaker": "Player",
+      "content": "Franny: At least I'm as far from that crybaby as possible. Could be worse...",
+      "duration": 3.0
+    }
+  ]
+}

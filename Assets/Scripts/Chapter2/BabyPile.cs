@@ -2,18 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MorgueBed : Interactable
+public class BabyPile : Interactable
 {
     [SerializeField] private GameObject dialogGameObject;
     private Dialog _dialog;
     private UserInput _userInput;
-    [SerializeField] LiverExtractionGame puzzles;
     private HospitalManager manager;
-    private void Awake()
+    // Start is called before the first frame update
+    void Start()
     {
         manager = FindObjectOfType<HospitalManager>();
     }
 
+    // Update is called once per frame
     void Update()
     {
         if (canInteract && Input.GetKey(KeyCode.F))
@@ -27,21 +28,22 @@ public class MorgueBed : Interactable
             _dialog = FindObjectOfType<Dialog>();
 
 
-            
+
             StartCoroutine(FileReader.GetText(
-               Application.streamingAssetsPath + "/Dialogs/HospitalMorgueCorpseCheck.json",
+               Application.streamingAssetsPath + "/Dialogs/BabyPile.json",
                jsonData =>
                {
                    DialogData dialogData = JsonUtility.FromJson<DialogData>(jsonData);
                    StartCoroutine(_dialog.OutputDialog(dialogData, () =>
-                      {
-                         dialogGameObject.SetActive(false);
-                          if (manager.knowsHowToCure)
-                            puzzles.StartGame();
-                          else _userInput.canMove = true;
-                      }));
+                   {
+                       dialogGameObject.SetActive(false);
+                       _userInput.canMove = true;
+                       this.gameObject.SetActive(false);
+                       manager.pickUpDolls();
+                   }));
                }));
-             
+
+
         }
     }
 }

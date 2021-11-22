@@ -1,0 +1,14 @@
+{
+  "data": [
+    {
+      "speaker": "Player",
+      "content": "There's a note on the back! It reads:",
+      "duration": 3.0
+    },
+        {
+      "speaker": "Player",
+      "content": "Betty: I know that crybaby is somewhere to the right of me. I swear I'll take her other eye if she won't shut up.",
+      "duration": 3.0
+    }
+  ]
+}
