@@ -45,7 +45,7 @@ public class Crib : Interactable
             string filename ="";
             if (!manager.dollsPickedUp) filename = "CribNoDolls.json";
             else if (!manager.dollPuzzleSolved && currentDoll < 0) filename = "CribEmptyBed.json";
-            else if (!manager.dollPuzzleSolved && currentDoll > 0) filename = "CribFullBed.json";
+            else if (!manager.dollPuzzleSolved && currentDoll > 0) filename = "CribBedFull.json";
             else if (manager.dollPuzzleSolved) filename = "CribPuzzleSolved.json";
 
             canInteract = false;
@@ -73,7 +73,7 @@ public class Crib : Interactable
                            if (currentDoll < 0)
                            {
                                placeDoll();
-                               if (currentDoll == dollNeeded) correctDoll = true;
+                               
                            }
                            else takeDoll();
                        }
@@ -142,7 +142,7 @@ public class Crib : Interactable
         }
 
         currentDoll = dollNumber;
-
+        if (currentDoll == dollNeeded) correctDoll = true;
     }
 
     

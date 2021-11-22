@@ -14,20 +14,49 @@ public class CribPuzzle : MonoBehaviour
 
     HospitalManager manager;
 
+    [SerializeField] GameObject dialogGameObject;
+
+    UserInput _userInput;
+    Dialog _dialog;
     public bool solved;
     // Start is called before the first frame update
     void Start()
     {
+        _userInput = FindObjectOfType<UserInput>();
         manager = FindObjectOfType<HospitalManager>();
+        _dialog = FindObjectOfType<Dialog>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (crib1.correctDoll && crib2.correctDoll && crib3.correctDoll && crib4.correctDoll && crib5.correctDoll && crib6.correctDoll && crib7.correctDoll)
+        if (!manager.dollPuzzleSolved && crib1.correctDoll && crib2.correctDoll && crib3.correctDoll && crib4.correctDoll && crib5.correctDoll && crib6.correctDoll && crib7.correctDoll)
         {
             solved = true;
             manager.dollPuzzleSolved = true;
+
+
+            _userInput.canMove = false;
+
+            dialogGameObject.SetActive(true);
+            
+
+
+
+            StartCoroutine(FileReader.GetText(
+               Application.streamingAssetsPath + "/Dialogs/DollPuzzleSolved.json",
+               jsonData =>
+               {
+                   DialogData dialogData = JsonUtility.FromJson<DialogData>(jsonData);
+                   StartCoroutine(_dialog.OutputDialog(dialogData, () =>
+                   {
+                       dialogGameObject.SetActive(false);
+
+
+                       _userInput.canMove = true;
+                   }));
+               }));
+
         }
     }
 }

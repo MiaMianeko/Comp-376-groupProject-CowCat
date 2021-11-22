@@ -185,8 +185,13 @@ public class InventoryManager : MonoBehaviour
             }
             inventory.SetActive(false);
             player.canMove = true;
-
+            manager.atCrib = false;
         }
+    }
+
+    public void getAntibiotic()
+    {
+
     }
 
 }

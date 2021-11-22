@@ -140,7 +140,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &39908694
 RectTransform:
   m_ObjectHideFlags: 0
@@ -166,7 +166,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 50}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &39908695
@@ -453,7 +453,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &136031604
 Transform:
   m_ObjectHideFlags: 0
@@ -508,15 +508,15 @@ SpriteRenderer:
   m_SortingLayerID: -756224517
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: dc992290227d5e84aac480a25f7fb2fd, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 106ed1898d829c941a9a0eb5b24dd19b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.13, y: 1.57}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &163102019
@@ -3369,8 +3369,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canInteract: 0
   dialogGameObject: {fileID: 438858797}
-  dollNeeded: 0
-  cribNumber: 0
+  dollNeeded: 6
+  cribNumber: 6
   correctDoll: 0
   inventoryObject: {fileID: 39908693}
   doll1: {fileID: 21300000, guid: 106ed1898d829c941a9a0eb5b24dd19b, type: 3}
@@ -3961,6 +3961,63 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.54246, y: 2.0356057}
   m_EdgeRadius: 0
+--- !u!1 &600454955
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 600454956}
+  - component: {fileID: 600454957}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &600454956
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 600454955}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1174815767}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &600454957
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 600454955}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -3.1413426, y: 0.6960926}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 7.2826853, y: 1.7496376}
+  m_EdgeRadius: 0
 --- !u!1 &601647806
 GameObject:
   m_ObjectHideFlags: 0
@@ -4035,8 +4092,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canInteract: 0
   dialogGameObject: {fileID: 438858797}
-  dollNeeded: 0
-  cribNumber: 0
+  dollNeeded: 7
+  cribNumber: 7
   correctDoll: 0
   inventoryObject: {fileID: 39908693}
   doll1: {fileID: 21300000, guid: 106ed1898d829c941a9a0eb5b24dd19b, type: 3}
@@ -4823,7 +4880,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &709415805
 Transform:
   m_ObjectHideFlags: 0
@@ -4878,15 +4935,15 @@ SpriteRenderer:
   m_SortingLayerID: -756224517
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: dc992290227d5e84aac480a25f7fb2fd, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 106ed1898d829c941a9a0eb5b24dd19b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.13, y: 1.57}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &717525658
@@ -5111,8 +5168,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canInteract: 0
   dialogGameObject: {fileID: 438858797}
-  dollNeeded: 0
-  cribNumber: 0
+  dollNeeded: 4
+  cribNumber: 4
   correctDoll: 0
   inventoryObject: {fileID: 39908693}
   doll1: {fileID: 21300000, guid: 106ed1898d829c941a9a0eb5b24dd19b, type: 3}
@@ -5401,6 +5458,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 782964812}
+  - component: {fileID: 782964813}
   m_Layer: 0
   m_Name: Cribs
   m_TagString: Untagged
@@ -5429,6 +5487,27 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &782964813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 782964811}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7899ad3aa87c88a4cb37040d50b8bb05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  crib1: {fileID: 914937658}
+  crib2: {fileID: 1251091680}
+  crib3: {fileID: 1335528813}
+  crib4: {fileID: 719032295}
+  crib5: {fileID: 1250526338}
+  crib6: {fileID: 467769489}
+  crib7: {fileID: 601647809}
+  dialogGameObject: {fileID: 438858797}
+  solved: 0
 --- !u!1 &807751518
 GameObject:
   m_ObjectHideFlags: 0
@@ -6067,7 +6146,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &901741621
 Transform:
   m_ObjectHideFlags: 0
@@ -6122,15 +6201,15 @@ SpriteRenderer:
   m_SortingLayerID: -756224517
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: dc992290227d5e84aac480a25f7fb2fd, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 106ed1898d829c941a9a0eb5b24dd19b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.13, y: 1.57}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &910204144
@@ -6292,8 +6371,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canInteract: 0
   dialogGameObject: {fileID: 438858797}
-  dollNeeded: 0
-  cribNumber: 0
+  dollNeeded: 1
+  cribNumber: 1
   correctDoll: 0
   inventoryObject: {fileID: 39908693}
   doll1: {fileID: 21300000, guid: 106ed1898d829c941a9a0eb5b24dd19b, type: 3}
@@ -7805,7 +7884,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1163019731
 Transform:
   m_ObjectHideFlags: 0
@@ -7860,17 +7939,90 @@ SpriteRenderer:
   m_SortingLayerID: -756224517
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: dc992290227d5e84aac480a25f7fb2fd, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 106ed1898d829c941a9a0eb5b24dd19b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.13, y: 1.57}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1174815765
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1174815767}
+  - component: {fileID: 1174815766}
+  - component: {fileID: 1174815768}
+  m_Layer: 0
+  m_Name: MaternityDesk
+  m_TagString: Interactable
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!61 &1174815766
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1174815765}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -1.3207917, y: -0.17848492}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 3.6415834, y: 3.0704327}
+  m_EdgeRadius: 0
+--- !u!4 &1174815767
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1174815765}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 10.18, y: 23.87, z: -141.9081}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 600454956}
+  m_Father: {fileID: 0}
+  m_RootOrder: 18
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1174815768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1174815765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efa0da491643ebb4eac6028043035c1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canInteract: 0
+  dialogGameObject: {fileID: 438858797}
 --- !u!1 &1187373816
 GameObject:
   m_ObjectHideFlags: 0
@@ -8356,8 +8508,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canInteract: 0
   dialogGameObject: {fileID: 438858797}
-  dollNeeded: 0
-  cribNumber: 0
+  dollNeeded: 5
+  cribNumber: 5
   correctDoll: 0
   inventoryObject: {fileID: 39908693}
   doll1: {fileID: 21300000, guid: 106ed1898d829c941a9a0eb5b24dd19b, type: 3}
@@ -8442,8 +8594,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canInteract: 0
   dialogGameObject: {fileID: 438858797}
-  dollNeeded: 0
-  cribNumber: 0
+  dollNeeded: 2
+  cribNumber: 2
   correctDoll: 0
   inventoryObject: {fileID: 39908693}
   doll1: {fileID: 21300000, guid: 106ed1898d829c941a9a0eb5b24dd19b, type: 3}
@@ -8671,7 +8823,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1278594477
 Transform:
   m_ObjectHideFlags: 0
@@ -8726,15 +8878,15 @@ SpriteRenderer:
   m_SortingLayerID: -756224517
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: dc992290227d5e84aac480a25f7fb2fd, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 106ed1898d829c941a9a0eb5b24dd19b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.13, y: 1.57}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &1314208722
@@ -8753,7 +8905,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1314208723
 Transform:
   m_ObjectHideFlags: 0
@@ -8808,15 +8960,15 @@ SpriteRenderer:
   m_SortingLayerID: -756224517
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: dc992290227d5e84aac480a25f7fb2fd, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 106ed1898d829c941a9a0eb5b24dd19b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.13, y: 1.57}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &1324412912
@@ -8866,7 +9018,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ConfineMode: 0
   m_BoundingVolume: {fileID: 0}
-  m_BoundingShape2D: {fileID: 0}
+  m_BoundingShape2D: {fileID: 1017170687}
   m_ConfineScreenEdges: 1
   m_Damping: 0
 --- !u!114 &1324412915
@@ -8978,8 +9130,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canInteract: 0
   dialogGameObject: {fileID: 438858797}
-  dollNeeded: 0
-  cribNumber: 0
+  dollNeeded: 3
+  cribNumber: 3
   correctDoll: 0
   inventoryObject: {fileID: 39908693}
   doll1: {fileID: 21300000, guid: 106ed1898d829c941a9a0eb5b24dd19b, type: 3}
@@ -9213,7 +9365,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 5.544167}
+  m_Offset: {x: 0, y: 7.2067957}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -9224,7 +9376,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.56, y: 13.648335}
+  m_Size: {x: 2.56, y: 10.323078}
   m_EdgeRadius: 0
 --- !u!212 &1371793653
 SpriteRenderer:
@@ -10744,7 +10896,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1611901993
 Transform:
   m_ObjectHideFlags: 0
@@ -10799,15 +10951,15 @@ SpriteRenderer:
   m_SortingLayerID: -756224517
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: dc992290227d5e84aac480a25f7fb2fd, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 106ed1898d829c941a9a0eb5b24dd19b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.13, y: 1.57}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &1619722278
