@@ -18,6 +18,17 @@ public class InventoryManager : MonoBehaviour
     [SerializeField] GameObject item8;
     [SerializeField] GameObject item9;
 
+
+    [SerializeField] GameObject item1Image;
+    [SerializeField] GameObject item2Image;
+    [SerializeField] GameObject item3Image;
+    [SerializeField] GameObject item4Image;
+    [SerializeField] GameObject item5Image;
+    [SerializeField] GameObject item6Image;
+    [SerializeField] GameObject item7Image;
+    [SerializeField] GameObject item8Image;
+    [SerializeField] GameObject item9Image;
+
     [SerializeField] GameObject dialogGameObject;
 
     [SerializeField] Crib crib1;
@@ -55,6 +66,7 @@ public class InventoryManager : MonoBehaviour
         player.canMove = true;
         isOpen = false;
         inventory.SetActive(false);
+        manager.atCrib = false;
     }
     public void pickUpAllDolls()
     {
@@ -104,7 +116,34 @@ public class InventoryManager : MonoBehaviour
 
         if (!manager.atCrib)
         {
-          
+            switch (dollNumber)
+            {
+                case 1:
+                    item8Image.SetActive(true);
+                    break;
+                case 2:
+                    item9Image.SetActive(true);
+                    break;
+                case 3:
+                    item4Image.SetActive(true);
+                    break;
+                case 4:
+                    item5Image.SetActive(true);
+                    break;
+                case 5:
+                    item7Image.SetActive(true);
+                    break;
+                case 6:
+                    item6Image.SetActive(true);
+                    break;
+                case 7:
+                    item3Image.SetActive(true);
+                    break;
+                default:
+                    break;
+            }
+
+            inventory.SetActive(false);
             //player.canMove = false;
 
             dialogGameObject.SetActive(true);
@@ -122,7 +161,35 @@ public class InventoryManager : MonoBehaviour
                    StartCoroutine(_dialog.OutputDialog(dialogData, () =>
                    {
                        dialogGameObject.SetActive(false);
-                       
+
+                       switch (dollNumber)
+                       {
+                           case 1:
+                               item8Image.SetActive(false);
+                               break;
+                           case 2:
+                               item9Image.SetActive(false);
+                               break;
+                           case 3:
+                               item4Image.SetActive(false);
+                               break;
+                           case 4:
+                               item5Image.SetActive(false);
+                               break;
+                           case 5:
+                               item7Image.SetActive(false);
+                               break;
+                           case 6:
+                               item6Image.SetActive(false);
+                               break;
+                           case 7:
+                               item3Image.SetActive(false);
+                               break;
+                           default:
+                               break;
+                       }
+                       inventory.SetActive(true);
+
                    }));
                }));
 
@@ -191,12 +258,62 @@ public class InventoryManager : MonoBehaviour
 
     public void getAntibiotic()
     {
-
+        item2.SetActive(true);
+        manager.hasAntibiotic = true;
     }
 
     public void getLiver()
     {
+        item1.SetActive(true);
+        manager.hasLiver = true;
+    }
 
+    public void checkLiver()
+    {
+        dialogGameObject.SetActive(true);
+        _dialog = FindObjectOfType<Dialog>();
+
+        string filepath = "/Dialogs/ExamineLiver.json";
+
+        inventory.SetActive(false);
+        item1Image.SetActive(true);
+
+        StartCoroutine(FileReader.GetText(
+           Application.streamingAssetsPath + filepath,
+           jsonData =>
+           {
+               DialogData dialogData = JsonUtility.FromJson<DialogData>(jsonData);
+               StartCoroutine(_dialog.OutputDialog(dialogData, () =>
+               {
+                   dialogGameObject.SetActive(false);
+                   inventory.SetActive(true);
+                   item1Image.SetActive(false);
+               }));
+           }));
+    }
+
+    public void checkAntibiotic()
+    {
+        dialogGameObject.SetActive(true);
+        _dialog = FindObjectOfType<Dialog>();
+
+        string filepath = "/Dialogs/ExamineAntibiotic.json";
+
+        inventory.SetActive(false);
+        item2Image.SetActive(true);
+
+        StartCoroutine(FileReader.GetText(
+           Application.streamingAssetsPath + filepath,
+           jsonData =>
+           {
+               DialogData dialogData = JsonUtility.FromJson<DialogData>(jsonData);
+               StartCoroutine(_dialog.OutputDialog(dialogData, () =>
+               {
+                   dialogGameObject.SetActive(false);
+                   inventory.SetActive(true);
+                   item2Image.SetActive(false);
+               }));
+           }));
     }
 
 }

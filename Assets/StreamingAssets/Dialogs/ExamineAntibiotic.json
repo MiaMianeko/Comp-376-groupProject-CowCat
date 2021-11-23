@@ -1,0 +1,14 @@
+{
+  "data": [
+    {
+      "speaker": "Player",
+      "content": "An antiviral reagent. If I mix this with infected tissue, I'll be able to make a cure...",
+      "duration": 3.0
+    },
+    {
+      "speaker": "Player",
+      "content": "... I know I know that, but I have no idea HOW I know that...",
+      "duration": 3.0
+    }
+  ]
+}

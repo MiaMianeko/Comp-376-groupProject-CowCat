@@ -16,6 +16,8 @@ public class Crib : Interactable
     private InventoryManager inventoryManager;
     private HospitalManager manager;
 
+    
+
     [SerializeField] Sprite doll1;
     [SerializeField] Sprite doll2;
     [SerializeField] Sprite doll3;

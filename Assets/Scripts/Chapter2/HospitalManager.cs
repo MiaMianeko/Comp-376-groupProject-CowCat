@@ -14,7 +14,7 @@ public class HospitalManager : MonoBehaviour
     public bool hasLiver;
     public InventoryManager inventory;
 
-    public bool hasAntibiotics;
+
 
     public bool atCrib;
     public int cribNumber;
