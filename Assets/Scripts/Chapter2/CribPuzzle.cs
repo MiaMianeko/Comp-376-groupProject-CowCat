@@ -24,7 +24,7 @@ public class CribPuzzle : MonoBehaviour
     {
         _userInput = FindObjectOfType<UserInput>();
         manager = FindObjectOfType<HospitalManager>();
-        _dialog = FindObjectOfType<Dialog>();
+       
     }
 
     // Update is called once per frame
@@ -39,7 +39,7 @@ public class CribPuzzle : MonoBehaviour
             _userInput.canMove = false;
 
             dialogGameObject.SetActive(true);
-            
+            _dialog = FindObjectOfType<Dialog>();
 
 
 

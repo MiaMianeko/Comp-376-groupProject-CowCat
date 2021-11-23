@@ -194,4 +194,9 @@ public class InventoryManager : MonoBehaviour
 
     }
 
+    public void getLiver()
+    {
+
+    }
+
 }

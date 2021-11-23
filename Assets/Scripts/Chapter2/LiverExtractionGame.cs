@@ -11,7 +11,11 @@ public class LiverExtractionGame : MonoBehaviour
     [SerializeField] BugPuzzle round2Game;
     [SerializeField] GameObject round2Object;
 
+    HospitalManager manager;
+
     public int round;
+
+    InventoryManager inventory;
 
     private UserInput _userInput;
     // Start is called before the first frame update
@@ -19,7 +23,8 @@ public class LiverExtractionGame : MonoBehaviour
     {
         round = 0;
         _userInput = FindObjectOfType<UserInput>();
-
+        manager = FindObjectOfType<HospitalManager>();
+        inventory = FindObjectOfType<InventoryManager>();
     }
 
     // Update is called once per frame
@@ -39,7 +44,9 @@ public class LiverExtractionGame : MonoBehaviour
         {
             round++;
             round2Object.SetActive(false);
+            manager.hasLiver = true;
             _userInput.canMove = true;
+            inventory.getLiver();
         }
     }
 

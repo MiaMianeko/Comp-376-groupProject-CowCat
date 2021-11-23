@@ -26,17 +26,20 @@ public class MorgueBed : Interactable
             dialogGameObject.SetActive(true);
             _dialog = FindObjectOfType<Dialog>();
 
+            string fileName;
 
-            
+            if (!manager.hasLiver) fileName = "/Dialogs/HospitalMorgueCorpseCheck.json";
+            else fileName = "/Dialogs/HospitalMorgueCorpseCheckAlreadyTaken.json";
+
             StartCoroutine(FileReader.GetText(
-               Application.streamingAssetsPath + "/Dialogs/HospitalMorgueCorpseCheck.json",
+               Application.streamingAssetsPath + fileName,
                jsonData =>
                {
                    DialogData dialogData = JsonUtility.FromJson<DialogData>(jsonData);
                    StartCoroutine(_dialog.OutputDialog(dialogData, () =>
                       {
                          dialogGameObject.SetActive(false);
-                          if (manager.knowsHowToCure)
+                          if (manager.knowsHowToCure && !manager.hasLiver)
                             puzzles.StartGame();
                           else _userInput.canMove = true;
                       }));
