@@ -8,6 +8,7 @@ public class HospitalManager : MonoBehaviour
     private UserInput _userInput;
     private Dialog _dialog;
     public bool dollsPickedUp;
+    public bool dollsSpawned;
     public bool dollPuzzleSolved;
     public bool hasAntibiotic;
     public bool hasScalpel;

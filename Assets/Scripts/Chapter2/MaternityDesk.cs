@@ -11,6 +11,8 @@ public class MaternityDesk : Interactable
     InventoryManager inventory;
 
     [SerializeField] private GameObject noteObject;
+
+    [SerializeField] private GameObject dollPile;
     private void Awake()
     {
         manager = FindObjectOfType<HospitalManager>();
@@ -57,11 +59,40 @@ public class MaternityDesk : Interactable
                            
                        }
                        noteObject.SetActive(false);
-                       _userInput.canMove = true;
+                       if (!manager.dollsSpawned) spawnDolls();
+                       else _userInput.canMove = true;
                    }));
                }));
 
         }
+    }
+
+    private void spawnDolls()
+    {
+
+        dollPile.SetActive(true);
+
+        _userInput = FindObjectOfType<UserInput>();
+        _userInput.canMove = false;
+
+        dialogGameObject.SetActive(true);
+        _dialog = FindObjectOfType<Dialog>();
+
+        string fileName;
+
+        fileName = "/Dialogs/DollSpawned.json";
+        StartCoroutine(FileReader.GetText(
+               Application.streamingAssetsPath + fileName,
+               jsonData =>
+               {
+                   DialogData dialogData = JsonUtility.FromJson<DialogData>(jsonData);
+                   StartCoroutine(_dialog.OutputDialog(dialogData, () =>
+                   {
+                       dialogGameObject.SetActive(false);
+                       
+                       _userInput.canMove = true;
+                   }));
+               }));
     }
 }
 

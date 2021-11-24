@@ -11,6 +11,16 @@ public class LiverExtractionGame : MonoBehaviour
     [SerializeField] BugPuzzle round2Game;
     [SerializeField] GameObject round2Object;
 
+
+    [SerializeField] CutLine round3Game1;
+    [SerializeField] CutLine round3Game2;
+    [SerializeField] GameObject round3Object;
+
+    [SerializeField] GameObject dialogObject;
+
+
+    Dialog _dialog;
+
     HospitalManager manager;
 
     public int round;
@@ -44,9 +54,44 @@ public class LiverExtractionGame : MonoBehaviour
         {
             round++;
             round2Object.SetActive(false);
+            round3Object.SetActive(true);
+
+        }
+        else if (round == 3 && round3Game1.solved && round3Game2.solved)
+        {
+            round++;
+            
             manager.hasLiver = true;
-            _userInput.canMove = true;
+            
             inventory.getLiver();
+
+
+            
+                
+
+                _userInput = FindObjectOfType<UserInput>();
+                _userInput.canMove = false;
+
+                dialogObject.SetActive(true);
+                _dialog = FindObjectOfType<Dialog>();
+
+                string fileName = "/Dialogs/LiverPickUp.json";
+
+
+                StartCoroutine(FileReader.GetText(
+                   Application.streamingAssetsPath + fileName,
+                   jsonData =>
+                   {
+                       DialogData dialogData = JsonUtility.FromJson<DialogData>(jsonData);
+                       StartCoroutine(_dialog.OutputDialog(dialogData, () =>
+                       {
+                           dialogObject.SetActive(false);
+                           round3Object.SetActive(false);
+                           _userInput.canMove = true;
+                       }));
+                   }));
+
+            
         }
     }
 

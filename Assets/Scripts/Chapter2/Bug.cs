@@ -12,12 +12,22 @@ public class Bug : MonoBehaviour, IPointerClickHandler
     [SerializeField] private Vector2 endOfForwardMovement;
     [SerializeField] private Vector2 endOfBackwardMovement;
     [SerializeField] private Vector3 forwardMovement;
+    [SerializeField] private float rotationSpeed;
     private float speed;
+    private float maxRotation;
+    private float minRotation;
+
+    private bool positiveRotation;
+    Vector3 roty;
     // Start is called before the first frame update
     void Start()
     {
         forwardMovement = forwardMovement.normalized;
         speed = Random.Range(120, 200);
+        minRotation = this.gameObject.transform.rotation.z - 0.05f;
+        maxRotation = this.gameObject.transform.rotation.z + 0.05f;
+        roty = new Vector3(0, 0, 1);
+
     }
 
     // Update is called once per frame
@@ -33,6 +43,17 @@ public class Bug : MonoBehaviour, IPointerClickHandler
             if (this.gameObject.transform.position.x < endOfBackwardMovement.x || this.gameObject.transform.position.y < endOfBackwardMovement.y) forward = true;
             else this.gameObject.transform.position += -forwardMovement * Time.deltaTime*speed;
         }
+        if (positiveRotation)
+        {
+            this.gameObject.transform.Rotate(roty, rotationSpeed*Time.deltaTime);
+            if (this.gameObject.transform.rotation.z > maxRotation) positiveRotation = false;
+        }
+        if (!positiveRotation)
+        {
+            this.gameObject.transform.Rotate(roty, -rotationSpeed * Time.deltaTime);
+            if (this.gameObject.transform.rotation.z < minRotation) positiveRotation = true;
+        }
+
     }
     public void OnPointerClick(PointerEventData data)
     {
