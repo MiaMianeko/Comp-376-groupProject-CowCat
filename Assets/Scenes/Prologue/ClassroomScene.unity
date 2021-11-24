@@ -574,6 +574,8 @@ MonoBehaviour:
   isFacingLeft: 0
   isFacingUp: 0
   isFacingDown: 0
+  isControlledBySystem: 0
+  direction: {x: 0, y: 0, z: 0}
 --- !u!61 &339215453
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1540,6 +1542,7 @@ GameObject:
   m_Component:
   - component: {fileID: 647317364}
   - component: {fileID: 647317365}
+  - component: {fileID: 647317366}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1578,6 +1581,18 @@ MonoBehaviour:
   playerGameObject: {fileID: 339215449}
   backgroundGameObject: {fileID: 1970865449}
   transition: {fileID: 528046863}
+--- !u!114 &647317366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 647317363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04d96a4cb1ee9d84aba1998254d090d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &790910226
 GameObject:
   m_ObjectHideFlags: 0
@@ -1871,7 +1886,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 975178021}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.112288, y: -6.1240845, z: -108.2}
+  m_LocalPosition: {x: -0.11270189, y: -6.1240845, z: -108.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

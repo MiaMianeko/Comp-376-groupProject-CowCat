@@ -20,13 +20,17 @@ public class PaintingOne : Interactable
         if (canInteract && Input.GetKey(KeyCode.F))
         {
             canInteract = false;
-            
+
             _userInput = FindObjectOfType<UserInput>();
+            _userInput.isFacingUp = true;
+            _userInput.isFacingDown = false;
+            _userInput.isFacingLeft = false;
+            _userInput.isFacingRight = false;
             _userInput.canMove = false;
-            
+
             dialogGameObject.SetActive(true);
             _dialog = FindObjectOfType<Dialog>();
-            
+
             StartCoroutine(FileReader.GetText(Application.streamingAssetsPath + "/Dialogs/Painting1Dialog1.json",
                 jsonData =>
                 {

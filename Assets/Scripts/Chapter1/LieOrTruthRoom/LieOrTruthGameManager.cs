@@ -16,6 +16,7 @@ public class LieOrTruthGameManager : MonoBehaviour
     [SerializeField] private Sprite spriteBackground2;
     [SerializeField] private Sprite spriteBackground3;
     [SerializeField] private Sprite spriteBackground4;
+    [SerializeField] private Sprite spriteBackground5;
 
     [SerializeField] private GameObject painting1TriggerGameObject;
     [SerializeField] private GameObject painting2TriggerGameObject;
@@ -24,8 +25,12 @@ public class LieOrTruthGameManager : MonoBehaviour
     [SerializeField] private GameObject painting5TriggerGameObject;
     [SerializeField] private GameObject badEndingGameObject;
 
+    [SerializeField] private GameObject playerGameObject;
+    [SerializeField] private GameObject friendGameObject;
+
     private Dialog _dialog;
     private UserInput _userInput;
+    private FriendController _friendController;
     public int roundNumber = 1;
     private bool isGameOver = false;
 
@@ -33,6 +38,7 @@ public class LieOrTruthGameManager : MonoBehaviour
     void Start()
     {
         _userInput = FindObjectOfType<UserInput>();
+        _friendController = FindObjectOfType<FriendController>();
         _userInput.canMove = false;
         Invoke(nameof(LoadDialog1), 1.0f);
         FindObjectOfType<FriendController>().isFacingUp = true;
@@ -188,15 +194,14 @@ public class LieOrTruthGameManager : MonoBehaviour
     {
         CloseSelectionBox3();
         dialogGameObject.SetActive(true);
-        //if (number == 3)
-        //
-            // Correct answer
+        Destroy(painting2TriggerGameObject);
+        Destroy(painting4TriggerGameObject);
+        if (number == 2)
+        {
+            // Left
             backgroundGameObject.GetComponent<SpriteRenderer>().sprite = spriteBackground4;
-            Destroy(painting3TriggerGameObject);
-            roundNumber++;
-            FindObjectOfType<LieOrTruthFriend>().roundNumber++;
             StartCoroutine(FileReader.GetText(
-                Application.streamingAssetsPath + "/Dialogs/Chapter1LieOrTruthDialog8.json",
+                Application.streamingAssetsPath + "/Dialogs/Chapter1LieOrTruthDialog10.json",
                 jsonData =>
                 {
                     DialogData dialogData = JsonUtility.FromJson<DialogData>(jsonData);
@@ -204,14 +209,16 @@ public class LieOrTruthGameManager : MonoBehaviour
                     {
                         dialogGameObject.SetActive(false);
                         _userInput.canMove = true;
+                        StartCoroutine(MoveLeft());
                     }));
                 }));
        /* }
         else
         {
-            // Wrong answer
+            backgroundGameObject.GetComponent<SpriteRenderer>().sprite = spriteBackground5;
+            // Right
             StartCoroutine(FileReader.GetText(
-                Application.streamingAssetsPath + "/Dialogs/Chapter1LieOrTruthDialog8.json",
+                Application.streamingAssetsPath + "/Dialogs/Chapter1LieOrTruthDialog11.json",
                 jsonData =>
                 {
                     DialogData dialogData = JsonUtility.FromJson<DialogData>(jsonData);
@@ -219,10 +226,8 @@ public class LieOrTruthGameManager : MonoBehaviour
                     {
                         dialogGameObject.SetActive(false);
                         _userInput.canMove = true;
-                        print("Game Over!!!");
 
-                        badEndingGameObject.SetActive(true);
-                        Invoke("ChangeGameStatus", 2.5f);
+                        StartCoroutine(MoveRight());
                     }));
                 }));
         }*/
@@ -237,5 +242,40 @@ public class LieOrTruthGameManager : MonoBehaviour
     {
         _userInput.canMove = true;
         selectionBoxGameObject3.SetActive(false);
+    }
+
+    public IEnumerator MoveLeft()
+    {
+        _userInput.isControlledBySystem = true;
+        _userInput.direction = Vector3.left;
+        yield return new WaitUntil(() => playerGameObject.GetComponent<Rigidbody2D>().position.x < -9.7f);
+        _userInput.direction = Vector3.up;
+        yield return new WaitForSeconds(0.5f);
+        _userInput.direction = Vector3.zero;
+
+
+        _friendController.direction = Vector3.left;
+        yield return new WaitUntil(() => friendGameObject.GetComponent<Rigidbody2D>().position.x < -7.00f);
+        _friendController.direction = Vector3.up;
+        yield return new WaitForSeconds(0.5f);
+        _friendController.direction = Vector3.zero;
+        SceneManager.LoadScene("ToyRoomScene");
+    }
+
+    public IEnumerator MoveRight()
+    {
+        _userInput.isControlledBySystem = true;
+        _userInput.direction = Vector3.right;
+        yield return new WaitUntil(() => { return playerGameObject.GetComponent<Rigidbody2D>().position.x > 2.4f; });
+        _userInput.direction = Vector3.up;
+        yield return new WaitForSeconds(0.5f);
+        _userInput.direction = Vector3.zero;
+
+        _friendController.direction = Vector3.right;
+        yield return new WaitUntil(() => { return friendGameObject.GetComponent<Rigidbody2D>().position.x > -2.59f; });
+        _friendController.direction = Vector3.up;
+        yield return new WaitForSeconds(0.5f);
+        _friendController.direction = Vector3.zero;
+        SceneManager.LoadScene("ToyRoomScene");
     }
 }

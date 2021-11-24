@@ -21,6 +21,10 @@ public class PaintingThree : Interactable
             canInteract = false;
 
             _userInput = FindObjectOfType<UserInput>();
+            _userInput.isFacingUp = true;
+            _userInput.isFacingDown = false;
+            _userInput.isFacingLeft = false;
+            _userInput.isFacingRight = false;
             _userInput.canMove = false;
 
             dialogGameObject.SetActive(true);
