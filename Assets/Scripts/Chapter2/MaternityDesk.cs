@@ -9,6 +9,8 @@ public class MaternityDesk : Interactable
     private UserInput _userInput;
     private HospitalManager manager;
     InventoryManager inventory;
+
+    [SerializeField] private GameObject noteObject;
     private void Awake()
     {
         manager = FindObjectOfType<HospitalManager>();
@@ -28,8 +30,14 @@ public class MaternityDesk : Interactable
             dialogGameObject.SetActive(true);
             _dialog = FindObjectOfType<Dialog>();
 
+            noteObject.SetActive(true);
+
             string fileName;
-            if (!manager.dollPuzzleSolved) fileName = "/Dialogs/DeskNote.json";
+            if (!manager.dollPuzzleSolved)
+            {
+                fileName = "/Dialogs/DeskNote.json";
+                noteObject.SetActive(true);
+            }
             else if (!manager.hasAntibiotic) fileName = "/Dialogs/DeskGet.json";
             else fileName = "/Dialogs/DeskEmpty.json";
 
@@ -46,8 +54,9 @@ public class MaternityDesk : Interactable
 
                            inventory.getAntibiotic();
                            manager.hasAntibiotic = true;
-
+                           
                        }
+                       noteObject.SetActive(false);
                        _userInput.canMove = true;
                    }));
                }));

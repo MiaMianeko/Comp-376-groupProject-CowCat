@@ -39,7 +39,7 @@ public class MorgueBed : Interactable
                    StartCoroutine(_dialog.OutputDialog(dialogData, () =>
                       {
                          dialogGameObject.SetActive(false);
-                          if (manager.knowsHowToCure && !manager.hasLiver)
+                          if (manager.hasScalpel && !manager.hasLiver)
                             puzzles.StartGame();
                           else _userInput.canMove = true;
                       }));

@@ -2,12 +2,27 @@
   "data": [
     {
       "speaker": "Player",
-      "content": "fren is kill. o no",
+      "content": "...",
       "duration": 3.0
     },
     {
       "speaker": "Player",
-      "content": "mehbe hosptial can save, UwU?",
+      "content": "Where am I? Is this... a hospital? Something definitely isn't right... How did I even get here?",
+      "duration": 3.0
+    },
+    {
+      "speaker": "Player",
+      "content": "Oh God! Lev! Are you okay?",
+      "duration": 3.0
+    },
+    {
+      "speaker": "Friend",
+      "content": "Ugh... I don't feel good... What did you do to me, Olivia? Who's Lev?",
+      "duration": 3.0
+    },
+    {
+      "speaker": "Player",
+      "content": "Oh no, he's completely delirious... Hang in there, I'll find something to help you...",
       "duration": 3.0
     }
   ]

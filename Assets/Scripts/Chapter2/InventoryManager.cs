@@ -17,7 +17,7 @@ public class InventoryManager : MonoBehaviour
     [SerializeField] GameObject item7;
     [SerializeField] GameObject item8;
     [SerializeField] GameObject item9;
-
+    [SerializeField] GameObject item10;
 
     [SerializeField] GameObject item1Image;
     [SerializeField] GameObject item2Image;
@@ -28,6 +28,7 @@ public class InventoryManager : MonoBehaviour
     [SerializeField] GameObject item7Image;
     [SerializeField] GameObject item8Image;
     [SerializeField] GameObject item9Image;
+    [SerializeField] GameObject item10Image;
 
     [SerializeField] GameObject dialogGameObject;
 
@@ -264,10 +265,16 @@ public class InventoryManager : MonoBehaviour
 
     public void getLiver()
     {
+        item10.SetActive(false);
         item1.SetActive(true);
         manager.hasLiver = true;
+        manager.hasScalpel = false;
     }
-
+    public void getScalpel()
+    {
+        item10.SetActive(true);
+        manager.hasScalpel = true;
+    }
     public void checkLiver()
     {
         dialogGameObject.SetActive(true);
@@ -315,5 +322,27 @@ public class InventoryManager : MonoBehaviour
                }));
            }));
     }
+    public void checkScalpel()
+    {
+        dialogGameObject.SetActive(true);
+        _dialog = FindObjectOfType<Dialog>();
 
+        string filepath = "/Dialogs/ExamineScalpel.json";
+
+        inventory.SetActive(false);
+        item10Image.SetActive(true);
+
+        StartCoroutine(FileReader.GetText(
+           Application.streamingAssetsPath + filepath,
+           jsonData =>
+           {
+               DialogData dialogData = JsonUtility.FromJson<DialogData>(jsonData);
+               StartCoroutine(_dialog.OutputDialog(dialogData, () =>
+               {
+                   dialogGameObject.SetActive(false);
+                   inventory.SetActive(true);
+                   item10Image.SetActive(false);
+               }));
+           }));
+    }
 }

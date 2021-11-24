@@ -10,7 +10,7 @@ public class HospitalManager : MonoBehaviour
     public bool dollsPickedUp;
     public bool dollPuzzleSolved;
     public bool hasAntibiotic;
-    public bool knowsHowToCure;
+    public bool hasScalpel;
     public bool hasLiver;
     public InventoryManager inventory;
 
