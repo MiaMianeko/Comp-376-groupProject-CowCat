@@ -212,27 +212,27 @@ public class LieOrTruthGameManager : MonoBehaviour
                         StartCoroutine(MoveLeft());
                     }));
                 }));
-       /* }
-        else
-        {
-            backgroundGameObject.GetComponent<SpriteRenderer>().sprite = spriteBackground5;
-            // Right
-            StartCoroutine(FileReader.GetText(
-                Application.streamingAssetsPath + "/Dialogs/Chapter1LieOrTruthDialog11.json",
-                jsonData =>
-                {
-                    DialogData dialogData = JsonUtility.FromJson<DialogData>(jsonData);
-                    StartCoroutine(_dialog.OutputDialog(dialogData, () =>
-                    {
-                        dialogGameObject.SetActive(false);
-                        _userInput.canMove = true;
+            /* }
+             else
+             {
+                 backgroundGameObject.GetComponent<SpriteRenderer>().sprite = spriteBackground5;
+                 // Right
+                 StartCoroutine(FileReader.GetText(
+                     Application.streamingAssetsPath + "/Dialogs/Chapter1LieOrTruthDialog11.json",
+                     jsonData =>
+                     {
+                         DialogData dialogData = JsonUtility.FromJson<DialogData>(jsonData);
+                         StartCoroutine(_dialog.OutputDialog(dialogData, () =>
+                         {
+                             dialogGameObject.SetActive(false);
+                             _userInput.canMove = true;
 
-                        StartCoroutine(MoveRight());
-                    }));
-                }));
-        }*/
+                             StartCoroutine(MoveRight());
+                         }));
+                     }));
+             }*/
+        }
     }
-
     public void ShowSelectionBox3()
     {
         selectionBoxGameObject3.SetActive(true);

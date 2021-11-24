@@ -17,6 +17,8 @@ public class Bug : MonoBehaviour, IPointerClickHandler
     private float maxRotation;
     private float minRotation;
 
+
+
     private bool positiveRotation;
     Vector3 roty;
     // Start is called before the first frame update
