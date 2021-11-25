@@ -13,6 +13,7 @@ public class HospitalManager : MonoBehaviour
     public bool hasAntibiotic;
     public bool hasScalpel;
     public bool hasLiver;
+    public bool machinePuzzleSolved;
     public InventoryManager inventory;
 
 
@@ -59,5 +60,18 @@ public class HospitalManager : MonoBehaviour
     {
         dollsPickedUp = true;
         inventory.pickUpAllDolls();
+    }
+
+    public void endChapter()
+    {
+
+        /*
+        END CHAPTER FUNCTION GOES BRR!!
+        1. Overlay of quick animation showing bottle falling and breaking (multiframes, like story book).
+        2. Player saying she remembers now... This all happened before...
+        3. Friend appears from shadows to taunt player, light flickers as more friends spawn with bloody faces.
+        4. Light flickers to black as final scene is loaded
+
+        */
     }
 }
