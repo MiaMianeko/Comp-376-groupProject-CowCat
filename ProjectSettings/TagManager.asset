@@ -9,6 +9,7 @@ TagManager:
   - Room060
   - Door
   - Interactable
+  - Debug
   layers:
   - Default
   - TransparentFX

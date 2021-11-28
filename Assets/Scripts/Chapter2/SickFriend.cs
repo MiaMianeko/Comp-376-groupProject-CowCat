@@ -36,7 +36,7 @@ public class SickFriend : Interactable
                    StartCoroutine(_dialog.OutputDialog(dialogData, () =>
                    {
                        dialogGameObject.SetActive(false);
-
+                       canInteract = true;
                        _userInput.canMove = true;
                    }));
                }));

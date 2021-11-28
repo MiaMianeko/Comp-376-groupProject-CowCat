@@ -26,51 +26,56 @@ public class MaternityDesk : Interactable
         {
             canInteract = false;
 
+
+
             _userInput = FindObjectOfType<UserInput>();
             _userInput.canMove = false;
 
-            dialogGameObject.SetActive(true);
-            _dialog = FindObjectOfType<Dialog>();
 
-            noteObject.SetActive(true);
+            if (!manager.dollPuzzleSolved) noteObject.SetActive(true);
 
-            string fileName;
-            if (!manager.dollPuzzleSolved)
+            else
             {
-                fileName = "/Dialogs/DeskNote.json";
+
+                dialogGameObject.SetActive(true);
+                _dialog = FindObjectOfType<Dialog>();
+
                 noteObject.SetActive(true);
-            }
-            else if (!manager.hasAntibiotic) fileName = "/Dialogs/DeskGet.json";
-            else fileName = "/Dialogs/DeskEmpty.json";
 
-            StartCoroutine(FileReader.GetText(
-               Application.streamingAssetsPath + fileName,
-               jsonData =>
-               {
-                   DialogData dialogData = JsonUtility.FromJson<DialogData>(jsonData);
-                   StartCoroutine(_dialog.OutputDialog(dialogData, () =>
+                string fileName;
+
+                if (!manager.hasAntibiotic) fileName = "/Dialogs/DeskGet.json";
+                else fileName = "/Dialogs/DeskEmpty.json";
+
+                StartCoroutine(FileReader.GetText(
+                   Application.streamingAssetsPath + fileName,
+                   jsonData =>
                    {
-                       dialogGameObject.SetActive(false);
-                       if (manager.dollPuzzleSolved && !manager.hasAntibiotic)
+                       DialogData dialogData = JsonUtility.FromJson<DialogData>(jsonData);
+                       StartCoroutine(_dialog.OutputDialog(dialogData, () =>
                        {
+                           dialogGameObject.SetActive(false);
+                           if (manager.dollPuzzleSolved && !manager.hasAntibiotic)
+                           {
 
-                           inventory.getAntibiotic();
-                           manager.hasAntibiotic = true;
-                           
-                       }
-                       noteObject.SetActive(false);
-                       if (!manager.dollsSpawned) spawnDolls();
-                       else _userInput.canMove = true;
+                               inventory.getAntibiotic();
+                               manager.hasAntibiotic = true;
+
+                           }
+
+                           _userInput.canMove = true;
+                       }));
                    }));
-               }));
-
+            }
         }
     }
 
     private void spawnDolls()
     {
-
+        manager.dollDrop();
         dollPile.SetActive(true);
+
+        manager.dollsSpawned = true;
 
         _userInput = FindObjectOfType<UserInput>();
         _userInput.canMove = false;
@@ -93,6 +98,13 @@ public class MaternityDesk : Interactable
                        _userInput.canMove = true;
                    }));
                }));
+    }
+
+    public void clickCloseButton()
+    {
+        noteObject.SetActive(false);
+        _userInput.canMove = true;
+        if (!manager.dollsSpawned) spawnDolls();
     }
 }
 

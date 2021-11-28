@@ -48,6 +48,8 @@ public class ScalpelPickup : Interactable
                        this.gameObject.SetActive(false);
 
                        inventory.getScalpel();
+
+                       manager.pickUpScalpel();
                    }));
                }));
 

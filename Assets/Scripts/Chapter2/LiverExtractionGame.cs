@@ -18,6 +18,8 @@ public class LiverExtractionGame : MonoBehaviour
 
     [SerializeField] GameObject dialogObject;
 
+    [SerializeField] Texture2D scalpelCursor;
+
 
     Dialog _dialog;
 
@@ -35,6 +37,7 @@ public class LiverExtractionGame : MonoBehaviour
         _userInput = FindObjectOfType<UserInput>();
         manager = FindObjectOfType<HospitalManager>();
         inventory = FindObjectOfType<InventoryManager>();
+
     }
 
     // Update is called once per frame
@@ -64,12 +67,12 @@ public class LiverExtractionGame : MonoBehaviour
             manager.hasLiver = true;
             
             inventory.getLiver();
+            Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
 
 
-            
-                
 
-                _userInput = FindObjectOfType<UserInput>();
+
+            _userInput = FindObjectOfType<UserInput>();
                 _userInput.canMove = false;
 
                 dialogObject.SetActive(true);
@@ -99,6 +102,6 @@ public class LiverExtractionGame : MonoBehaviour
     {
         round = 1;
         round1Object.SetActive(true);
-
+        Cursor.SetCursor(scalpelCursor, Vector2.zero, CursorMode.ForceSoftware);
     }
 }

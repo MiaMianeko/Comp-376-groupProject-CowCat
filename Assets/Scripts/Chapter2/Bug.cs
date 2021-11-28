@@ -56,6 +56,7 @@ public class Bug : MonoBehaviour, IPointerClickHandler
             if (this.gameObject.transform.rotation.z < minRotation) positiveRotation = true;
         }
 
+
     }
     public void OnPointerClick(PointerEventData data)
     {

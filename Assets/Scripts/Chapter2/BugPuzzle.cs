@@ -10,6 +10,8 @@ public class BugPuzzle : MonoBehaviour
     [SerializeField] Bug bug3;
     [SerializeField] Bug bug4;
 
+    HospitalManager manager;
+
     public bool solved;
 
     bool bug1dead;
@@ -19,7 +21,7 @@ public class BugPuzzle : MonoBehaviour
 
     void Start()
     {
-        
+        manager = FindObjectOfType<HospitalManager>();
     }
 
     // Update is called once per frame
@@ -29,25 +31,26 @@ public class BugPuzzle : MonoBehaviour
         {
             bug1.gameObject.SetActive(false);
             bug1dead = true;
-
+            manager.killCockroach();
 
         }
         if (!bug2dead && bug2.deadBug)
         {
             bug2.gameObject.SetActive(false);
             bug2dead = true;
-
+            manager.killCockroach();
         }
         if (!bug3dead && bug3.deadBug)
         {
             bug3.gameObject.SetActive(false);
             bug3dead = true;
-
+            manager.killCockroach();
         }
         if (!bug4dead && bug4.deadBug)
         {
             bug4.gameObject.SetActive(false);
             bug4dead = true;
+            manager.killCockroach();
 
 
         }

@@ -33,6 +33,7 @@ public class MachineObject : Interactable
             else if (!(manager.hasAntibiotic && manager.hasLiver))
             {
 
+                canInteract = false;
                 dialogGameObject.SetActive(true);
                 _dialog = FindObjectOfType<Dialog>();
 
