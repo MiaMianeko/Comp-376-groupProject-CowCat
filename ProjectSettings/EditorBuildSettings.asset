@@ -41,4 +41,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Chapter2/HospitalScene.unity
     guid: 29b7f831ead9e3e439fca1a6b407348f
+  - enabled: 1
+    path: Assets/Scenes/Chapter1/Hallway4.unity
+    guid: 4074072a83afee949aa3c645801f214e
+  - enabled: 1
+    path: Assets/Scenes/Chapter1/Hallway2.unity
+    guid: a9947b2e76ceebf4c83ba78b1c0dd665
+  - enabled: 1
+    path: Assets/Scenes/Chapter1/Hallway3.unity
+    guid: 5014e91ea8846d54daab343c1c3b86ec
+  - enabled: 1
+    path: Assets/Scenes/Chapter1/ClassroomB060.unity
+    guid: d2c1429d045100d449928ae66a17e3b0
   m_configObjects: {}

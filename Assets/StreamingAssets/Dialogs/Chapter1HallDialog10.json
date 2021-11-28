@@ -1,0 +1,36 @@
+{
+  "data": [
+    {
+      "speaker": "Player",
+      "content": "ENGR 213 Final grade....F....",
+      "duration": 2.0
+    },
+    {
+      "speaker": "Player",
+      "content": "Name.....",
+      "duration": 2.0
+    },
+    {
+      "speaker": "Player",
+      "content": "GeerHong.",
+      "duration": 2.0
+    },
+    {
+      "speaker": "Player",
+      "content": "...",
+      "duration": 2.0
+    },
+    {
+      "speaker": "Player",
+      "content": "I guess I can't leave this place until figure out what's going on.",
+      "duration": 4.0
+    },
+    {
+      "speaker": "Player",
+      "content": "I should go check <color=red>that thing</color> again",
+      "duration": 4.0
+    }
+    
+
+  ]
+}

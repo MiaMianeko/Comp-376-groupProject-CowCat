@@ -1,0 +1,35 @@
+{
+  "data": [
+    {
+      "speaker": "Player",
+      "content": "Hmmmm,I guess I found the cause of that noise, it seems something opened the locker....",
+      "duration": 2.0
+    },
+    {
+      "speaker": "Player",
+      "content": "So much blood inside it, and there are bloody footprints on the floor.",
+      "duration": 2.0
+    },
+    {
+      "speaker": "Player",
+      "content": "Something was hidden in this and went out just now.",
+      "duration": 2.0
+    },
+    {
+      "speaker": "Player",
+      "content": "Those footprints lead to the stairs, what the hell could that be...",
+      "duration": 2.0
+    },
+    {
+      "speaker": "Player",
+      "content": "...",
+      "duration": 2.0
+    },
+    {
+      "speaker": "Player",
+      "content": "Ok, I can't stop right now. Move!",
+      "duration": 2.0
+    }
+    
+  ]
+}

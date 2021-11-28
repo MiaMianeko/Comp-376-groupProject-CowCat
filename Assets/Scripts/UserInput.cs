@@ -45,7 +45,7 @@ public class UserInput : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!canMove) return;
+        
         // Obtain input information (See "Horizontal" and "Vertical" in the Input Manager)
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
@@ -57,8 +57,15 @@ public class UserInput : MonoBehaviour
 
         if (!isControlledBySystem)
         {
-            direction = new Vector3(horizontal, vertical, 0.0f);
-            direction = direction.normalized;
+            if (!canMove) 
+                direction=Vector3.zero;
+            else
+            {
+                direction = new Vector3(horizontal, vertical, 0.0f);
+                direction = direction.normalized;
+            }
+            // direction = new Vector3(horizontal, vertical, 0.0f);
+            // direction = direction.normalized;
         }
 
         // Translate the game object

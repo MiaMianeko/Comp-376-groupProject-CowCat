@@ -1,0 +1,20 @@
+{
+  "data": [
+    {
+      "speaker": "Player",
+      "content": "This is a photograph, but only half of it.",
+      "duration": 2.0
+    },
+    {
+      "speaker": "Player",
+      "content": "This guy looks familiar， I think I've seen him before, maybe in the hallway before the class? I am not sure.",
+      "duration": 2.0
+    },
+    {
+      "speaker": "System",
+      "content": "'Broken photo' has been added to your inventory.",
+      "duration": 2.0
+    }
+    
+]
+}

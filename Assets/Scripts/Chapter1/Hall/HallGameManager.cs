@@ -9,8 +9,7 @@ public class HallGameManager : MonoBehaviour
     [SerializeField] private GameObject dialogGameObject;
     private Dialog _dialog;
     private UserInput _userInput;
-
-
+    
     void Start()
     {
         _userInput = FindObjectOfType<UserInput>();
@@ -39,18 +38,18 @@ public class HallGameManager : MonoBehaviour
             }));
     }
 
-    public void LoadDialog2()
-    {
-        dialogGameObject.SetActive(true);
-        StartCoroutine(FileReader.GetText(Application.streamingAssetsPath + "/Dialogs/Chapter1HallDialog2.json",
-            jsonData =>
-            {
-                DialogData dialogData = JsonUtility.FromJson<DialogData>(jsonData);
-                StartCoroutine(_dialog.OutputDialog(dialogData, () =>
-                {
-                    dialogGameObject.SetActive(false);
-                    _userInput.canMove = true;
-                }));
-            }));
-    }
+    // public void LoadDialog2()
+    // {
+    //     dialogGameObject.SetActive(true);
+    //     StartCoroutine(FileReader.GetText(Application.streamingAssetsPath + "/Dialogs/Chapter1HallDialog2.json",
+    //         jsonData =>
+    //         {
+    //             DialogData dialogData = JsonUtility.FromJson<DialogData>(jsonData);
+    //             StartCoroutine(_dialog.OutputDialog(dialogData, () =>
+    //             {
+    //                 dialogGameObject.SetActive(false);
+    //                 _userInput.canMove = true;
+    //             }));
+    //         }));
+    // }
 }

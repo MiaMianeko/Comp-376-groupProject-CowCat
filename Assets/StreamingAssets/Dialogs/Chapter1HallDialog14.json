@@ -1,0 +1,19 @@
+{
+  "data": [
+    {
+      "speaker": "Player",
+      "content": "Wait, the door is unlocked now, did someone open it?",
+      "duration": 2.0
+    },
+    {
+      "speaker": "Player",
+      "content": "Or...",
+      "duration": 2.0
+    },
+    {
+      "speaker": "Player",
+      "content": "Something.",
+      "duration": 2.0
+    }
+    ]
+}
