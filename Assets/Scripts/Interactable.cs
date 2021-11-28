@@ -6,10 +6,12 @@ public class Interactable : MonoBehaviour
 {
     // Start is called before the first frame update
     public bool canInteract;
-
+    public bool isInteracted;
     public Interactable()
     {
         canInteract = false;
+        isInteracted = false;
+
     }
 
     // Update is called once per frame
@@ -23,7 +25,7 @@ public class Interactable : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.tag == "Player")
+        if (col.tag == "Player" )
         {
             canInteract = true;
         }

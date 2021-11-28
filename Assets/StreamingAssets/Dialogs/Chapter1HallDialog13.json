@@ -1,0 +1,15 @@
+{
+  "data": [
+    {
+      "speaker": "Player",
+      "content": "Oh my god.",
+      "duration": 2.0
+    },
+    {
+      "speaker": "Player",
+      "content": "I must leave this place as soon as possible!",
+      "duration": 2.0
+    }
+
+  ]
+}

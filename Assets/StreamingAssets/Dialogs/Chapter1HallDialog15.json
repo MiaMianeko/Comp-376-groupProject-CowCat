@@ -1,0 +1,14 @@
+{
+  "data": [
+    {
+      "speaker": "Player",
+      "content": "It's a note book with the name 'Dominique' on it.",
+      "duration": 2.0
+    },
+    {
+      "speaker": "Player",
+      "content": "Well, this is a rare name, maybe I can use this name for my characters in future games.",
+      "duration": 2.0
+    }
+  ]
+}
