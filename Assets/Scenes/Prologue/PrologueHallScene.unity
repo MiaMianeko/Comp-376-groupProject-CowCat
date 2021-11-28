@@ -1168,6 +1168,7 @@ GameObject:
   - component: {fileID: 994827020}
   - component: {fileID: 994827021}
   - component: {fileID: 994827022}
+  - component: {fileID: 994827023}
   m_Layer: 0
   m_Name: PrologueHallGameManager
   m_TagString: Untagged
@@ -1300,6 +1301,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &994827023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 994827019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04d96a4cb1ee9d84aba1998254d090d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &997512679
 GameObject:
   m_ObjectHideFlags: 3
@@ -1578,9 +1591,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eaeaa7ccf1d738d4cb12298530161a0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
   canMove: 0
   canInteract: 0
+  isMove: 0
+  isFacingRight: 0
+  isFacingLeft: 0
+  isFacingUp: 0
+  isFacingDown: 0
+  isControlledBySystem: 0
+  direction: {x: 0, y: 0, z: 0}
 --- !u!1 &1065068304
 GameObject:
   m_ObjectHideFlags: 0
@@ -1719,7 +1738,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1088982245}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.883651, y: 0.8800924, z: -102.31}
+  m_LocalPosition: {x: -7.88413, y: 0.8800924, z: -102.31}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2485,6 +2504,8 @@ MonoBehaviour:
   systemSprite: {fileID: 21300000, guid: b1538ea14d346994baac240b3157d185, type: 3}
   sectarySprite: {fileID: 0}
   professorSprite: {fileID: 0}
+  friendSprite: {fileID: 0}
+  unknownFriendSprite: {fileID: 0}
   speakerImage: {fileID: 642721040}
 --- !u!114 &1761319833
 MonoBehaviour:

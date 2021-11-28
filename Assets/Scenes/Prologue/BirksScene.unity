@@ -1212,7 +1212,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: BGM1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6675725359448920173, guid: e60fd02edf2eafd479b39fc61dc2cab7, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e60fd02edf2eafd479b39fc61dc2cab7, type: 3}
 --- !u!1 &1637992070
 GameObject:
@@ -1268,6 +1269,8 @@ MonoBehaviour:
   systemSprite: {fileID: 21300000, guid: b1538ea14d346994baac240b3157d185, type: 3}
   sectarySprite: {fileID: 21300000, guid: cd1339fe1b995344482d2d7baef835c6, type: 3}
   professorSprite: {fileID: 0}
+  friendSprite: {fileID: 0}
+  unknownFriendSprite: {fileID: 0}
   speakerImage: {fileID: 1497805684}
 --- !u!114 &1637992073
 MonoBehaviour:
@@ -1346,7 +1349,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canMove: 0
   isTalked: 0
-  isInteract: 0
+  isFacingUp: 0
   canTakePicture: 0
   canTalk: 0
   speed: 4
@@ -1726,6 +1729,7 @@ GameObject:
   - component: {fileID: 2037123399}
   - component: {fileID: 2037123398}
   - component: {fileID: 2037123400}
+  - component: {fileID: 2037123401}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1861,6 +1865,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &2037123401
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2037123397}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04d96a4cb1ee9d84aba1998254d090d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2105676400
 GameObject:
   m_ObjectHideFlags: 0
