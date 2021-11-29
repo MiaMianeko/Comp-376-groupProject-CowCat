@@ -40,7 +40,7 @@ public class MaternityDesk : Interactable
                 dialogGameObject.SetActive(true);
                 _dialog = FindObjectOfType<Dialog>();
 
-                noteObject.SetActive(true);
+
 
                 string fileName;
 

@@ -1,0 +1,29 @@
+{
+  "data": [
+    {
+      "speaker": "EvilFriend",
+      "content": "We warned you!",
+      "duration": 3.0
+    },
+    {
+      "speaker": "EvilFriend",
+      "content": "You said you wouldn't!!",
+      "duration": 3.0
+    },
+    {
+      "speaker": "EvilFriend",
+      "content": "You knew it wasn't safe!!",
+      "duration": 3.0
+    },
+    {
+      "speaker": "Player",
+      "content": "It... it wasn't my f...",
+      "duration": 3.0
+    },
+    {
+      "speaker": "EvilFriend",
+      "content": "IT WAS ALL YOUR FAULT",
+      "duration": 3.0
+    }
+  ]
+}

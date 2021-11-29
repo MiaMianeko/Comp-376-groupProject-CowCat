@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class HospitalManager : MonoBehaviour
 {
@@ -15,7 +16,16 @@ public class HospitalManager : MonoBehaviour
     public bool hasLiver;
     public bool machinePuzzleSolved;
     public InventoryManager inventory;
+
     [SerializeField] GameObject flashlight;
+
+    [SerializeField] GameObject endPanel1;
+    [SerializeField] GameObject endPanel2;
+    [SerializeField] GameObject endPanel3;
+    [SerializeField] GameObject endPanel4;
+
+    bool endDialogDone;
+
     [SerializeField] GameObject endSpawnObject1;
     [SerializeField] GameObject endSpawnObject2;
     [SerializeField] GameObject endSpawnObject3;
@@ -29,6 +39,10 @@ public class HospitalManager : MonoBehaviour
     [SerializeField] AudioClip cockroachKill;
     [SerializeField] AudioClip scalpelPickUp;
     [SerializeField] AudioClip dollSpawn;
+    [SerializeField] AudioClip heartbeatSound;
+    [SerializeField] AudioClip bottleBreak;
+
+
     public bool atCrib;
     public int cribNumber;
 
@@ -49,65 +63,139 @@ public class HospitalManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (endTriggered)
+        if (endTriggered && endDialogDone)
         {
             switch (endStage)
             {
-                case 0: 
-                    flashlight.SetActive(false);
+
+                case 0:
+                    if (Time.time > endTriggeredTime + 1f)
+                    {
+                        endPanel1.SetActive(false);
+                        endPanel2.SetActive(true);
+                        audio.PlayOneShot(heartbeatSound);
+                        endTriggeredTime = Time.time;
+                        endStage = 1;
+                    }
+                    break;
+                case 1:
+                    if (Time.time > endTriggeredTime + 1f)
+                    {
+                        endPanel2.SetActive(false);
+                        endPanel3.SetActive(true);
+                        audio.PlayOneShot(heartbeatSound);
+                        endTriggeredTime = Time.time;
+                        endStage = 2;
+                    }
+                    break;
+                case 2:
+                    if (Time.time > endTriggeredTime + 1f)
+                    {
+                        endPanel3.SetActive(false);
+                        endPanel4.SetActive(true);
+                        audio.PlayOneShot(bottleBreak);
+                        endTriggeredTime = Time.time;
+                        endStage = 3;
+                    }
+                    break;
+
+                case 3:
+                    if (Time.time > endTriggeredTime + 1f)
+                    {
+                        endPanel3.SetActive(false);
+                        endPanel4.SetActive(true);
+                        audio.PlayOneShot(bottleBreak);
+                        endTriggeredTime = Time.time;
+                        endStage = 4;
+                    }
+                    break;
+                case 4:
+                    if (Time.time > endTriggeredTime + 1f)
+                    {
+                        endPanel4.SetActive(false);
+                        endDialogDone = false;
+                        playEndGameDialog("EndStage4.json");
+                    }
+                    break;
+                case 14:
+                    endTriggeredTime = Time.time;
+                    endStage = 5;
+                    break;
+                case 5:
+                    if (Time.time > endTriggeredTime + 0.5f)
+                    {
+                        flashlight.SetActive(false);
+                        endStage = 6;
+                        endTriggeredTime = Time.time;
+                    }
+                    break;
+                case 6:
                     if (Time.time > endTriggeredTime + 0.5f)
                     {
                         flashlight.SetActive(true);
                         endSpawnObject1.SetActive(true);
-                        endStage = 1;
-                        endTriggeredTime = Time.time;
+                        endDialogDone = false;
+                        playEndGameDialog("EndStage6.json");
                     }
                     break;
-                case 1:
+                case 16:
+                    endTriggeredTime = Time.time;
+                    endStage = 7;
+                    break;
+                case 7:
                     if (Time.time > endTriggeredTime + 1.0f)
                     {
                         flashlight.SetActive(false);
                         endSpawnObject1.SetActive(false);
-                        endStage = 2;
+                        endStage = 8;
                         endTriggeredTime = Time.time;
                     }
                     break;
-                case 2:
+                case 8:
                     if (Time.time > endTriggeredTime + 0.5f)
                     {
                         flashlight.SetActive(true);
                         endSpawnObject2.SetActive(true);
-                        endStage = 3;
-                        endTriggeredTime = Time.time;
+                        endDialogDone = false;
+                        playEndGameDialog("EndStage8.json");
                     }
                     break;
-                case 3:
+                case 18:
+                    endTriggeredTime = Time.time;
+                    endStage = 9;
+                    break;
+                case 9:
                     if (Time.time > endTriggeredTime + 1.0f)
                     {
                         flashlight.SetActive(false);
                         endSpawnObject2.SetActive(false);
-                        endStage = 4;
+                        endStage = 10;
                         endTriggeredTime = Time.time;
+
                     }
                     break;
-                case 4:
+                case 10:
                     if (Time.time > endTriggeredTime + 0.5f)
                     {
                         flashlight.SetActive(true);
                         endSpawnObject3.SetActive(true);
-                        endStage = 5;
+                        endStage = 11;
                         endTriggeredTime = Time.time;
                     }
                     break;
-                case 5:
-                    if (Time.time > endTriggeredTime + 1.0f)
+                case 11:
+                    if (Time.time > endTriggeredTime + 1f)
                     {
                         flashlight.SetActive(false);
-                        
-
+                        endStage = 12;
                     }
                     break;
-
+                case 12:
+                    if (Time.time > endTriggeredTime + 0.5f)
+                    {
+                       // SceneManager.LoadScene("");
+                    }
+                    break;
             }
 
         }
@@ -153,6 +241,11 @@ public class HospitalManager : MonoBehaviour
         endTriggered = true;
         endTriggeredTime = Time.time;
 
+        audio.PlayOneShot(heartbeatSound);
+        endPanel1.SetActive(true);
+        _userInput.canMove = false;
+
+        endDialogDone = true;
         /*
         END CHAPTER FUNCTION GOES BRR!!
         1. Overlay of quick animation showing bottle falling and breaking (multiframes, like story book).
@@ -162,4 +255,22 @@ public class HospitalManager : MonoBehaviour
 
         */
     }
+    private void playEndGameDialog(string filename)
+    {
+        dialogGameObject.SetActive(true);
+        _dialog = FindObjectOfType<Dialog>();
+        StartCoroutine(FileReader.GetText(Application.streamingAssetsPath + "/Dialogs/" + filename,
+            jsonData =>
+            {
+                DialogData dialogData = JsonUtility.FromJson<DialogData>(jsonData);
+                StartCoroutine(_dialog.OutputDialog(dialogData, () =>
+                {
+                    dialogGameObject.SetActive(false);
+                    endStage +=10 ;
+                    endDialogDone = true;
+                }));
+            }));
+    }
 }
+
+

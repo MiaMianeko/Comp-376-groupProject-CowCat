@@ -13,6 +13,7 @@ public class Dialog : MonoBehaviour
     [SerializeField] private Sprite professorSprite;
     [SerializeField] private Sprite friendSprite;
     [SerializeField] private Sprite unknownFriendSprite;
+    [SerializeField] private Sprite evilFriendSprite;
     [SerializeField] private Image speakerImage;
 
     void Awake()
@@ -62,6 +63,9 @@ public class Dialog : MonoBehaviour
                 break;
             case "???":
                 speakerImage.sprite = unknownFriendSprite;
+                break;
+            case "EvilFriend":
+                speakerImage.sprite = evilFriendSprite;
                 break;
         }
     }

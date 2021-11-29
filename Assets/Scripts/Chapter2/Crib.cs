@@ -16,7 +16,7 @@ public class Crib : Interactable
     private InventoryManager inventoryManager;
     private HospitalManager manager;
 
-    
+    AudioSource crySound;
 
     [SerializeField] Sprite doll1;
     [SerializeField] Sprite doll2;
@@ -37,6 +37,7 @@ public class Crib : Interactable
         inventoryManager = FindObjectOfType<InventoryManager>();
         currentDoll = -1;
         spriteRenderer = spriteObject.GetComponent<SpriteRenderer>();
+        crySound = GetComponent<AudioSource>();
 
     }
 
@@ -147,5 +148,13 @@ public class Crib : Interactable
         if (currentDoll == dollNeeded) correctDoll = true;
     }
 
-    
+    public void playSound(float delay)
+    {
+        crySound.PlayDelayed(delay);
+    }
+    public void stopSound()
+    {
+        crySound.Stop();
+    }
+
 }

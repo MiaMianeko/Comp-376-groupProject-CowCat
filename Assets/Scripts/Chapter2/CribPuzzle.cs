@@ -16,6 +16,10 @@ public class CribPuzzle : MonoBehaviour
 
     [SerializeField] GameObject dialogGameObject;
 
+    InventoryManager inventory;
+
+    AudioSource drawerUnlock;
+
     UserInput _userInput;
     Dialog _dialog;
     public bool solved;
@@ -24,6 +28,8 @@ public class CribPuzzle : MonoBehaviour
     {
         _userInput = FindObjectOfType<UserInput>();
         manager = FindObjectOfType<HospitalManager>();
+        inventory = FindObjectOfType<InventoryManager>();
+        drawerUnlock = GetComponent<AudioSource>();
        
     }
 
@@ -35,11 +41,14 @@ public class CribPuzzle : MonoBehaviour
             solved = true;
             manager.dollPuzzleSolved = true;
 
+            initiateCry();
 
             _userInput.canMove = false;
 
             dialogGameObject.SetActive(true);
             _dialog = FindObjectOfType<Dialog>();
+
+
 
 
 
@@ -52,11 +61,37 @@ public class CribPuzzle : MonoBehaviour
                    {
                        dialogGameObject.SetActive(false);
 
-
+                       stopCry();
                        _userInput.canMove = true;
                    }));
                }));
 
         }
+    }
+    private void initiateCry()
+    {
+        inventory.changeBGMVolume(0.2f);
+        crib1.playSound(0f);
+
+        crib3.playSound(0.05f);
+
+        crib5.playSound(0.1f);
+
+        crib7.playSound(0.15f);
+
+
+    }
+    private void stopCry()
+    {
+
+        crib1.stopSound();
+        crib2.stopSound();
+        crib3.stopSound();
+        crib4.stopSound();
+        crib5.stopSound();
+        crib6.stopSound();
+        crib7.stopSound();
+        drawerUnlock.Play();
+        inventory.changeBGMVolume(0.6f);
     }
 }

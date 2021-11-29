@@ -40,12 +40,15 @@ public class InventoryManager : MonoBehaviour
     [SerializeField] Crib crib6;
     [SerializeField] Crib crib7;
 
+    AudioSource bgm;
+
     HospitalManager manager;
     Dialog _dialog;
 
     // Start is called before the first frame update
     void Start()
     {
+        bgm = GetComponent<AudioSource>();
         manager = FindObjectOfType<HospitalManager>();
         _dialog = FindObjectOfType<Dialog>();
     }
@@ -345,4 +348,10 @@ public class InventoryManager : MonoBehaviour
                }));
            }));
     }
+
+    public void changeBGMVolume(float volume)
+    {
+        bgm.volume = volume;
+    }
+
 }
