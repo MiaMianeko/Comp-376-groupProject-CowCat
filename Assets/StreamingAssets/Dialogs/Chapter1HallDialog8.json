@@ -1,23 +1,19 @@
 {
   "data": [
+
     {
       "speaker": "Player",
-      "content": "????????",
+      "content": "The same floor again??",
       "duration": 2.0
     },
     {
       "speaker": "Player",
-      "content": "How is it possible?????",
+      "content": "Why can't I leave?",
       "duration": 2.0
     },
     {
       "speaker": "Player",
-      "content": "Why I am still in the building????",
-      "duration": 2.0
-    },
-    {
-      "speaker": "Player",
-      "content": "Wait, is this even the same floor? I'd better check it....",
+      "content": "I should make sure nothing else changed on this floor...",
       "duration": 2.0
     }
     

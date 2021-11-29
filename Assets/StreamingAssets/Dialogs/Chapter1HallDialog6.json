@@ -2,17 +2,22 @@
   "data": [
     {
       "speaker": "Player",
-      "content": "Someone left his grade letter here....",
+      "content": "There's a letter here...",
       "duration": 3.0
     },
     {
       "speaker": "Player",
-      "content": "ENGR 213 final grade: F, name: GeerHong.",
+      "content": "'Mr Hong, we are unable to change your grade for ENGR 213, at this time the F will remain unless you choose to retake the class.'",
       "duration": 3.0
     },
     {
       "speaker": "Player",
-      "content": "R.I.P this poor unlucky guy...",
+      "content": "Engr 213? Man what an idiot... That class is a joke!",
+      "duration": 3.0
+    },
+    {
+      "speaker": "Player",
+      "content": "Wait what did I just say?",
       "duration": 3.0
     }
     
