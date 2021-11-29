@@ -26,7 +26,9 @@ public class LieOrTruthFriend : Interactable
                 case 1:
                     // Introduction
                     FindObjectOfType<FriendController>().isFacingUp = false;
-                    FindObjectOfType<FriendController>().isFacingRight = true;
+                    if (transform.position.x < _userInput.transform.position.x)
+                        FindObjectOfType<FriendController>().isFacingRight = true;
+                    else FindObjectOfType<FriendController>().isFacingLeft = true;
                     StartCoroutine(FileReader.GetText(
                         Application.streamingAssetsPath + "/Dialogs/Chapter1LieOrTruthDialog2.json",
                         jsonData =>
@@ -39,6 +41,7 @@ public class LieOrTruthFriend : Interactable
                                 roundNumber++;
                                 FindObjectOfType<LieOrTruthGameManager>().ReleasePaintingBlock();
                                 FindObjectOfType<FriendController>().isFacingRight = false;
+                                FindObjectOfType<FriendController>().isFacingLeft = false;
                                 FindObjectOfType<FriendController>().isFacingDown = true;
                             }));
                         }));
