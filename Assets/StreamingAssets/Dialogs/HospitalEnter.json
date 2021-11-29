@@ -12,6 +12,11 @@
     },
     {
       "speaker": "Player",
+      "content": "I just wished to be in a hospital... This is too convenient... Did I bring us here?",
+      "duration": 3.0
+    },
+    {
+      "speaker": "Player",
       "content": "Oh God! Lev! Are you okay?",
       "duration": 3.0
     },
