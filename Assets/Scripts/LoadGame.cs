@@ -25,10 +25,34 @@ public class LoadGame : MonoBehaviour
     private int chopEnd;
     void Start()
     {
-        save1 = SaveGameData.CreateFromJSON(File.ReadAllText(Application.streamingAssetsPath + "/SaveData1.json"));
-        save2 = SaveGameData.CreateFromJSON(File.ReadAllText(Application.streamingAssetsPath + "/SaveData2.json"));
-        save3 = SaveGameData.CreateFromJSON(File.ReadAllText(Application.streamingAssetsPath + "/SaveData3.json"));
-        
+        try
+        {
+            save1 = SaveGameData.CreateFromJSON(File.ReadAllText(Application.streamingAssetsPath + "/SaveData1.json"));
+        }
+        catch (Exception)
+        {
+            save1 = new SaveGameData();
+            save1.scene = "";
+        }
+        try
+        {
+            save2 = SaveGameData.CreateFromJSON(File.ReadAllText(Application.streamingAssetsPath + "/SaveData2.json"));
+        }
+        catch (Exception)
+        {
+            save2 = new SaveGameData();
+            save2.scene = "";
+        }
+        try
+        {
+            save3 = SaveGameData.CreateFromJSON(File.ReadAllText(Application.streamingAssetsPath + "/SaveData3.json"));
+
+        }
+        catch (Exception)
+        {
+            save3 = new SaveGameData();
+            save3.scene = "";
+        }
         if (save1.getScene() == "") save1String = "Save 1: No Data";
         else
         {
