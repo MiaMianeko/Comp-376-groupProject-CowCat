@@ -36,7 +36,7 @@ public class ToyRoomGameManager : MonoBehaviour
         {
             progress = ToyRoomProgress.CreateFromJSON(File.ReadAllText(Application.streamingAssetsPath + "/ProgressData.json"));
         }
-        catch (Exception e)
+        catch (Exception)
         {
             progress = new ToyRoomProgress();
         }
