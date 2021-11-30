@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class ChapterOneClassRoomGameManager : MonoBehaviour
 {
-    private UserInput _userInput;
+    private UserController _userInput;
 
     private Dialog _dialog;
     [SerializeField] private GameObject dialogGameObject;
@@ -14,7 +14,7 @@ public class ChapterOneClassRoomGameManager : MonoBehaviour
 
     void Start()
     {
-        _userInput = FindObjectOfType<UserInput>();
+        _userInput = FindObjectOfType<UserController>();
         _userInput.canMove = false;
         Invoke(nameof(LoadDialog1), 1.0f);
     }
@@ -156,6 +156,6 @@ public class ChapterOneClassRoomGameManager : MonoBehaviour
 
     public void SwitchToNextScene()
     {
-        SceneManager.LoadScene("Scenes/Chapter1/HallScene");
+        SceneManager.LoadScene("Hallway1");
     }
 }

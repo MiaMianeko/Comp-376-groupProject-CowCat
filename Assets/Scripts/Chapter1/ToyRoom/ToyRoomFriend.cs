@@ -8,12 +8,12 @@ public class ToyRoomFriend : Interactable
     [SerializeField] private GameObject dialogGameObject;
     [SerializeField] private GameObject selectionBoxObject;
     private Dialog _dialog;
-    private UserInput _userInput;
+    private UserController _userInput;
     ToyRoomGameManager manager;
 
     private void Start()
     {
-        _userInput = FindObjectOfType<UserInput>();
+        _userInput = FindObjectOfType<UserController>();
         manager = FindObjectOfType<ToyRoomGameManager>();
     }
 

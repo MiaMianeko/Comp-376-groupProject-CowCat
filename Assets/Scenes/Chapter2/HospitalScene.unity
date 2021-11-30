@@ -5448,6 +5448,7 @@ GameObject:
   - component: {fileID: 487339069}
   - component: {fileID: 487339070}
   - component: {fileID: 487339071}
+  - component: {fileID: 487339072}
   m_Layer: 0
   m_Name: HospitalManager
   m_TagString: Untagged
@@ -5602,6 +5603,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &487339072
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 487339068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04d96a4cb1ee9d84aba1998254d090d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &488570012
 GameObject:
   m_ObjectHideFlags: 0

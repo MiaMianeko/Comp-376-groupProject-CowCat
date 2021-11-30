@@ -19,8 +19,8 @@ public class SaveGame : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
     }
+
     private void Update()
     {
         if (gameSavedMessage1.activeSelf && Time.time > save1time + 2f) gameSavedMessage1.SetActive(false);
@@ -45,6 +45,7 @@ public class SaveGame : MonoBehaviour
         gameSavedMessage1.SetActive(true);
         save1time = Time.time;
     }
+
     public void saveGame2()
     {
         SaveGameData save = new SaveGameData();
@@ -61,6 +62,7 @@ public class SaveGame : MonoBehaviour
         gameSavedMessage2.SetActive(true);
         save2time = Time.time;
     }
+
     public void saveGame3()
     {
         SaveGameData save = new SaveGameData();
@@ -77,5 +79,4 @@ public class SaveGame : MonoBehaviour
         gameSavedMessage3.SetActive(true);
         save3time = Time.time;
     }
-
 }

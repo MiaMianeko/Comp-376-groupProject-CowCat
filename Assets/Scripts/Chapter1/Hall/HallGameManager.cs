@@ -8,11 +8,11 @@ public class HallGameManager : MonoBehaviour
     [SerializeField] public GameObject playerGameObject;
     [SerializeField] private GameObject dialogGameObject;
     private Dialog _dialog;
-    private UserInput _userInput;
-    
+    private UserController _userInput;
+
     void Start()
     {
-        _userInput = FindObjectOfType<UserInput>();
+        _userInput = FindObjectOfType<UserController>();
         _userInput.canMove = false;
         Invoke(nameof(LoadDialog1), 1.0f);
     }

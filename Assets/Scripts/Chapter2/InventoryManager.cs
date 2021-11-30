@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class InventoryManager : MonoBehaviour
 {
-
-    [SerializeField] UserInput player;
+    [SerializeField] UserController player;
     bool isOpen;
     [SerializeField] GameObject inventory;
     [SerializeField] GameObject item1;
@@ -72,6 +71,7 @@ public class InventoryManager : MonoBehaviour
         inventory.SetActive(false);
         manager.atCrib = false;
     }
+
     public void pickUpAllDolls()
     {
         item3.SetActive(true);
@@ -81,7 +81,6 @@ public class InventoryManager : MonoBehaviour
         item7.SetActive(true);
         item8.SetActive(true);
         item9.SetActive(true);
-
     }
 
     public void pickUpDoll(int d)
@@ -116,8 +115,6 @@ public class InventoryManager : MonoBehaviour
 
     public void clickOnDoll(int dollNumber)
     {
-
-
         if (!manager.atCrib)
         {
             switch (dollNumber)
@@ -158,45 +155,44 @@ public class InventoryManager : MonoBehaviour
             Debug.Log(filepath);
 
             StartCoroutine(FileReader.GetText(
-               Application.streamingAssetsPath + filepath,
-               jsonData =>
-               {
-                   DialogData dialogData = JsonUtility.FromJson<DialogData>(jsonData);
-                   StartCoroutine(_dialog.OutputDialog(dialogData, () =>
-                   {
-                       dialogGameObject.SetActive(false);
+                Application.streamingAssetsPath + filepath,
+                jsonData =>
+                {
+                    DialogData dialogData = JsonUtility.FromJson<DialogData>(jsonData);
+                    StartCoroutine(_dialog.OutputDialog(dialogData, () =>
+                    {
+                        dialogGameObject.SetActive(false);
 
-                       switch (dollNumber)
-                       {
-                           case 1:
-                               item8Image.SetActive(false);
-                               break;
-                           case 2:
-                               item9Image.SetActive(false);
-                               break;
-                           case 3:
-                               item4Image.SetActive(false);
-                               break;
-                           case 4:
-                               item5Image.SetActive(false);
-                               break;
-                           case 5:
-                               item7Image.SetActive(false);
-                               break;
-                           case 6:
-                               item6Image.SetActive(false);
-                               break;
-                           case 7:
-                               item3Image.SetActive(false);
-                               break;
-                           default:
-                               break;
-                       }
-                       inventory.SetActive(true);
+                        switch (dollNumber)
+                        {
+                            case 1:
+                                item8Image.SetActive(false);
+                                break;
+                            case 2:
+                                item9Image.SetActive(false);
+                                break;
+                            case 3:
+                                item4Image.SetActive(false);
+                                break;
+                            case 4:
+                                item5Image.SetActive(false);
+                                break;
+                            case 5:
+                                item7Image.SetActive(false);
+                                break;
+                            case 6:
+                                item6Image.SetActive(false);
+                                break;
+                            case 7:
+                                item3Image.SetActive(false);
+                                break;
+                            default:
+                                break;
+                        }
 
-                   }));
-               }));
-
+                        inventory.SetActive(true);
+                    }));
+                }));
         }
         else
         {
@@ -252,8 +248,8 @@ public class InventoryManager : MonoBehaviour
                 case 7:
                     crib7.changeSprite(dollNumber);
                     break;
-
             }
+
             inventory.SetActive(false);
             player.canMove = true;
             manager.atCrib = false;
@@ -273,11 +269,13 @@ public class InventoryManager : MonoBehaviour
         manager.hasLiver = true;
         manager.hasScalpel = false;
     }
+
     public void getScalpel()
     {
         item10.SetActive(true);
         manager.hasScalpel = true;
     }
+
     public void checkLiver()
     {
         dialogGameObject.SetActive(true);
@@ -289,17 +287,17 @@ public class InventoryManager : MonoBehaviour
         item1Image.SetActive(true);
 
         StartCoroutine(FileReader.GetText(
-           Application.streamingAssetsPath + filepath,
-           jsonData =>
-           {
-               DialogData dialogData = JsonUtility.FromJson<DialogData>(jsonData);
-               StartCoroutine(_dialog.OutputDialog(dialogData, () =>
-               {
-                   dialogGameObject.SetActive(false);
-                   inventory.SetActive(true);
-                   item1Image.SetActive(false);
-               }));
-           }));
+            Application.streamingAssetsPath + filepath,
+            jsonData =>
+            {
+                DialogData dialogData = JsonUtility.FromJson<DialogData>(jsonData);
+                StartCoroutine(_dialog.OutputDialog(dialogData, () =>
+                {
+                    dialogGameObject.SetActive(false);
+                    inventory.SetActive(true);
+                    item1Image.SetActive(false);
+                }));
+            }));
     }
 
     public void checkAntibiotic()
@@ -313,18 +311,19 @@ public class InventoryManager : MonoBehaviour
         item2Image.SetActive(true);
 
         StartCoroutine(FileReader.GetText(
-           Application.streamingAssetsPath + filepath,
-           jsonData =>
-           {
-               DialogData dialogData = JsonUtility.FromJson<DialogData>(jsonData);
-               StartCoroutine(_dialog.OutputDialog(dialogData, () =>
-               {
-                   dialogGameObject.SetActive(false);
-                   inventory.SetActive(true);
-                   item2Image.SetActive(false);
-               }));
-           }));
+            Application.streamingAssetsPath + filepath,
+            jsonData =>
+            {
+                DialogData dialogData = JsonUtility.FromJson<DialogData>(jsonData);
+                StartCoroutine(_dialog.OutputDialog(dialogData, () =>
+                {
+                    dialogGameObject.SetActive(false);
+                    inventory.SetActive(true);
+                    item2Image.SetActive(false);
+                }));
+            }));
     }
+
     public void checkScalpel()
     {
         dialogGameObject.SetActive(true);
@@ -336,22 +335,21 @@ public class InventoryManager : MonoBehaviour
         item10Image.SetActive(true);
 
         StartCoroutine(FileReader.GetText(
-           Application.streamingAssetsPath + filepath,
-           jsonData =>
-           {
-               DialogData dialogData = JsonUtility.FromJson<DialogData>(jsonData);
-               StartCoroutine(_dialog.OutputDialog(dialogData, () =>
-               {
-                   dialogGameObject.SetActive(false);
-                   inventory.SetActive(true);
-                   item10Image.SetActive(false);
-               }));
-           }));
+            Application.streamingAssetsPath + filepath,
+            jsonData =>
+            {
+                DialogData dialogData = JsonUtility.FromJson<DialogData>(jsonData);
+                StartCoroutine(_dialog.OutputDialog(dialogData, () =>
+                {
+                    dialogGameObject.SetActive(false);
+                    inventory.SetActive(true);
+                    item10Image.SetActive(false);
+                }));
+            }));
     }
 
     public void changeBGMVolume(float volume)
     {
         bgm.volume = volume;
     }
-
 }

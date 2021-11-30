@@ -5,14 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
-
     public bool menuIsActive;
 
     [SerializeField] private GameObject saveMenu;
     [SerializeField] private GameObject quitConfirm;
     [SerializeField] private GameObject mainButtons;
     [SerializeField] private GameObject menu;
-    [SerializeField] private UserInput player;
+    [SerializeField] private UserController player;
 
 
     // Start is called before the first frame update
@@ -29,21 +28,15 @@ public class PauseMenu : MonoBehaviour
     {
         if (player.canMove && !menuIsActive && Input.GetKeyDown(KeyCode.Escape))
         {
-
             pauseGame();
         }
-        else if (menuIsActive && Input.GetKeyDown(KeyCode.Escape))clickResumeButton();
-
+        else if (menuIsActive && Input.GetKeyDown(KeyCode.Escape)) clickResumeButton();
     }
+
     public void pauseGame()
     {
-
-
         menu.SetActive(true);
-
-
         menuIsActive = true;
-
         mainButtons.SetActive(true);
         quitConfirm.SetActive(false);
         saveMenu.SetActive(false);
@@ -56,8 +49,8 @@ public class PauseMenu : MonoBehaviour
         mainButtons.SetActive(false);
 
         quitConfirm.SetActive(false);
-
     }
+
     public void clickQuitButton()
     {
         saveMenu.SetActive(false);
@@ -65,8 +58,8 @@ public class PauseMenu : MonoBehaviour
         mainButtons.SetActive(false);
 
         quitConfirm.SetActive(true);
-
     }
+
     public void clickBackButton()
     {
         saveMenu.SetActive(false);
@@ -74,13 +67,13 @@ public class PauseMenu : MonoBehaviour
         mainButtons.SetActive(true);
 
         quitConfirm.SetActive(false);
-
     }
+
     public void clickQuitButtonConfirm()
     {
-
         SceneManager.LoadScene("Scenes/MainMenu");
     }
+
     public void clickResumeButton()
     {
         menuIsActive = false;
@@ -89,6 +82,5 @@ public class PauseMenu : MonoBehaviour
         mainButtons.SetActive(false);
 
         menu.gameObject.SetActive(false);
-
     }
 }

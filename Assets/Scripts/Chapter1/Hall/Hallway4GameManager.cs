@@ -5,22 +5,21 @@ using UnityEngine;
 public class Hallway4GameManager : MonoBehaviour
 {
     [SerializeField] private GameObject dialogGameObject;
-    private  UserInput _userInput;
+    private UserController _userInput;
     private Dialog _dialog;
-    
+
     // Start is called before the first frame update
     void Start()
     {
-        _userInput = FindObjectOfType<UserInput>();
-        
-        _userInput.canMove =false;
+        _userInput = FindObjectOfType<UserController>();
+
+        _userInput.canMove = false;
         LoadDialogue19();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
     }
 
     public void LoadDialogue19()
@@ -28,7 +27,7 @@ public class Hallway4GameManager : MonoBehaviour
         _userInput.canMove = false;
         dialogGameObject.SetActive(true);
         _dialog = FindObjectOfType<Dialog>();
-        _userInput = FindObjectOfType<UserInput>();
+        _userInput = FindObjectOfType<UserController>();
         dialogGameObject.SetActive(true);
         StartCoroutine(FileReader.GetText(Application.streamingAssetsPath + "/Dialogs/Chapter1HallDialog19.json",
             jsonData =>
@@ -36,7 +35,6 @@ public class Hallway4GameManager : MonoBehaviour
                 DialogData dialogData = JsonUtility.FromJson<DialogData>(jsonData);
                 StartCoroutine(_dialog.OutputDialog(dialogData, () =>
                 {
-
                     dialogGameObject.SetActive(false);
                     _userInput.canMove = true;
                 }));

@@ -5,7 +5,7 @@ using UnityEngine;
 public class MachineObject : Interactable
 {
 
-    UserInput player;
+    UserController player;
     HospitalManager manager;
     [SerializeField] GameObject machinePuzzle;
     Dialog _dialog;
@@ -15,7 +15,7 @@ public class MachineObject : Interactable
     void Start()
     {
         manager = FindObjectOfType<HospitalManager>();
-        player = FindObjectOfType<UserInput>();
+        player = FindObjectOfType<UserController>();
 
     }
 

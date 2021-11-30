@@ -56,7 +56,7 @@ public class Door : MonoBehaviour
 
     private void ShowPinPad()
     {
-        FindObjectOfType<UserInput>().canMove = false;
+        FindObjectOfType<UserController>().canMove = false;
         pinPadGameObject.SetActive(true);
     }
 

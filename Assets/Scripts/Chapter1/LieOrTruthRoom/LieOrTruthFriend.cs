@@ -6,7 +6,7 @@ public class LieOrTruthFriend : Interactable
 {
     [SerializeField] private GameObject dialogGameObject;
     private Dialog _dialog;
-    private UserInput _userInput;
+    private UserController _userInput;
     public int roundNumber = 1;
 
     void Update()
@@ -15,7 +15,7 @@ public class LieOrTruthFriend : Interactable
         {
             canInteract = false;
 
-            _userInput = FindObjectOfType<UserInput>();
+            _userInput = FindObjectOfType<UserController>();
             _userInput.canMove = false;
 
             dialogGameObject.SetActive(true);

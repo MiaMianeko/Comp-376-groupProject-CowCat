@@ -10,7 +10,7 @@ public class ToyRoomGameManager : MonoBehaviour
     [SerializeField] private GameObject friendGameObject;
     [SerializeField] private GameObject playerGameObject;
     private FriendController _friend;
-    private UserInput _player;
+    private UserController _player;
 
     [SerializeField] private GameObject dialogGameObject;
     [SerializeField] private GameObject selectionBoxObject;
@@ -29,7 +29,7 @@ public class ToyRoomGameManager : MonoBehaviour
     void Start()
     {
         _friend = FindObjectOfType<FriendController>();
-        _player = FindObjectOfType<UserInput>();
+        _player = FindObjectOfType<UserController>();
         Invoke(nameof(LoadDialog1), 1.0f);
         _friend.GetComponent<BoxCollider2D>().enabled = false;
         try
@@ -256,6 +256,7 @@ public class ToyRoomGameManager : MonoBehaviour
         }
         catch (Exception e)
         {
+            print(e);
         }
 
         StartCoroutine(FriendMoveCenter(() => { LoadDialog5(); }));

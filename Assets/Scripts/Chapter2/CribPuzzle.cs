@@ -20,23 +20,25 @@ public class CribPuzzle : MonoBehaviour
 
     AudioSource drawerUnlock;
 
-    UserInput _userInput;
+    UserController _userInput;
     Dialog _dialog;
+
     public bool solved;
+
     // Start is called before the first frame update
     void Start()
     {
-        _userInput = FindObjectOfType<UserInput>();
+        _userInput = FindObjectOfType<UserController>();
         manager = FindObjectOfType<HospitalManager>();
         inventory = FindObjectOfType<InventoryManager>();
         drawerUnlock = GetComponent<AudioSource>();
-       
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!manager.dollPuzzleSolved && crib1.correctDoll && crib2.correctDoll && crib3.correctDoll && crib4.correctDoll && crib5.correctDoll && crib6.correctDoll && crib7.correctDoll)
+        if (!manager.dollPuzzleSolved && crib1.correctDoll && crib2.correctDoll && crib3.correctDoll &&
+            crib4.correctDoll && crib5.correctDoll && crib6.correctDoll && crib7.correctDoll)
         {
             solved = true;
             manager.dollPuzzleSolved = true;
@@ -49,25 +51,22 @@ public class CribPuzzle : MonoBehaviour
             _dialog = FindObjectOfType<Dialog>();
 
 
-
-
-
             StartCoroutine(FileReader.GetText(
-               Application.streamingAssetsPath + "/Dialogs/DollPuzzleSolved.json",
-               jsonData =>
-               {
-                   DialogData dialogData = JsonUtility.FromJson<DialogData>(jsonData);
-                   StartCoroutine(_dialog.OutputDialog(dialogData, () =>
-                   {
-                       dialogGameObject.SetActive(false);
+                Application.streamingAssetsPath + "/Dialogs/DollPuzzleSolved.json",
+                jsonData =>
+                {
+                    DialogData dialogData = JsonUtility.FromJson<DialogData>(jsonData);
+                    StartCoroutine(_dialog.OutputDialog(dialogData, () =>
+                    {
+                        dialogGameObject.SetActive(false);
 
-                       stopCry();
-                       _userInput.canMove = true;
-                   }));
-               }));
-
+                        stopCry();
+                        _userInput.canMove = true;
+                    }));
+                }));
         }
     }
+
     private void initiateCry()
     {
         inventory.changeBGMVolume(0.2f);
@@ -78,12 +77,10 @@ public class CribPuzzle : MonoBehaviour
         crib5.playSound(0.1f);
 
         crib7.playSound(0.15f);
-
-
     }
+
     private void stopCry()
     {
-
         crib1.stopSound();
         crib2.stopSound();
         crib3.stopSound();

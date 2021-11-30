@@ -6,7 +6,7 @@ public class WallPanel : Interactable
 {
     [SerializeField] private GameObject dialogGameObject;
     private Dialog _dialog;
-    private UserInput _userInput;
+    private UserController _userInput;
     private LieOrTruthGameManager _lieOrTruthGameManager;
 
     private void Awake()
@@ -20,7 +20,7 @@ public class WallPanel : Interactable
         {
             canInteract = false;
 
-            _userInput = FindObjectOfType<UserInput>();
+            _userInput = FindObjectOfType<UserController>();
             _userInput.canMove = false;
 
             dialogGameObject.SetActive(true);

@@ -6,7 +6,7 @@ public class MaternityDesk : Interactable
 {
     [SerializeField] private GameObject dialogGameObject;
     private Dialog _dialog;
-    private UserInput _userInput;
+    private UserController _userInput;
     private HospitalManager manager;
     InventoryManager inventory;
 
@@ -28,7 +28,7 @@ public class MaternityDesk : Interactable
 
 
 
-            _userInput = FindObjectOfType<UserInput>();
+            _userInput = FindObjectOfType<UserController>();
             _userInput.canMove = false;
 
 
@@ -77,7 +77,7 @@ public class MaternityDesk : Interactable
 
         manager.dollsSpawned = true;
 
-        _userInput = FindObjectOfType<UserInput>();
+        _userInput = FindObjectOfType<UserController>();
         _userInput.canMove = false;
 
         dialogGameObject.SetActive(true);

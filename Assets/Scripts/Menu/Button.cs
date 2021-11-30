@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
 
-public class Button : MonoBehaviour , IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
+public class Button : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
 {
     public bool selected;
     private Text buttonText;
@@ -14,7 +14,7 @@ public class Button : MonoBehaviour , IPointerEnterHandler, IPointerExitHandler,
     // Start is called before the first frame update
     void Start()
     {
-        buttonText  = transform.GetComponentInChildren<Text>();
+        buttonText = transform.GetComponentInChildren<Text>();
     }
 
 
@@ -22,10 +22,12 @@ public class Button : MonoBehaviour , IPointerEnterHandler, IPointerExitHandler,
     {
         buttonText.color = Color.red;
     }
+
     public void OnPointerExit(PointerEventData data)
     {
         buttonText.color = Color.white;
     }
+
     public void OnPointerClick(PointerEventData data)
     {
         buttonText.color = Color.white;
@@ -44,6 +46,6 @@ public class Button : MonoBehaviour , IPointerEnterHandler, IPointerExitHandler,
     public void clickSceneChange(string sceneName)
     {
         if (sceneName != "")
-        SceneManager.LoadScene(sceneName);
+            SceneManager.LoadScene(sceneName);
     }
 }

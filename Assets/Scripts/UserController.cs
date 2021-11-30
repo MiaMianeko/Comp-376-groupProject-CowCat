@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UserInput : MonoBehaviour
+public class UserController : MonoBehaviour
 {
     private float speed = 10.0f;
 
@@ -20,7 +20,7 @@ public class UserInput : MonoBehaviour
     public bool isControlledBySystem;
     public Vector3 direction;
 
-    UserInput()
+    UserController()
     {
         isFacingRight = false;
         isFacingDown = false;
@@ -45,7 +45,6 @@ public class UserInput : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
         // Obtain input information (See "Horizontal" and "Vertical" in the Input Manager)
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
@@ -57,8 +56,8 @@ public class UserInput : MonoBehaviour
 
         if (!isControlledBySystem)
         {
-            if (!canMove) 
-                direction=Vector3.zero;
+            if (!canMove)
+                direction = Vector3.zero;
             else
             {
                 direction = new Vector3(horizontal, vertical, 0.0f);
