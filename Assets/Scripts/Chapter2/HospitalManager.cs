@@ -130,7 +130,7 @@ public class HospitalManager : MonoBehaviour
                     }
                     break;
                 case 6:
-                    if (Time.time > endTriggeredTime + 0.5f)
+                    if (Time.time > endTriggeredTime + 0.25f)
                     {
                         flashlight.SetActive(true);
                         endSpawnObject1.SetActive(true);
@@ -152,7 +152,7 @@ public class HospitalManager : MonoBehaviour
                     }
                     break;
                 case 8:
-                    if (Time.time > endTriggeredTime + 0.5f)
+                    if (Time.time > endTriggeredTime + 0.25f)
                     {
                         flashlight.SetActive(true);
                         endSpawnObject2.SetActive(true);
@@ -175,7 +175,7 @@ public class HospitalManager : MonoBehaviour
                     }
                     break;
                 case 10:
-                    if (Time.time > endTriggeredTime + 0.5f)
+                    if (Time.time > endTriggeredTime + 0.25f)
                     {
                         flashlight.SetActive(true);
                         endSpawnObject3.SetActive(true);

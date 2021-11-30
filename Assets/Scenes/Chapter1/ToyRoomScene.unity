@@ -1019,6 +1019,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canInteract: 0
+  isInteracted: 0
   dialogGameObject: {fileID: 389680673}
   selectionBoxObject: {fileID: 974643649}
 --- !u!95 &215489437
@@ -1750,7 +1751,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Who will be the most favorite bear toys\uFF1F"
+  m_Text: Which toy will remain alive?
 --- !u!222 &481863052
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1970,7 +1971,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 579964843}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.031904697, y: -0.003557682, z: -17.94}
+  m_LocalPosition: {x: 0.027117252, y: -0.003545761, z: -17.94}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2166,6 +2167,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canInteract: 0
+  isInteracted: 0
   boardGameObject: {fileID: 1510284848}
 --- !u!1 &677801671
 GameObject:
@@ -3300,6 +3302,8 @@ MonoBehaviour:
   selectionBoxObject: {fileID: 974643649}
   bearGameObject: {fileID: 803021408}
   gameOverGameObject: {fileID: 2119068612}
+  progress:
+    beenThereBefore: 0
 --- !u!4 &987862841
 Transform:
   m_ObjectHideFlags: 0
@@ -4078,6 +4082,7 @@ MonoBehaviour:
   professorSprite: {fileID: 21300000, guid: 56b50f8c042be824294a4a531056f4b3, type: 3}
   friendSprite: {fileID: 21300000, guid: f12996a4409ddbd4bafb4e8ced6fcbf7, type: 3}
   unknownFriendSprite: {fileID: 21300000, guid: 171b8c4dc3426674580ea34c1edce2fc, type: 3}
+  evilFriendSprite: {fileID: 0}
   speakerImage: {fileID: 2129671972}
 --- !u!114 &1417161103
 MonoBehaviour:
