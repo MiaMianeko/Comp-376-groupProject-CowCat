@@ -15,7 +15,7 @@ public class MachinePuzzle : MonoBehaviour
 
     [SerializeField] GameObject buttons;
 
-    UserInput player;
+    UserController player;
     HospitalManager manager;
     Dialog _dialog;
 
@@ -31,7 +31,7 @@ public class MachinePuzzle : MonoBehaviour
     void Start()
     {
         manager = FindObjectOfType<HospitalManager>();
-        player = FindObjectOfType<UserInput>();
+        player = FindObjectOfType<UserController>();
     }
 
     // Update is called once per frame

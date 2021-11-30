@@ -46,7 +46,7 @@ public class PrologueClassroomSceneManager : MonoBehaviour
     private void ChangeState()
     {
         dialogGameObject.SetActive(false);
-        FindObjectOfType<UserInput>().canMove = true;
+        FindObjectOfType<UserController>().canMove = true;
     }
 
     public void ShowDialog2()
@@ -56,7 +56,7 @@ public class PrologueClassroomSceneManager : MonoBehaviour
         playerInClassGameObject.SetActive(true);
         dialogGameObject.SetActive(true);
         _dialog = FindObjectOfType<Dialog>();
-        FindObjectOfType<UserInput>().canMove = false;
+        FindObjectOfType<UserController>().canMove = false;
         StartCoroutine(FileReader.GetText(Application.streamingAssetsPath + "/Dialogs/PrologueClassroomDialog2.json",
             jsonData =>
             {

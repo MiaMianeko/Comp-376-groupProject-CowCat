@@ -6,8 +6,9 @@ public class SickFriend : Interactable
 {
     [SerializeField] private GameObject dialogGameObject;
     private Dialog _dialog;
-    private UserInput _userInput;
+    private UserController _userInput;
     private HospitalManager manager;
+
     private void Awake()
     {
         manager = FindObjectOfType<HospitalManager>();
@@ -19,7 +20,7 @@ public class SickFriend : Interactable
         {
             canInteract = false;
 
-            _userInput = FindObjectOfType<UserInput>();
+            _userInput = FindObjectOfType<UserController>();
             _userInput.canMove = false;
 
             dialogGameObject.SetActive(true);
@@ -29,18 +30,17 @@ public class SickFriend : Interactable
 
 
             StartCoroutine(FileReader.GetText(
-               Application.streamingAssetsPath + fileName,
-               jsonData =>
-               {
-                   DialogData dialogData = JsonUtility.FromJson<DialogData>(jsonData);
-                   StartCoroutine(_dialog.OutputDialog(dialogData, () =>
-                   {
-                       dialogGameObject.SetActive(false);
-                       canInteract = true;
-                       _userInput.canMove = true;
-                   }));
-               }));
-
+                Application.streamingAssetsPath + fileName,
+                jsonData =>
+                {
+                    DialogData dialogData = JsonUtility.FromJson<DialogData>(jsonData);
+                    StartCoroutine(_dialog.OutputDialog(dialogData, () =>
+                    {
+                        dialogGameObject.SetActive(false);
+                        canInteract = true;
+                        _userInput.canMove = true;
+                    }));
+                }));
         }
     }
 }

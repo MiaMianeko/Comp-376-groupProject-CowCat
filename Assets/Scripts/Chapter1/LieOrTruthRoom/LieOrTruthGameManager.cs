@@ -29,7 +29,7 @@ public class LieOrTruthGameManager : MonoBehaviour
     [SerializeField] private GameObject friendGameObject;
 
     private Dialog _dialog;
-    private UserInput _userInput;
+    private UserController _userInput;
     private FriendController _friendController;
     public int roundNumber = 1;
     private bool isGameOver = false;
@@ -37,7 +37,7 @@ public class LieOrTruthGameManager : MonoBehaviour
 
     void Start()
     {
-        _userInput = FindObjectOfType<UserInput>();
+        _userInput = FindObjectOfType<UserController>();
         _friendController = FindObjectOfType<FriendController>();
         _userInput.canMove = false;
         Invoke(nameof(LoadDialog1), 1.0f);
@@ -213,27 +213,27 @@ public class LieOrTruthGameManager : MonoBehaviour
                         StartCoroutine(MoveLeft());
                     }));
                 }));
-             }
-             else
-             {
-                 backgroundGameObject.GetComponent<SpriteRenderer>().sprite = spriteBackground5;
-                 // Right
-                 StartCoroutine(FileReader.GetText(
-                     Application.streamingAssetsPath + "/Dialogs/Chapter1LieOrTruthDialog10.json",
-                     jsonData =>
-                     {
-                         DialogData dialogData = JsonUtility.FromJson<DialogData>(jsonData);
-                         StartCoroutine(_dialog.OutputDialog(dialogData, () =>
-                         {
-                             dialogGameObject.SetActive(false);
-                             _userInput.canMove = true;
-
-                             StartCoroutine(MoveRight());
-                         }));
-                     }));
-             }
         }
-    
+        else
+        {
+            backgroundGameObject.GetComponent<SpriteRenderer>().sprite = spriteBackground5;
+            // Right
+            StartCoroutine(FileReader.GetText(
+                Application.streamingAssetsPath + "/Dialogs/Chapter1LieOrTruthDialog10.json",
+                jsonData =>
+                {
+                    DialogData dialogData = JsonUtility.FromJson<DialogData>(jsonData);
+                    StartCoroutine(_dialog.OutputDialog(dialogData, () =>
+                    {
+                        dialogGameObject.SetActive(false);
+                        _userInput.canMove = true;
+
+                        StartCoroutine(MoveRight());
+                    }));
+                }));
+        }
+    }
+
     public void ShowSelectionBox3()
     {
         selectionBoxGameObject3.SetActive(true);
@@ -267,7 +267,6 @@ public class LieOrTruthGameManager : MonoBehaviour
 
     public IEnumerator MoveRight()
     {
-        
         _userInput.isControlledBySystem = true;
         _userInput.direction = Vector3.up;
         yield return new WaitUntil(() => { return playerGameObject.GetComponent<Rigidbody2D>().position.y > -0.1f; });

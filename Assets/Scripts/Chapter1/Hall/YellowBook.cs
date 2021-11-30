@@ -11,10 +11,11 @@ public class YellowBook : Interactable
     [SerializeField] private GameObject door;
     [SerializeField] private GameObject button;
     private Dialog _dialog;
-    private UserInput _userInput;
+    private UserController _userInput;
+
     void Start()
     {
-        _userInput = FindObjectOfType<UserInput>();
+        _userInput = FindObjectOfType<UserController>();
         breaksound.SetActive(false);
         door.GetComponent<BoxCollider2D>().enabled = false;
         photo.SetActive(false);
@@ -24,12 +25,10 @@ public class YellowBook : Interactable
     // Update is called once per frame
     void Update()
     {
-        if(canInteract && Input.GetKey(KeyCode.F) )
+        if (canInteract && Input.GetKey(KeyCode.F))
         {
-            
             LoadDialogue16();
             canInteract = false;
-            
         }
     }
 
@@ -38,7 +37,7 @@ public class YellowBook : Interactable
         _userInput.canMove = false;
         dialogGameObject.SetActive(true);
         _dialog = FindObjectOfType<Dialog>();
-        _userInput = FindObjectOfType<UserInput>();
+        _userInput = FindObjectOfType<UserController>();
         _userInput.canMove = false;
         StartCoroutine(FileReader.GetText(Application.streamingAssetsPath + "/Dialogs/Chapter1HallDialog16.json",
             jsonData =>
@@ -48,7 +47,7 @@ public class YellowBook : Interactable
                 {
                     dialogGameObject.SetActive(false);
                     photo.SetActive(true);
-                    Invoke(nameof(LoadDialog17),2);
+                    Invoke(nameof(LoadDialog17), 2);
                 }));
             }));
     }
@@ -57,7 +56,7 @@ public class YellowBook : Interactable
     {
         dialogGameObject.SetActive(true);
         _dialog = FindObjectOfType<Dialog>();
-        _userInput = FindObjectOfType<UserInput>();
+        _userInput = FindObjectOfType<UserController>();
         _userInput.canMove = false;
         StartCoroutine(FileReader.GetText(Application.streamingAssetsPath + "/Dialogs/Chapter1HallDialog17.json",
             jsonData =>
@@ -67,17 +66,15 @@ public class YellowBook : Interactable
                 {
                     dialogGameObject.SetActive(false);
                     button.SetActive(true);
-                    
                 }));
             }));
     }
 
     public void LoadDialog18()
     {
-        
         dialogGameObject.SetActive(true);
         _dialog = FindObjectOfType<Dialog>();
-        _userInput = FindObjectOfType<UserInput>();
+        _userInput = FindObjectOfType<UserController>();
         _userInput.canMove = false;
         StartCoroutine(FileReader.GetText(Application.streamingAssetsPath + "/Dialogs/Chapter1HallDialog18.json",
             jsonData =>
@@ -91,13 +88,13 @@ public class YellowBook : Interactable
                 }));
             }));
     }
+
     public void ClosePhoto()
     {
         photo.SetActive(false);
         button.SetActive(false);
         gameObject.GetComponent<BoxCollider2D>().enabled = false;
         breaksound.SetActive(true);
-        Invoke(nameof(LoadDialog18),3);
-
+        Invoke(nameof(LoadDialog18), 3);
     }
 }

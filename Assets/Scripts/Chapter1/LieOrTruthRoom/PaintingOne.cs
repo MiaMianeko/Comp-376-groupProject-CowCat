@@ -7,7 +7,7 @@ public class PaintingOne : Interactable
 {
     [SerializeField] private GameObject dialogGameObject;
     private Dialog _dialog;
-    private UserInput _userInput;
+    private UserController _userInput;
     private LieOrTruthGameManager _lieOrTruthGameManager;
 
     private void Awake()
@@ -21,7 +21,7 @@ public class PaintingOne : Interactable
         {
             canInteract = false;
 
-            _userInput = FindObjectOfType<UserInput>();
+            _userInput = FindObjectOfType<UserController>();
             _userInput.isFacingUp = true;
             _userInput.isFacingDown = false;
             _userInput.isFacingLeft = false;

@@ -9,21 +9,21 @@ public class Door050 : Interactable
     [SerializeField] private GameObject dialogGameObject;
     [SerializeField] private GameObject openTheDoor;
     private Dialog _dialog;
-    private UserInput _userInput;
+    private UserController _userInput;
+
     void Start()
     {
-        _userInput = FindObjectOfType<UserInput>();
+        _userInput = FindObjectOfType<UserController>();
         openTheDoor.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(canInteract && Input.GetKey(KeyCode.F))
+        if (canInteract && Input.GetKey(KeyCode.F))
         {
             canInteract = false;
             LoadDialogue14();
-            
         }
     }
 
@@ -32,7 +32,7 @@ public class Door050 : Interactable
         _userInput.canMove = false;
         dialogGameObject.SetActive(true);
         _dialog = FindObjectOfType<Dialog>();
-        _userInput = FindObjectOfType<UserInput>();
+        _userInput = FindObjectOfType<UserController>();
         _userInput.canMove = false;
         StartCoroutine(FileReader.GetText(Application.streamingAssetsPath + "/Dialogs/Chapter1HallDialog14.json",
             jsonData =>
@@ -42,7 +42,7 @@ public class Door050 : Interactable
                 {
                     dialogGameObject.SetActive(false);
                     openTheDoor.SetActive(true);
-                    Invoke(nameof(ChangeScene),2);
+                    Invoke(nameof(ChangeScene), 2);
                 }));
             }));
     }

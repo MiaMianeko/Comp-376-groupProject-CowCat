@@ -8,12 +8,13 @@ public class Locker : Interactable
     [SerializeField] private GameObject stairs;
     [SerializeField] private GameObject dialogGameObject;
     [SerializeField] private GameObject shock;
-    private UserInput _userInput;
+    private UserController _userInput;
     private Dialog _dialog;
+
     void Start()
     {
         stairs.GetComponent<BoxCollider2D>().enabled = false;
-        _userInput = FindObjectOfType<UserInput>();
+        _userInput = FindObjectOfType<UserController>();
         shock.SetActive(false);
     }
 
@@ -23,8 +24,8 @@ public class Locker : Interactable
         if (canInteract && Input.GetKey(KeyCode.F))
         {
             shock.SetActive(true);
-            Invoke(nameof(LoadDialogue20),2);
-        } 
+            Invoke(nameof(LoadDialogue20), 2);
+        }
     }
 
     public void LoadDialogue20()
@@ -32,7 +33,7 @@ public class Locker : Interactable
         _userInput.canMove = false;
         dialogGameObject.SetActive(true);
         _dialog = FindObjectOfType<Dialog>();
-        _userInput = FindObjectOfType<UserInput>();
+        _userInput = FindObjectOfType<UserController>();
         dialogGameObject.SetActive(true);
         StartCoroutine(FileReader.GetText(Application.streamingAssetsPath + "/Dialogs/Chapter1HallDialog20.json",
             jsonData =>
@@ -40,7 +41,6 @@ public class Locker : Interactable
                 DialogData dialogData = JsonUtility.FromJson<DialogData>(jsonData);
                 StartCoroutine(_dialog.OutputDialog(dialogData, () =>
                 {
-
                     dialogGameObject.SetActive(false);
                     _userInput.canMove = true;
                     stairs.GetComponent<BoxCollider2D>().enabled = true;

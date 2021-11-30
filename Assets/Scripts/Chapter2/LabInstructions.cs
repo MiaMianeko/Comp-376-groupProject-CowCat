@@ -6,11 +6,12 @@ public class LabInstructions : Interactable
 {
     [SerializeField] GameObject note;
 
-    UserInput player;
+    UserController player;
+
     // Start is called before the first frame update
     void Start()
     {
-        player = FindObjectOfType<UserInput>();
+        player = FindObjectOfType<UserController>();
     }
 
     // Update is called once per frame

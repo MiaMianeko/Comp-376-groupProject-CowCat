@@ -10,7 +10,7 @@ public class ToyRoomGameManager : MonoBehaviour
     [SerializeField] private GameObject friendGameObject;
     [SerializeField] private GameObject playerGameObject;
     private FriendController _friend;
-    private UserInput _player;
+    private UserController _player;
 
     [SerializeField] private GameObject dialogGameObject;
     [SerializeField] private GameObject selectionBoxObject;
@@ -29,12 +29,13 @@ public class ToyRoomGameManager : MonoBehaviour
     void Start()
     {
         _friend = FindObjectOfType<FriendController>();
-        _player = FindObjectOfType<UserInput>();
+        _player = FindObjectOfType<UserController>();
         Invoke(nameof(LoadDialog1), 1.0f);
         _friend.GetComponent<BoxCollider2D>().enabled = false;
         try
         {
-            progress = ToyRoomProgress.CreateFromJSON(File.ReadAllText(Application.streamingAssetsPath + "/ProgressData.json"));
+            progress = ToyRoomProgress.CreateFromJSON(
+                File.ReadAllText(Application.streamingAssetsPath + "/ProgressData.json"));
         }
         catch (Exception)
         {
@@ -51,6 +52,7 @@ public class ToyRoomGameManager : MonoBehaviour
             _player.GetComponent<SpriteRenderer>().enabled = false;
         }
     }
+
     public void LoadDialog1()
     {
         dialogGameObject.SetActive(true);
@@ -67,7 +69,6 @@ public class ToyRoomGameManager : MonoBehaviour
                 {
                     dialogGameObject.SetActive(false);
                     StartCoroutine(FriendMove(() => { LoadDialog2(); }));
-                    
                 }));
             }));
     }
@@ -94,7 +95,6 @@ public class ToyRoomGameManager : MonoBehaviour
 
     public IEnumerator FriendMove(Action callback)
     {
-
         _friend.direction = Vector3.up;
         yield return new WaitForSeconds(1.0f);
         _friend.direction = Vector3.left;
@@ -104,9 +104,9 @@ public class ToyRoomGameManager : MonoBehaviour
         _friend.isFacingRight = true;
         callback();
     }
+
     public IEnumerator FriendMoveCenter(Action callback)
     {
-
         _friend.direction = Vector3.down;
         yield return new WaitUntil(() => friendGameObject.GetComponent<Rigidbody2D>().position.y < 2);
         _friend.direction = Vector3.right;
@@ -125,12 +125,17 @@ public class ToyRoomGameManager : MonoBehaviour
         {
             LoadDialog3();
         }
+        else if (choice == 0)
+        {
+            _player.canMove = true;
+        }
         else
         {
             LoadDialog4();
         }
     }
 
+    // Selected Correct Answer
     public void LoadDialog3()
     {
         dialogGameObject.SetActive(true);
@@ -144,12 +149,11 @@ public class ToyRoomGameManager : MonoBehaviour
                     dialogGameObject.SetActive(false);
                     _player.canMove = true;
                     StartCoroutine(ChooseBearAnimationCorrect());
-              
                 }));
             }));
     }
 
-    // Select the wrong answer
+    // Selected the wrong answer
     void LoadDialog4()
     {
         dialogGameObject.SetActive(true);
@@ -166,10 +170,9 @@ public class ToyRoomGameManager : MonoBehaviour
                 }));
             }));
     }
+
     void LoadDialog5()
     {
-
-
         dialogGameObject.SetActive(true);
         _dialog = FindObjectOfType<Dialog>();
         StartCoroutine(FileReader.GetText(Application.streamingAssetsPath + "/Dialogs/Chapter1ToyRoomDialog5.json",
@@ -179,17 +182,14 @@ public class ToyRoomGameManager : MonoBehaviour
                 StartCoroutine(_dialog.OutputDialog(dialogData, () =>
                 {
                     dialogGameObject.SetActive(false);
-                    
-                    
+
                     going = true;
                     timeToGo = Time.time;
                     bearGameObject.GetComponent<Animator>().SetBool("BRCorrect", true);
-
-
-
                 }));
             }));
     }
+
     void LoadDialog6()
     {
         dialogGameObject.SetActive(true);
@@ -201,7 +201,7 @@ public class ToyRoomGameManager : MonoBehaviour
                 StartCoroutine(_dialog.OutputDialog(dialogData, () =>
                 {
                     dialogGameObject.SetActive(false);
-                    
+
                     progress.beenThereBefore = true;
                     string jsonProgress = progress.SaveToString();
                     File.WriteAllText(Application.streamingAssetsPath + "/ProgressData.json", jsonProgress);
@@ -209,9 +209,9 @@ public class ToyRoomGameManager : MonoBehaviour
                 }));
             }));
     }
+
     IEnumerator ChooseBearAnimationCorrect()
     {
-
         float x, y;
         x = -4.06f;
         y = 0.24f;
@@ -228,10 +228,9 @@ public class ToyRoomGameManager : MonoBehaviour
 
             yield return new WaitUntil(() => playerGameObject.GetComponent<Rigidbody2D>().position.x > x);
         }
+
         if (playerGameObject.GetComponent<Rigidbody2D>().position.y > y)
         {
-
-
             _player.direction = Vector3.down;
             yield return new WaitUntil(() => playerGameObject.GetComponent<Rigidbody2D>().position.y < y);
         }
@@ -245,16 +244,24 @@ public class ToyRoomGameManager : MonoBehaviour
         bearGameObject.GetComponent<Animator>().enabled = true;
         yield return new WaitForSeconds(6.0f);
         afterCorrectSelection();
-        
     }
 
     private void afterCorrectSelection()
     {
         progress.beenThereBefore = false;
         string jsonProgress = progress.SaveToString();
-        File.WriteAllText(Application.streamingAssetsPath + "/ProgressData.json", jsonProgress);
+        try
+        {
+            File.WriteAllText(Application.streamingAssetsPath + "/ProgressData.json", jsonProgress);
+        }
+        catch (Exception e)
+        {
+            print(e);
+        }
+
         StartCoroutine(FriendMoveCenter(() => { LoadDialog5(); }));
     }
+
     IEnumerator ChooseBearAnimationIncorrect()
     {
         float x = 0.0f, y = 0.0f;
@@ -305,26 +312,21 @@ public class ToyRoomGameManager : MonoBehaviour
                 x = 3.0f;
                 y = 6.0f;
                 break;
-
-
         }
 
         if (playerGameObject.GetComponent<Rigidbody2D>().position.x > x)
         {
             _player.direction = Vector3.left;
-
             yield return new WaitUntil(() => playerGameObject.GetComponent<Rigidbody2D>().position.x < x);
         }
         else
         {
             _player.direction = Vector3.right;
-
             yield return new WaitUntil(() => playerGameObject.GetComponent<Rigidbody2D>().position.x > x);
         }
+
         if (playerGameObject.GetComponent<Rigidbody2D>().position.y > y)
         {
-
-
             _player.direction = Vector3.down;
             yield return new WaitUntil(() => playerGameObject.GetComponent<Rigidbody2D>().position.y < y);
         }
@@ -333,6 +335,7 @@ public class ToyRoomGameManager : MonoBehaviour
             _player.direction = Vector3.up;
             yield return new WaitUntil(() => playerGameObject.GetComponent<Rigidbody2D>().position.y > y);
         }
+
         _player.direction = Vector3.zero;
         bearGameObject.GetComponent<Animator>().enabled = true;
         yield return new WaitForSeconds(6.0f);
@@ -366,5 +369,4 @@ public class ToyRoomProgress
     {
         return JsonUtility.ToJson(this);
     }
-
 }

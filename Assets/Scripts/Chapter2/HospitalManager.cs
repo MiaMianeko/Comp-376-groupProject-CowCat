@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class HospitalManager : MonoBehaviour
 {
     [SerializeField] private GameObject dialogGameObject;
-    private UserInput _userInput;
+    private UserController _userInput;
     private Dialog _dialog;
     public bool dollsPickedUp;
     public bool dollsSpawned;
@@ -34,7 +34,7 @@ public class HospitalManager : MonoBehaviour
     float endTriggeredTime;
     int endStage = 0;
 
-    AudioSource audio;
+    AudioSource bgmAudioSource;
 
     [SerializeField] AudioClip cockroachKill;
     [SerializeField] AudioClip scalpelPickUp;
@@ -47,17 +47,17 @@ public class HospitalManager : MonoBehaviour
     public int cribNumber;
 
     public int dollSelected;
-    
+
 
     // Start is called before the first frame update
     void Start()
     {
-        _userInput = FindObjectOfType<UserInput>();
+        _userInput = FindObjectOfType<UserController>();
         _userInput.canMove = false;
         Invoke(nameof(LoadDialog1), 1.0f);
         inventory = FindObjectOfType<InventoryManager>();
         cribNumber = -1;
-        audio = transform.GetComponent<AudioSource>();
+        bgmAudioSource = transform.GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -67,36 +67,38 @@ public class HospitalManager : MonoBehaviour
         {
             switch (endStage)
             {
-
                 case 0:
                     if (Time.time > endTriggeredTime + 1f)
                     {
                         endPanel1.SetActive(false);
                         endPanel2.SetActive(true);
-                        audio.PlayOneShot(heartbeatSound);
+                        bgmAudioSource.PlayOneShot(heartbeatSound);
                         endTriggeredTime = Time.time;
                         endStage = 1;
                     }
+
                     break;
                 case 1:
                     if (Time.time > endTriggeredTime + 1f)
                     {
                         endPanel2.SetActive(false);
                         endPanel3.SetActive(true);
-                        audio.PlayOneShot(heartbeatSound);
+                        bgmAudioSource.PlayOneShot(heartbeatSound);
                         endTriggeredTime = Time.time;
                         endStage = 2;
                     }
+
                     break;
                 case 2:
                     if (Time.time > endTriggeredTime + 1f)
                     {
                         endPanel3.SetActive(false);
                         endPanel4.SetActive(true);
-                        audio.PlayOneShot(bottleBreak);
+                        bgmAudioSource.PlayOneShot(bottleBreak);
                         endTriggeredTime = Time.time;
                         endStage = 3;
                     }
+
                     break;
 
                 case 3:
@@ -104,10 +106,11 @@ public class HospitalManager : MonoBehaviour
                     {
                         endPanel3.SetActive(false);
                         endPanel4.SetActive(true);
-                        audio.PlayOneShot(bottleBreak);
+                        bgmAudioSource.PlayOneShot(bottleBreak);
                         endTriggeredTime = Time.time;
                         endStage = 4;
                     }
+
                     break;
                 case 4:
                     if (Time.time > endTriggeredTime + 1f)
@@ -116,6 +119,7 @@ public class HospitalManager : MonoBehaviour
                         endDialogDone = false;
                         playEndGameDialog("EndStage4.json");
                     }
+
                     break;
                 case 14:
                     endTriggeredTime = Time.time;
@@ -128,6 +132,7 @@ public class HospitalManager : MonoBehaviour
                         endStage = 6;
                         endTriggeredTime = Time.time;
                     }
+
                     break;
                 case 6:
                     if (Time.time > endTriggeredTime + 0.25f)
@@ -137,6 +142,7 @@ public class HospitalManager : MonoBehaviour
                         endDialogDone = false;
                         playEndGameDialog("EndStage6.json");
                     }
+
                     break;
                 case 16:
                     endTriggeredTime = Time.time;
@@ -150,6 +156,7 @@ public class HospitalManager : MonoBehaviour
                         endStage = 8;
                         endTriggeredTime = Time.time;
                     }
+
                     break;
                 case 8:
                     if (Time.time > endTriggeredTime + 0.25f)
@@ -159,6 +166,7 @@ public class HospitalManager : MonoBehaviour
                         endDialogDone = false;
                         playEndGameDialog("EndStage8.json");
                     }
+
                     break;
                 case 18:
                     endTriggeredTime = Time.time;
@@ -171,8 +179,8 @@ public class HospitalManager : MonoBehaviour
                         endSpawnObject2.SetActive(false);
                         endStage = 10;
                         endTriggeredTime = Time.time;
-
                     }
+
                     break;
                 case 10:
                     if (Time.time > endTriggeredTime + 0.25f)
@@ -182,6 +190,7 @@ public class HospitalManager : MonoBehaviour
                         endStage = 11;
                         endTriggeredTime = Time.time;
                     }
+
                     break;
                 case 11:
                     if (Time.time > endTriggeredTime + 1f)
@@ -189,15 +198,16 @@ public class HospitalManager : MonoBehaviour
                         flashlight.SetActive(false);
                         endStage = 12;
                     }
+
                     break;
                 case 12:
                     if (Time.time > endTriggeredTime + 0.5f)
                     {
-                       // SceneManager.LoadScene("");
+                        // SceneManager.LoadScene("");
                     }
+
                     break;
             }
-
         }
     }
 
@@ -225,23 +235,25 @@ public class HospitalManager : MonoBehaviour
 
     public void killCockroach()
     {
-        audio.PlayOneShot(cockroachKill);
+        bgmAudioSource.PlayOneShot(cockroachKill);
     }
 
     public void pickUpScalpel()
     {
-        audio.PlayOneShot(scalpelPickUp);
+        bgmAudioSource.PlayOneShot(scalpelPickUp);
     }
+
     public void dollDrop()
     {
-        audio.PlayOneShot(dollSpawn);
+        bgmAudioSource.PlayOneShot(dollSpawn);
     }
+
     public void endChapter()
     {
         endTriggered = true;
         endTriggeredTime = Time.time;
 
-        audio.PlayOneShot(heartbeatSound);
+        bgmAudioSource.PlayOneShot(heartbeatSound);
         endPanel1.SetActive(true);
         _userInput.canMove = false;
 
@@ -255,6 +267,7 @@ public class HospitalManager : MonoBehaviour
 
         */
     }
+
     private void playEndGameDialog(string filename)
     {
         dialogGameObject.SetActive(true);
@@ -266,11 +279,9 @@ public class HospitalManager : MonoBehaviour
                 StartCoroutine(_dialog.OutputDialog(dialogData, () =>
                 {
                     dialogGameObject.SetActive(false);
-                    endStage +=10 ;
+                    endStage += 10;
                     endDialogDone = true;
                 }));
             }));
     }
 }
-
-

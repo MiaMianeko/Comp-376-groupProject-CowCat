@@ -29,72 +29,63 @@ public class LiverExtractionGame : MonoBehaviour
 
     InventoryManager inventory;
 
-    private UserInput _userInput;
+    private UserController _userInput;
+
     // Start is called before the first frame update
     void Start()
     {
         round = 0;
-        _userInput = FindObjectOfType<UserInput>();
+        _userInput = FindObjectOfType<UserController>();
         manager = FindObjectOfType<HospitalManager>();
         inventory = FindObjectOfType<InventoryManager>();
-
     }
 
     // Update is called once per frame
     void Update()
     {
-
-
-        if(round == 1 && round1Game.solved)
+        if (round == 1 && round1Game.solved)
         {
             round++;
             round1Object.SetActive(false);
             round2Object.SetActive(true);
-
-
         }
         else if (round == 2 && round2Game.solved)
         {
             round++;
             round2Object.SetActive(false);
             round3Object.SetActive(true);
-
         }
         else if (round == 3 && round3Game1.solved && round3Game2.solved)
         {
             round++;
-            
+
             manager.hasLiver = true;
-            
+
             inventory.getLiver();
             Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
 
 
+            _userInput = FindObjectOfType<UserController>();
+            _userInput.canMove = false;
+
+            dialogObject.SetActive(true);
+            _dialog = FindObjectOfType<Dialog>();
+
+            string fileName = "/Dialogs/LiverPickUp.json";
 
 
-            _userInput = FindObjectOfType<UserInput>();
-                _userInput.canMove = false;
-
-                dialogObject.SetActive(true);
-                _dialog = FindObjectOfType<Dialog>();
-
-                string fileName = "/Dialogs/LiverPickUp.json";
-
-
-                StartCoroutine(FileReader.GetText(
-                   Application.streamingAssetsPath + fileName,
-                   jsonData =>
-                   {
-                       DialogData dialogData = JsonUtility.FromJson<DialogData>(jsonData);
-                       StartCoroutine(_dialog.OutputDialog(dialogData, () =>
-                       {
-                           dialogObject.SetActive(false);
-                           round3Object.SetActive(false);
-                           _userInput.canMove = true;
-                       }));
-                   }));
-
-            
+            StartCoroutine(FileReader.GetText(
+                Application.streamingAssetsPath + fileName,
+                jsonData =>
+                {
+                    DialogData dialogData = JsonUtility.FromJson<DialogData>(jsonData);
+                    StartCoroutine(_dialog.OutputDialog(dialogData, () =>
+                    {
+                        dialogObject.SetActive(false);
+                        round3Object.SetActive(false);
+                        _userInput.canMove = true;
+                    }));
+                }));
         }
     }
 

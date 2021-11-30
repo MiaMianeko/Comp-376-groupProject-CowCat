@@ -7,18 +7,17 @@ public class DoorHandler : Interactable
     [SerializeField] GameObject newCamera;
     [SerializeField] GameObject oldCamera;
 
-    AudioSource audio;
+    AudioSource doorAudioSource;
 
     [SerializeField] GameObject playerObject;
 
     [SerializeField] Vector2 destinationVector;
 
 
-
     // Start is called before the first frame update
     void Start()
     {
-        audio = GetComponent<AudioSource>(); 
+        doorAudioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -26,7 +25,6 @@ public class DoorHandler : Interactable
     {
         if (canInteract && Input.GetKeyDown(KeyCode.F))
         {
-
             useDoor();
         }
     }
@@ -36,6 +34,6 @@ public class DoorHandler : Interactable
         oldCamera.SetActive(false);
         newCamera.SetActive(true);
         playerObject.transform.position = destinationVector;
-        audio.Play();
+        doorAudioSource.Play();
     }
 }

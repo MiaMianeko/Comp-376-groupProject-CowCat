@@ -4,18 +4,19 @@ using UnityEngine;
 
 public class ScalpelPickup : Interactable
 {
-
     [SerializeField] GameObject dialogObject;
     HospitalManager manager;
     InventoryManager inventory;
-    UserInput player;
+    UserController player;
+
     Dialog _dialog;
+
     // Start is called before the first frame update
     void Start()
     {
         inventory = FindObjectOfType<InventoryManager>();
         manager = FindObjectOfType<HospitalManager>();
-        player = FindObjectOfType<UserInput>();
+        player = FindObjectOfType<UserController>();
     }
 
     // Update is called once per frame
@@ -25,7 +26,7 @@ public class ScalpelPickup : Interactable
         {
             canInteract = false;
 
-           
+
             player.canMove = false;
 
             dialogObject.SetActive(true);
@@ -35,24 +36,23 @@ public class ScalpelPickup : Interactable
 
 
             StartCoroutine(FileReader.GetText(
-               Application.streamingAssetsPath + fileName,
-               jsonData =>
-               {
-                   DialogData dialogData = JsonUtility.FromJson<DialogData>(jsonData);
-                   StartCoroutine(_dialog.OutputDialog(dialogData, () =>
-                   {
-                       dialogObject.SetActive(false);
+                Application.streamingAssetsPath + fileName,
+                jsonData =>
+                {
+                    DialogData dialogData = JsonUtility.FromJson<DialogData>(jsonData);
+                    StartCoroutine(_dialog.OutputDialog(dialogData, () =>
+                    {
+                        dialogObject.SetActive(false);
 
-                       player.canMove = true;
+                        player.canMove = true;
 
-                       this.gameObject.SetActive(false);
+                        this.gameObject.SetActive(false);
 
-                       inventory.getScalpel();
+                        inventory.getScalpel();
 
-                       manager.pickUpScalpel();
-                   }));
-               }));
-
+                        manager.pickUpScalpel();
+                    }));
+                }));
         }
     }
 }

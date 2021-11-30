@@ -374,6 +374,7 @@ GameObject:
   - component: {fileID: 138160004}
   - component: {fileID: 138160003}
   - component: {fileID: 138160005}
+  - component: {fileID: 138160006}
   m_Layer: 0
   m_Name: BGM
   m_TagString: Untagged
@@ -504,6 +505,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bgmSource: {fileID: 138160003}
+--- !u!114 &138160006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 138160002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04d96a4cb1ee9d84aba1998254d090d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &220142704
 GameObject:
   m_ObjectHideFlags: 0
@@ -893,6 +906,7 @@ MonoBehaviour:
   professorSprite: {fileID: 21300000, guid: 56b50f8c042be824294a4a531056f4b3, type: 3}
   friendSprite: {fileID: 0}
   unknownFriendSprite: {fileID: 0}
+  evilFriendSprite: {fileID: 0}
   speakerImage: {fileID: 1576761053}
 --- !u!114 &444379517
 MonoBehaviour:

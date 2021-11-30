@@ -22,7 +22,7 @@ public class PrologueHallGameManager : MonoBehaviour
             jsonData =>
             {
                 DialogData dialogData = JsonUtility.FromJson<DialogData>(jsonData);
-                UserInput player = playerGameObject.GetComponent<UserInput>();
+                UserController player = playerGameObject.GetComponent<UserController>();
                 player.canMove = false;
                 StartCoroutine(OutputDialog(dialogData, nameof(ReleaseMoveLock)));
             }));
@@ -49,7 +49,7 @@ public class PrologueHallGameManager : MonoBehaviour
 
     private void ReleaseMoveLock()
     {
-        UserInput player = playerGameObject.GetComponent<UserInput>();
+        UserController player = playerGameObject.GetComponent<UserController>();
         player.canMove = true;
         dialogGameObject.SetActive(false);
     }

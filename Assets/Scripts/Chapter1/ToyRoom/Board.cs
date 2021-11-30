@@ -7,12 +7,12 @@ public class Board : Interactable
 {
     private FriendController _friendController;
     [SerializeField] private GameObject boardGameObject;
-    private UserInput _player;
+    private UserController _player;
 
     private void Start()
     {
         _friendController = FindObjectOfType<FriendController>();
-        _player = FindObjectOfType<UserInput>();
+        _player = FindObjectOfType<UserController>();
     }
 
     void Update()

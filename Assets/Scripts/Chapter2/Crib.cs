@@ -7,7 +7,7 @@ public class Crib : Interactable
 {
     [SerializeField] private GameObject dialogGameObject;
     private Dialog _dialog;
-    private UserInput _userInput;
+    private UserController _userInput;
     [SerializeField] private int dollNeeded;
     [SerializeField] private int cribNumber;
     private int currentDoll;
@@ -33,19 +33,19 @@ public class Crib : Interactable
     void Start()
     {
         manager = FindObjectOfType<HospitalManager>();
-        _userInput = FindObjectOfType<UserInput>();
+        _userInput = FindObjectOfType<UserController>();
         inventoryManager = FindObjectOfType<InventoryManager>();
         currentDoll = -1;
         spriteRenderer = spriteObject.GetComponent<SpriteRenderer>();
         crySound = GetComponent<AudioSource>();
-
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (canInteract && Input.GetKey(KeyCode.F)) {
-            string filename ="";
+        if (canInteract && Input.GetKey(KeyCode.F))
+        {
+            string filename = "";
             if (!manager.dollsPickedUp) filename = "CribNoDolls.json";
             else if (!manager.dollPuzzleSolved && currentDoll < 0) filename = "CribEmptyBed.json";
             else if (!manager.dollPuzzleSolved && currentDoll > 0) filename = "CribBedFull.json";
@@ -53,37 +53,32 @@ public class Crib : Interactable
 
             canInteract = false;
 
-            
+
             _userInput.canMove = false;
 
             dialogGameObject.SetActive(true);
             _dialog = FindObjectOfType<Dialog>();
 
 
-
             StartCoroutine(FileReader.GetText(
-               Application.streamingAssetsPath + "/Dialogs/" +filename,
-               jsonData =>
-               {
-                   DialogData dialogData = JsonUtility.FromJson<DialogData>(jsonData);
-                   StartCoroutine(_dialog.OutputDialog(dialogData, () =>
-                   {
-                       dialogGameObject.SetActive(false);
-                       if (manager.dollsPickedUp && !manager.dollPuzzleSolved)
-                       {
-
-
-                           if (currentDoll < 0)
-                           {
-                               placeDoll();
-                               
-                           }
-                           else takeDoll();
-                       }
-                       else _userInput.canMove = true;
-                   }));
-               }));
-
+                Application.streamingAssetsPath + "/Dialogs/" + filename,
+                jsonData =>
+                {
+                    DialogData dialogData = JsonUtility.FromJson<DialogData>(jsonData);
+                    StartCoroutine(_dialog.OutputDialog(dialogData, () =>
+                    {
+                        dialogGameObject.SetActive(false);
+                        if (manager.dollsPickedUp && !manager.dollPuzzleSolved)
+                        {
+                            if (currentDoll < 0)
+                            {
+                                placeDoll();
+                            }
+                            else takeDoll();
+                        }
+                        else _userInput.canMove = true;
+                    }));
+                }));
         }
     }
 
@@ -94,10 +89,8 @@ public class Crib : Interactable
         manager.cribNumber = cribNumber;
 
         inventoryObject.SetActive(true);
-
-
-
     }
+
     private void takeDoll()
     {
         inventoryManager.pickUpDoll(currentDoll);
@@ -105,7 +98,7 @@ public class Crib : Interactable
         currentDoll = -1;
 
         spriteObject.SetActive(false);
-        
+
         _userInput.canMove = true;
     }
 
@@ -141,7 +134,6 @@ public class Crib : Interactable
                 spriteObject.SetActive(true);
                 spriteRenderer.sprite = doll7;
                 break;
-
         }
 
         currentDoll = dollNumber;
@@ -152,9 +144,9 @@ public class Crib : Interactable
     {
         crySound.PlayDelayed(delay);
     }
+
     public void stopSound()
     {
         crySound.Stop();
     }
-
 }
