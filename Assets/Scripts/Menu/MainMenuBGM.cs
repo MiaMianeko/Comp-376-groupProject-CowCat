@@ -18,5 +18,7 @@ public class MainMenuBGM : MonoBehaviour
     public void StopBGM()
     {
         bgmSource.Stop();
+        Destroy(bgmSource);
+        Destroy(this);
     }
 }
