@@ -267,7 +267,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Scenes/Prologue/SchoolFrontScene
+          m_StringArgument: Scenes/Chapter1/ToyRoomScene
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &7642088
@@ -750,7 +750,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Scenes/Chapter1/ClassroomScene
+          m_StringArgument: Scenes/Chapter1/HallScene
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &96090154
@@ -1870,7 +1870,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Scenes/Chapter1/ClassroomScene
+          m_StringArgument: Scenes/Chapter2/HospitalScene
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &960778282
@@ -2017,7 +2017,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Scenes/Chapter1/ClassroomScene
+          m_StringArgument: Scenes/Chapter1/LiesOrTruthScene
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1116182474
@@ -2632,7 +2632,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: bb13ebc46847e2a419444cbfaad301e7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7dae2195145775b40a0635c494ee6bf4, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

@@ -2,15 +2,20 @@
   "data": [
     {
       "speaker": "Player",
-      "content": "I slash the 2 paintings I am sure are lying. They deserve it. They deserve death."
+      "content": "The answer is three! I can feel their poisonous lies burning my skin!"
     },
     {
       "speaker": "Player",
-      "content": "I cannot be blamed for what is happening to them. They brought this on themselves."
+      "content": "I don't know which ones... but I know for sure that at least 2 of them are full of shit!"
+    },
+    {
+      "speaker": "Player",
+      "content": "I want to hear them scream as their canvas rips!"
     },
     {
       "speaker": "???",
-      "content": "OK. Two painting left. Who can survive at the end?"
+      "content": "You're freaking me out a little bit... I hope you know what you're doing..."
     }
+
   ]
 }

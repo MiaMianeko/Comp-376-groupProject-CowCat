@@ -13,16 +13,24 @@
       "content": "(I think... I think I did the right thing here...)"
     },
     {
+      "speaker": "???",
+      "content": "You feeling ok? I guess you really didn't like that painting!"
+    },
+    {
       "speaker": "Player",
-      "content": "(The hoarse whisper sounds in my head again. I can almost feel its warm breath on my neck.)"
+      "content": "You... Look, what the hell is your problem? One second you're telling me to sacrifice paintings, the next..."
     },
     {
       "speaker": "???",
-      "content": "You killed the sacrifice. Now you must root out the dishonest."
+      "content": "Take it easy... Typical Liv, always lashing out at situations she can't control..."
+    },
+    {
+      "speaker": "Player",
+      "content": "I DON'T EVEN KNOW YOU! Whatever, I'm gonna find a way out of here..."
     },
     {
       "speaker": "???",
-      "content": "You must destroy the liars! They will suffer under the weight of their falsehoods!"
+      "content": "Ok... you do that..."
     }
   ]
 }

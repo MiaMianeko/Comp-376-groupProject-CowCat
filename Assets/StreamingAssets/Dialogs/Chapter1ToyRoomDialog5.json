@@ -1,16 +1,32 @@
 {
   "data": [
     {
-      "speaker": "Player",
-      "content": "Ohh... It's seems I got correct!"
+      "speaker": "Friend",
+      "content": "Con... Congra... Congratu..."
     },
     {
       "speaker": "Player",
-      "content": "Wait! What is that?  A black hole!!!"
+      "content": "Hey man, I really think you should take it easy..."
+    },
+    {
+      "speaker": "Friend",
+      "content": "It's... it's you... You did.... this..."
     },
     {
       "speaker": "Player",
-      "content": "OMG!! I feel like I'm going to be sucked into it!!! ohhhh...."
+      "content": "Dude, you look like you're gonna faint! Please sit..."
+    },
+    {
+      "speaker": "Friend",
+      "content": "Stay away from... guh... I... The floor..."
+    },
+    {
+      "speaker": "Player",
+      "content": "When we're out of here, I'm taking you to a hospital!"
+    },
+    {
+      "speaker": "Friend",
+      "content": "The floor... it's... giving out..."
     }
    
   ]

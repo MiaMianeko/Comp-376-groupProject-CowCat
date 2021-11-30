@@ -2,7 +2,15 @@
   "data": [
     {
       "speaker": "Player",
-      "content": "Ohh No... It's seems I got wrong!"
+      "content": "That was the wrong bear... Lev! I can't move. I can't... see... It hurts!! I can feel my insides turning to stuffing!"
+    },
+    {
+      "speaker": "Player",
+      "content": "I wish I could scream in agony, but my mouth won't open..."
+    },
+    {
+      "speaker": "Player",
+      "content": "My mouth... is just a stitch into my felt skin, my button eyes can only stare in terror now..."
     }
   ]
 }

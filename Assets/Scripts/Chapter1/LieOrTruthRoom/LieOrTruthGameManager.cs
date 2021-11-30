@@ -140,7 +140,7 @@ public class LieOrTruthGameManager : MonoBehaviour
         if (number == 3)
         {
             // Correct answer
-            backgroundGameObject.GetComponent<SpriteRenderer>().sprite = spriteBackground3;
+
             Destroy(painting3TriggerGameObject);
             Destroy(painting5TriggerGameObject);
             roundNumber++;
@@ -154,6 +154,7 @@ public class LieOrTruthGameManager : MonoBehaviour
                     {
                         dialogGameObject.SetActive(false);
                         _userInput.canMove = true;
+                        backgroundGameObject.GetComponent<SpriteRenderer>().sprite = spriteBackground3;
                     }));
                 }));
         }
@@ -161,7 +162,7 @@ public class LieOrTruthGameManager : MonoBehaviour
         {
             // Wrong answer
             StartCoroutine(FileReader.GetText(
-                Application.streamingAssetsPath + "/Dialogs/Chapter1LieOrTruthDialog8.json",
+                Application.streamingAssetsPath + "/Dialogs/Chapter1LieOrTruthDialog5.json",
                 jsonData =>
                 {
                     DialogData dialogData = JsonUtility.FromJson<DialogData>(jsonData);
@@ -212,27 +213,27 @@ public class LieOrTruthGameManager : MonoBehaviour
                         StartCoroutine(MoveLeft());
                     }));
                 }));
-        }
-        else
-        {
-            backgroundGameObject.GetComponent<SpriteRenderer>().sprite = spriteBackground5;
-            // Right
-            StartCoroutine(FileReader.GetText(
-                Application.streamingAssetsPath + "/Dialogs/Chapter1LieOrTruthDialog11.json",
-                jsonData =>
-                {
-                    DialogData dialogData = JsonUtility.FromJson<DialogData>(jsonData);
-                    StartCoroutine(_dialog.OutputDialog(dialogData, () =>
-                    {
-                        dialogGameObject.SetActive(false);
-                        _userInput.canMove = true;
+             }
+             else
+             {
+                 backgroundGameObject.GetComponent<SpriteRenderer>().sprite = spriteBackground5;
+                 // Right
+                 StartCoroutine(FileReader.GetText(
+                     Application.streamingAssetsPath + "/Dialogs/Chapter1LieOrTruthDialog10.json",
+                     jsonData =>
+                     {
+                         DialogData dialogData = JsonUtility.FromJson<DialogData>(jsonData);
+                         StartCoroutine(_dialog.OutputDialog(dialogData, () =>
+                         {
+                             dialogGameObject.SetActive(false);
+                             _userInput.canMove = true;
 
-                        StartCoroutine(MoveRight());
-                    }));
-                }));
+                             StartCoroutine(MoveRight());
+                         }));
+                     }));
+             }
         }
-    }
-
+    
     public void ShowSelectionBox3()
     {
         selectionBoxGameObject3.SetActive(true);
@@ -247,6 +248,8 @@ public class LieOrTruthGameManager : MonoBehaviour
     public IEnumerator MoveLeft()
     {
         _userInput.isControlledBySystem = true;
+        _userInput.direction = Vector3.up;
+        yield return new WaitUntil(() => { return playerGameObject.GetComponent<Rigidbody2D>().position.y > -0.1f; });
         _userInput.direction = Vector3.left;
         yield return new WaitUntil(() => playerGameObject.GetComponent<Rigidbody2D>().position.x < -9.7f);
         _userInput.direction = Vector3.up;
@@ -264,9 +267,12 @@ public class LieOrTruthGameManager : MonoBehaviour
 
     public IEnumerator MoveRight()
     {
+        
         _userInput.isControlledBySystem = true;
+        _userInput.direction = Vector3.up;
+        yield return new WaitUntil(() => { return playerGameObject.GetComponent<Rigidbody2D>().position.y > -0.1f; });
         _userInput.direction = Vector3.right;
-        yield return new WaitUntil(() => { return playerGameObject.GetComponent<Rigidbody2D>().position.x > 2.4f; });
+        yield return new WaitUntil(() => { return playerGameObject.GetComponent<Rigidbody2D>().position.x > 0.1f; });
         _userInput.direction = Vector3.up;
         yield return new WaitForSeconds(0.5f);
         _userInput.direction = Vector3.zero;

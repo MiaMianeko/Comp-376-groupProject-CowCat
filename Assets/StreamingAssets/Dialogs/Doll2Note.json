@@ -1,0 +1,14 @@
+{
+  "data": [
+    {
+      "speaker": "Player",
+      "content": "There's a note on the back of the doll! It reads:",
+      "duration": 3.0
+    },
+        {
+      "speaker": "Player",
+      "content": "Grace: I'm stuck between Franny and Betty... Those little psychos talk in the sleep. I should choke them out",
+      "duration": 3.0
+    }
+  ]
+}

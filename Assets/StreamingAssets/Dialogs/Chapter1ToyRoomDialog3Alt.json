@@ -1,0 +1,32 @@
+{
+  "data": [
+    {
+      "speaker": "Friend",
+      "content": "That's kind of weird... so the top one is going to kill the one on his left? Then number 11 will kill number 10?"
+    },
+    {
+      "speaker": "Player",
+      "content": "You've said all this already! I've seen all this already! What is happening? Why can't I remember?"
+    },
+    {
+      "speaker": "Friend",
+      "content": "You know how to solve this? *cough* Liv, I... I really don't feel well..."
+    },
+    {
+      "speaker": "Player",
+      "content": "Yes... I know the answer... But... Something seems wrong with my memory... If I've been here before... "
+    },
+    {
+      "speaker": "Player",
+      "content": "And you! I can't remember you! Why did I forget these things? How much have I forgotten?"
+    },
+    {
+      "speaker": "Friend",
+      "content": "Our priority is escape! *HRAK HRUAAAK* I think I might need medical attention..."
+    },
+    {
+      "speaker": "Friend",
+      "content": "So which is it? Where do you have to sit to ensure your survival?"
+    }
+  ]
+}

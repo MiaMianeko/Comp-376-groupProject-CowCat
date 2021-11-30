@@ -156,6 +156,6 @@ public class ChapterOneClassRoomGameManager : MonoBehaviour
 
     public void SwitchToNextScene()
     {
-        SceneManager.LoadScene("Hall");
+        SceneManager.LoadScene("Scenes/Chapter1/HallScene");
     }
 }

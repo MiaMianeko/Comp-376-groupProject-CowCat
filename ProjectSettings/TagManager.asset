@@ -9,6 +9,7 @@ TagManager:
   - Room060
   - Door
   - Interactable
+  - Debug
   layers:
   - Default
   - TransparentFX
@@ -16,7 +17,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - Button
   - 
   - 
   - 
@@ -43,15 +44,18 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: Default
-    uniqueID: 0
-    locked: 0
   - name: BackGround
     uniqueID: 3142871807
+    locked: 0
+  - name: Default
+    uniqueID: 0
     locked: 0
   - name: Scene Element
     uniqueID: 3538742779
     locked: 0
   - name: Player
     uniqueID: 3732440737
+    locked: 0
+  - name: Foreground
+    uniqueID: 940270621
     locked: 0

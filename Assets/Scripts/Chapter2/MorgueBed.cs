@@ -7,11 +7,11 @@ public class MorgueBed : Interactable
     [SerializeField] private GameObject dialogGameObject;
     private Dialog _dialog;
     private UserInput _userInput;
-
-
+    [SerializeField] LiverExtractionGame puzzles;
+    private HospitalManager manager;
     private void Awake()
     {
-
+        manager = FindObjectOfType<HospitalManager>();
     }
 
     void Update()
@@ -26,17 +26,22 @@ public class MorgueBed : Interactable
             dialogGameObject.SetActive(true);
             _dialog = FindObjectOfType<Dialog>();
 
+            string fileName;
 
-            
+            if (!manager.hasLiver) fileName = "/Dialogs/HospitalMorgueCorpseCheck.json";
+            else fileName = "/Dialogs/HospitalMorgueCorpseCheckAlreadyTaken.json";
+
             StartCoroutine(FileReader.GetText(
-               Application.streamingAssetsPath + "/Dialogs/HospitalMorgueCorpseCheck.json",
+               Application.streamingAssetsPath + fileName,
                jsonData =>
                {
                    DialogData dialogData = JsonUtility.FromJson<DialogData>(jsonData);
                    StartCoroutine(_dialog.OutputDialog(dialogData, () =>
                       {
                          dialogGameObject.SetActive(false);
-                         _userInput.canMove = true;
+                          if (manager.hasScalpel && !manager.hasLiver)
+                            puzzles.StartGame();
+                          else _userInput.canMove = true;
                       }));
                }));
              
