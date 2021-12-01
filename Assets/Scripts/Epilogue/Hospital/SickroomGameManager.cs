@@ -27,7 +27,7 @@ public class SickroomGameManager : MonoBehaviour
         dialogGameObject.SetActive(true);
         _dialog = FindObjectOfType<Dialog>();
 
-        StartCoroutine(FileReader.GetText(Application.streamingAssetsPath + "TrueEndDialog.json",
+        StartCoroutine(FileReader.GetText(Application.streamingAssetsPath + "/Dialogs/TrueEndDialog.json",
             jsonData =>
             {
                 DialogData dialogData = JsonUtility.FromJson<DialogData>(jsonData);
