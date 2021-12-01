@@ -76,7 +76,11 @@ public class Crib : Interactable
                             }
                             else takeDoll();
                         }
-                        else _userInput.canMove = true;
+                        else
+                        {
+                            _userInput.canMove = true;
+                            canInteract = true;
+                        }
                     }));
                 }));
         }
@@ -100,6 +104,8 @@ public class Crib : Interactable
         spriteObject.SetActive(false);
 
         _userInput.canMove = true;
+
+        canInteract = true;
     }
 
     public void changeSprite(int dollNumber)

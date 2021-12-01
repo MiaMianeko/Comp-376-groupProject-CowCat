@@ -31,6 +31,8 @@ public class LiverExtractionGame : MonoBehaviour
 
     private UserController _userInput;
 
+    MorgueBed bedClassObject;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,6 +40,7 @@ public class LiverExtractionGame : MonoBehaviour
         _userInput = FindObjectOfType<UserController>();
         manager = FindObjectOfType<HospitalManager>();
         inventory = FindObjectOfType<InventoryManager>();
+        bedClassObject = FindObjectOfType<MorgueBed>();
     }
 
     // Update is called once per frame
@@ -84,6 +87,7 @@ public class LiverExtractionGame : MonoBehaviour
                         dialogObject.SetActive(false);
                         round3Object.SetActive(false);
                         _userInput.canMove = true;
+                        bedClassObject.canInteract = true;
                     }));
                 }));
         }

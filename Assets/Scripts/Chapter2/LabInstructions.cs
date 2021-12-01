@@ -29,5 +29,6 @@ public class LabInstructions : Interactable
     {
         note.SetActive(false);
         player.canMove = true;
+        canInteract = true;
     }
 }

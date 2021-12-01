@@ -229,24 +229,31 @@ public class InventoryManager : MonoBehaviour
             {
                 case 1:
                     crib1.changeSprite(dollNumber);
+                    crib1.canInteract = true;
                     break;
                 case 2:
                     crib2.changeSprite(dollNumber);
+                    crib2.canInteract = true;
                     break;
                 case 3:
                     crib3.changeSprite(dollNumber);
+                    crib3.canInteract = true;
                     break;
                 case 4:
                     crib4.changeSprite(dollNumber);
+                    crib4.canInteract = true;
                     break;
                 case 5:
                     crib5.changeSprite(dollNumber);
+                    crib5.canInteract = true;
                     break;
                 case 6:
                     crib6.changeSprite(dollNumber);
+                    crib6.canInteract = true;
                     break;
                 case 7:
                     crib7.changeSprite(dollNumber);
+                    crib7.canInteract = true;
                     break;
             }
 
