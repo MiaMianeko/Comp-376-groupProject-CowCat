@@ -6580,7 +6580,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: af7fc378168c954428e95ffdc9738ab8, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -11919,7 +11919,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 0fce89f2bdad1a84ab08c2f0762a98f1, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -11994,7 +11994,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: b182caf9886958d48a5eca61b8314a42, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -12869,7 +12869,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 932597068}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -23.943354, y: -3.759643, z: 274.8683}
+  m_LocalPosition: {x: -24.83174, y: -3.7603755, z: 274.8683}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 516349784}
@@ -20984,7 +20984,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &1694868822
@@ -24417,7 +24417,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 059b5e7dded859749be6261a28b4d4f9, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
