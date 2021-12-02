@@ -11,12 +11,13 @@ public class ChapterOneClassRoomGameManager : MonoBehaviour
     [SerializeField] private GameObject dialogGameObject;
     [SerializeField] private GameObject playerGameObject;
     [SerializeField] private AudioSource doorOpenAudioSource;
-
+    [SerializeField] private GameObject endScene;
     void Start()
     {
         _userInput = FindObjectOfType<UserController>();
         _userInput.canMove = false;
         Invoke(nameof(LoadDialog1), 1.0f);
+        endScene.SetActive(false);
     }
 
     // Start is called before the first frame update
@@ -155,6 +156,12 @@ public class ChapterOneClassRoomGameManager : MonoBehaviour
     }
 
     public void SwitchToNextScene()
+    {
+        endScene.SetActive(true);
+        Invoke(nameof(LoadScene),1f);
+    }
+
+    public void LoadScene()
     {
         SceneManager.LoadScene("Hallway1");
     }

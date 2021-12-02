@@ -7,6 +7,7 @@ public class HallGameManager : MonoBehaviour
     // Start is called before the first frame update
     [SerializeField] public GameObject playerGameObject;
     [SerializeField] private GameObject dialogGameObject;
+    
     private Dialog _dialog;
     private UserController _userInput;
 
@@ -15,6 +16,7 @@ public class HallGameManager : MonoBehaviour
         _userInput = FindObjectOfType<UserController>();
         _userInput.canMove = false;
         Invoke(nameof(LoadDialog1), 1.0f);
+        
     }
 
     // Update is called once per frame
