@@ -51,7 +51,29 @@ public class LiverExtractionGame : MonoBehaviour
             round++;
             round1Object.SetActive(false);
             round2Object.SetActive(true);
+
+
+
+
+            dialogObject.SetActive(true);
+            _dialog = FindObjectOfType<Dialog>();
+
+            string fileName = "/Dialogs/BugLevel.json";
+
+
+            StartCoroutine(FileReader.GetText(
+                Application.streamingAssetsPath + fileName,
+                jsonData =>
+                {
+                    DialogData dialogData = JsonUtility.FromJson<DialogData>(jsonData);
+                    StartCoroutine(_dialog.OutputDialog(dialogData, () =>
+                    {
+                        dialogObject.SetActive(false);
+
+                    }));
+                }));
         }
+    
         else if (round == 2 && round2Game.solved)
         {
             round++;
