@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BEGameManager : MonoBehaviour
+public class ChasingSceneGameManager : MonoBehaviour
 {
     [SerializeField] private GameObject friendGameObject;
     [SerializeField] private GameObject playerGameObject;
@@ -19,7 +19,8 @@ public class BEGameManager : MonoBehaviour
         _friend = FindObjectOfType<FriendController>();
         _player = FindObjectOfType<UserController>();
         Invoke(nameof(LoadDialog1), 1.0f);
-        
+        _player.canMove = false;
+
     }
 
     // Update is called once per frame
@@ -34,23 +35,22 @@ public class BEGameManager : MonoBehaviour
         _dialog = FindObjectOfType<Dialog>();
     
 
-        StartCoroutine(FileReader.GetText(Application.streamingAssetsPath + "Dialogs/EpilogueBEBEGameManagerDialog1.json",
+        StartCoroutine(FileReader.GetText(Application.streamingAssetsPath + "/Dialogs/EpilogueBEBEGameManagerDialog1.json",
             jsonData =>
             {
                 DialogData dialogData = JsonUtility.FromJson<DialogData>(jsonData);
                 StartCoroutine(_dialog.OutputDialog(dialogData, () =>
                 {
                     dialogGameObject.SetActive(false);
+                    FindObjectOfType<FriendAgent>().FriendMove();
+                    _player.canMove = true;
+                    FindObjectOfType<MonsterAgent>().MonsterChase();
                     //StartCoroutine(FriendMove(() => { LoadDialog2(); }));
                 }));
             }));
     }
 
-    /*
-    public IEnumerator FriendMove()
-    {
-        //return 
-    }*/
+
 }
 
 
