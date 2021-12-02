@@ -7,6 +7,7 @@ public class ClassroomB060GameManager : MonoBehaviour
 {
     // Start is called before the first frame update
     [SerializeField] private GameObject dialogGameObject;
+    [SerializeField] private GameObject start;
     private UserController _userInput;
     private Dialog _dialog;
 
@@ -14,6 +15,7 @@ public class ClassroomB060GameManager : MonoBehaviour
     {
         _userInput = FindObjectOfType<UserController>();
         _userInput.canMove = true;
+        start.SetActive(true);
     }
 
     // Update is called once per frame

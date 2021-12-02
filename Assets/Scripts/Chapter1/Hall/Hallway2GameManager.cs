@@ -7,6 +7,7 @@ public class Hallway2GameManager : MonoBehaviour
     // Start is called before the first frame update
     [SerializeField] private GameObject notebook;
     [SerializeField] private GameObject stairs;
+    [SerializeField] private GameObject start;
     private UserController _userInput;
 
     void Start()
@@ -15,6 +16,7 @@ public class Hallway2GameManager : MonoBehaviour
         notebook.SetActive(false);
         stairs.GetComponent<BoxCollider2D>().enabled = false;
         _userInput.canMove = true;
+        start.SetActive(true);
     }
 
     // Update is called once per frame

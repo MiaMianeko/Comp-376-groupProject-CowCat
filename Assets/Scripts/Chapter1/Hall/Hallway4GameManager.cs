@@ -5,6 +5,7 @@ using UnityEngine;
 public class Hallway4GameManager : MonoBehaviour
 {
     [SerializeField] private GameObject dialogGameObject;
+    [SerializeField] private GameObject start;
     private UserController _userInput;
     private Dialog _dialog;
 
@@ -12,7 +13,7 @@ public class Hallway4GameManager : MonoBehaviour
     void Start()
     {
         _userInput = FindObjectOfType<UserController>();
-
+        start.SetActive(true);
         _userInput.canMove = false;
         LoadDialogue19();
     }

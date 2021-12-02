@@ -55,13 +55,13 @@ public class InventoryManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (player.canMove && !isOpen && Input.GetKeyDown(KeyCode.I))
+        if (player.canMove && !isOpen && Input.GetKeyDown(KeyCode.E))
         {
             inventory.SetActive(true);
             isOpen = true;
             player.canMove = false;
         }
-        else if (isOpen && Input.GetKeyDown(KeyCode.I) && !manager.atCrib) closeInventory();
+        else if (isOpen && Input.GetKeyDown(KeyCode.E) && !manager.atCrib) closeInventory();
     }
 
     public void closeInventory()

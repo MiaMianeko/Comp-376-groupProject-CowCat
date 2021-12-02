@@ -54,6 +54,7 @@ public class MachineObject : Interactable
             }
             else
             {
+                canInteract = false;
                 manager.endChapter();
             }
 

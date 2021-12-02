@@ -8,6 +8,7 @@ public class Door050 : Interactable
     // Start is called before the first frame update
     [SerializeField] private GameObject dialogGameObject;
     [SerializeField] private GameObject openTheDoor;
+    [SerializeField] private GameObject end;
     private Dialog _dialog;
     private UserController _userInput;
 
@@ -15,6 +16,7 @@ public class Door050 : Interactable
     {
         _userInput = FindObjectOfType<UserController>();
         openTheDoor.SetActive(false);
+        end.SetActive(false);
     }
 
     // Update is called once per frame
@@ -42,6 +44,7 @@ public class Door050 : Interactable
                 {
                     dialogGameObject.SetActive(false);
                     openTheDoor.SetActive(true);
+                    end.SetActive(true);
                     Invoke(nameof(ChangeScene), 2);
                 }));
             }));
