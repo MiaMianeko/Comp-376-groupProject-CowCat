@@ -6,9 +6,10 @@ using UnityEngine.SceneManagement;
 public class Stairs2 : Interactable
 {
     // Start is called before the first frame update
+    [SerializeField] private GameObject end;
     void Start()
     {
-        
+        end.SetActive(false);
     }
 
     // Update is called once per frame
@@ -17,7 +18,13 @@ public class Stairs2 : Interactable
         if(canInteract && Input.GetKey(KeyCode.F))
         {
             canInteract = false;
-            SceneManager.LoadScene("Hallway3");
+            end.SetActive(true);
+            Invoke(nameof(LoadScene),1);
         }
+    }
+
+    void LoadScene()
+    {
+        SceneManager.LoadScene("Hallway3");
     }
 }

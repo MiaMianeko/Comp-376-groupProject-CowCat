@@ -28,6 +28,8 @@ public class LieOrTruthGameManager : MonoBehaviour
     [SerializeField] private GameObject playerGameObject;
     [SerializeField] private GameObject friendGameObject;
 
+    [SerializeField] private GameObject start;
+    [SerializeField] private GameObject end;
     private Dialog _dialog;
     private UserController _userInput;
     private FriendController _friendController;
@@ -42,6 +44,8 @@ public class LieOrTruthGameManager : MonoBehaviour
         _userInput.canMove = false;
         Invoke(nameof(LoadDialog1), 1.0f);
         FindObjectOfType<FriendController>().isFacingUp = true;
+        start.SetActive(true);
+        end.SetActive(false);
     }
 
     private void Update()
@@ -262,9 +266,14 @@ public class LieOrTruthGameManager : MonoBehaviour
         _friendController.direction = Vector3.up;
         yield return new WaitForSeconds(0.5f);
         _friendController.direction = Vector3.zero;
-        SceneManager.LoadScene("ToyRoomScene");
+        end.SetActive(false);
+        Invoke(nameof(LoadScene),1);
     }
 
+    void LoadScene()
+    {
+        SceneManager.LoadScene("ToyRoomScene");
+    }
     public IEnumerator MoveRight()
     {
         _userInput.isControlledBySystem = true;

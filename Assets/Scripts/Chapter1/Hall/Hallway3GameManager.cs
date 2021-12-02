@@ -9,6 +9,7 @@ public class Hallway3GameManager : MonoBehaviour
     [SerializeField] private GameObject notebook;
     [SerializeField] private GameObject stairs;
     [SerializeField] private GameObject book;
+    [SerializeField] private GameObject start;
     private UserController _userInput;
     private Dialog _dialog;
 
@@ -20,6 +21,7 @@ public class Hallway3GameManager : MonoBehaviour
         notebook.SetActive(false);
         stairs.GetComponent<BoxCollider2D>().enabled = false;
         Invoke(nameof(LoadDialogue8), 1);
+        start.SetActive(true);
     }
 
     // Update is called once per frame

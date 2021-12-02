@@ -7,9 +7,11 @@ public class Doorof060 : Interactable
 {
     [SerializeField] private GameObject openTheDoor;
     // Start is called before the first frame update
+    [SerializeField] private GameObject end;
     void Start()
     {
         openTheDoor.SetActive(false);
+        end.SetActive(false);
     }
 
     // Update is called once per frame
@@ -19,6 +21,7 @@ public class Doorof060 : Interactable
         {
             canInteract = false;
             openTheDoor.SetActive(true);
+            end.SetActive(true);
             Invoke(nameof(ChangeScene),2);
         }
     }

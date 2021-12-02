@@ -4,10 +4,12 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class Stairs3 : Interactable
 {
+    [SerializeField] private GameObject end;
     // Start is called before the first frame update
     void Start()
+    
     {
-        
+        end.SetActive(false);
     }
 
     // Update is called once per frame
@@ -16,7 +18,13 @@ public class Stairs3 : Interactable
         if(canInteract && Input.GetKey(KeyCode.F))
         {
             canInteract = false;
-            SceneManager.LoadScene("LiesOrTruthScene");
+            end.SetActive(true);
+            Invoke(nameof(LoadScene),1);
         }
+    }
+
+    void LoadScene()
+    {
+        SceneManager.LoadScene("LiesOrTruthScene");
     }
 }
