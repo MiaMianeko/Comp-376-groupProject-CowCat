@@ -1,29 +1,47 @@
 {
   "data": [
     {
-      "speaker": "Player",
-      "content": "Oh, how long did I sleep? I seem to have had a really long dream.",
+      "speaker": "Friend",
+      "content": "Hey, you ok? Class just ended.",
       "duration": 2.0
     },
     {
       "speaker": "Player",
-      "content": "Looks like the class is over, all the students left. I feel ashamed for being sleep during the whole class on my first day...",
+      "content": "Oh my god! I'm so embarrassed... I can't believe I slept through my first class!",
+      "duration": 2.0
+    },
+    {
+      "speaker": "Friend",
+      "content": "No worries, you didn't miss much. We can go over my notes together if you want.",
       "duration": 2.0
     },
     {
       "speaker": "Player",
-      "content": "I think I get to study harder at home to catch up on.",
+      "content": "Really? You're a lifesaver!",
+      "duration": 2.0
+    },
+    {
+      "speaker": "Friend",
+      "content": "I'm Lev by the way. ^_^",
       "duration": 2.0
     },
     {
       "speaker": "Player",
-      "content": "I am starving right now, I remember there's a Chinese restaurant upstairs, I want to try the Dandan noodles this time:)",
+      "content": "My name is Liv, nice to meet you!",
       "duration": 2.0
     },
     {
+      "speaker": "Lev",
+      "content": "Haha, oh it's lunch time, I remember there is a nice chinese restaurant upstairs, you wanna eat together?",
+      "duration": 2.0
+    },
+    
+    {
       "speaker": "Player",
-      "content": "Let's go!",
+      "content": "Why not? I am starving now, let's go!",
       "duration": 2.0
     }
+    
+    
   ]
 }

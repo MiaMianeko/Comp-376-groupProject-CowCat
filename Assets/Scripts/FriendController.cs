@@ -11,7 +11,7 @@ public class FriendController : MonoBehaviour
     public bool isFacingUp = false;
     public bool isFacingDown = false;
 
-    private float speed = 10.0f;
+    [SerializeField]private float speed = 10.0f;
 
     public Vector3 direction = new Vector3(0, 0, 0);
 

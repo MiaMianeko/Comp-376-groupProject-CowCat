@@ -6,39 +6,46 @@ public class DoorEnding : Interactable
 {
     // Start is called before the first frame update
     [SerializeField] private GameObject player;
-    [SerializeField] private GameObject friend;
+    
     [SerializeField] private GameObject blackFlash;
     [SerializeField] private GameObject darkClass;
     [SerializeField] private GameObject dialogGameObject;
     [SerializeField] private GameObject block;
     [SerializeField] private GameObject tvSound;
+    [SerializeField] private GameObject bgm;
     private Dialog _dialog;
     void Start()
     {
         blackFlash.SetActive(false);
-        
+        bgm.SetActive(false);
         
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (canInteract && Input.GetKey(KeyCode.F))
+        if (canInteract && Input.GetKey(KeyCode.F)&& !isInteracted)
         {
+            isInteracted = true;
             canInteract = false;
             gameObject.GetComponent<AudioSource>().Play();
             Destroy(player);
             Invoke(nameof(BadEnding),3);
+            
         }
+
+        if (isInteracted)
+        {
+            bgm.GetComponent<AudioSource>().volume -= 0.01f;
+        }
+        
     }
 
     public void BadEnding()
     {
         blackFlash.SetActive(true);
-        darkClass.SetActive(true);
-        friend.SetActive(true);
-        friend.GetComponent<AudioSource>().Play();
-        Invoke(nameof(LoadDialogue5),2);
+        Invoke(nameof(End),2);
+        
         
     }
     public void LoadDialogue5()
@@ -62,7 +69,7 @@ public class DoorEnding : Interactable
 
     public void End()
     {
-        Destroy(friend);
+        Destroy(blackFlash);
         tvSound.GetComponent<AudioSource>().Play();
         block.SetActive(true);
         

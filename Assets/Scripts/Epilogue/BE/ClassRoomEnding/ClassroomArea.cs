@@ -10,6 +10,7 @@ public class ClassroomArea : MonoBehaviour
     [SerializeField] private GameObject jumpscare;
     [SerializeField] private GameObject dialogGameObject;
     [SerializeField] private GameObject blink;
+    [SerializeField] private GameObject bgm;
     private UserController _userController;
     private Dialog _dialog;
     void Start()
@@ -30,7 +31,7 @@ public class ClassroomArea : MonoBehaviour
     {
         darkClassroom.SetActive(true);
         jumpscare.SetActive(true);
-        
+        bgm.GetComponent<AudioSource>().Pause();
         _userController.canMove = false;
         Invoke(nameof(LoadDialogue3),1);
     }
@@ -39,6 +40,7 @@ public class ClassroomArea : MonoBehaviour
     {
         
         darkClassroom.SetActive(false);
+        bgm.GetComponent<AudioSource>().Play();
         Invoke(nameof(LoadDialogue4),2);
 
     }
