@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,12 +15,15 @@ public class SickroomGameManager : MonoBehaviour
     void Start()
     {
         _player = FindObjectOfType<UserController>();
+        _player.canMove = false;
+      
         Invoke(nameof(LoadDialog1), 1.0f);
     }
 
     // Update is called once per frame
     void Update()
     {
+        
     }
 
     void LoadDialog1()
@@ -31,7 +35,14 @@ public class SickroomGameManager : MonoBehaviour
             jsonData =>
             {
                 DialogData dialogData = JsonUtility.FromJson<DialogData>(jsonData);
-                StartCoroutine(_dialog.OutputDialog(dialogData, () => { dialogGameObject.SetActive(false); }));
+                StartCoroutine(_dialog.OutputDialog(dialogData, () =>
+                {
+                    dialogGameObject.SetActive(false);
+                    _player.canMove = true;
+                }));
+                
             }));
     }
+
+  
 }

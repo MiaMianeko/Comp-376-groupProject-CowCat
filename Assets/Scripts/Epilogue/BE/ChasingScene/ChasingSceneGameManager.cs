@@ -43,9 +43,13 @@ public class ChasingSceneGameManager : MonoBehaviour
         {
             talk.GetComponent<Text>().text = "AM I GOING THE RIGHT WAY?";
         }
-        else if(playerGameObject.transform.position.x < -35f)
+        else if(playerGameObject.transform.position.x >= -50f && playerGameObject.transform.position.x < -35f)
         {
             talk.GetComponent<Text>().text = "I'M GONNA BE LATE TO CLASS!";
+        }
+        else if (playerGameObject.transform.position.x < -50f)
+        {
+            Destroy(talk);
         }
        
             

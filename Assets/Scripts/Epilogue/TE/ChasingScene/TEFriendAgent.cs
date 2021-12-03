@@ -16,7 +16,7 @@ public class TEFriendAgent : MonoBehaviour
     public bool isFacingUp = false;
     public bool isFacingDown = false;
 
-    private bool isFirst = true;
+    //private bool isFirst = true;
 
     // Start is called before the first frame update
     void Start()

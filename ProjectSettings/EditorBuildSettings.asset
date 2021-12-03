@@ -65,4 +65,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Epilogue/RevelationsScene.unity
     guid: cdf8e3b16043e8b41a3cb4ffbcc76f22
+  - enabled: 1
+    path: Assets/Scenes/Epilogue/Staff.unity
+    guid: 1aa11650a590eee41a4b0bc84c2c3784
   m_configObjects: {}
