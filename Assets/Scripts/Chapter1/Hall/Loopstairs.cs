@@ -20,6 +20,7 @@ public class Loopstairs : Interactable
     {
         if (canInteract && Input.GetKey(KeyCode.F))
         {
+            gameObject.GetComponent<AudioSource>().Play();
             canInteract = false;
             _userInput.isFacingDown = false;
             _userInput.isFacingLeft = false;
