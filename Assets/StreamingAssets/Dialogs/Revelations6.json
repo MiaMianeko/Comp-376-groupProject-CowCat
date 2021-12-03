@@ -1,0 +1,21 @@
+
+{
+  "data": [
+    {
+      "speaker": "Player",
+      "content": "I'm... a monster..."
+    },
+    {
+      "speaker": "EvilFriend",
+      "content": "heheHEHEheheHEHE MONSTER! MONSTER!"
+    },
+    {
+      "speaker": "EvilFriend",
+      "content": "WE WILL NEVER FORGIVE YOU"
+    },
+    {
+      "speaker": "Player",
+      "content": "I... I... I can't handle this."
+    }
+  ]
+}

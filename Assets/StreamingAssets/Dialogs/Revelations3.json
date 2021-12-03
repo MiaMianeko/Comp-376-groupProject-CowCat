@@ -1,0 +1,37 @@
+
+{
+  "data": [
+    {
+      "speaker": "EvilFriend",
+      "content": "You knew it was dangerous... The pathogens you were working with..."
+    },
+    {
+      "speaker": "EvilFriend",
+      "content": "The experiments you were doing..."
+    },
+    {
+      "speaker": "Player",
+      "content": "I was careful..."
+    },
+    {
+      "speaker": "EvilFriend",
+      "content": "Careful? You killed everyone. And what did you do? You hid."
+    },
+    {
+      "speaker": "Player",
+      "content": "I..."
+    },
+    {
+      "speaker": "EvilFriend",
+      "content": "You watched me die from your protective suit."
+    },
+    {
+      "speaker": "EvilFriend",
+      "content": "You could have saved us. You could have warned us."
+    },
+    {
+      "speaker": "Player",
+      "content": "No... There was nothing... It was too late..."
+    }
+  ]
+}
