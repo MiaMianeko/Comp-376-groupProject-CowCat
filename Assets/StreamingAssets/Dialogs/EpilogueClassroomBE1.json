@@ -1,0 +1,26 @@
+{
+  "data": [
+    {
+      "speaker": "Friend",
+      "content": "Wake up!",
+      "duration": 2.0
+    },
+    {
+      "speaker": "Friend",
+      "content": "...",
+      "duration": 2.0
+    },
+    {
+      "speaker": "Friend",
+      "content": "Wake up, wake up!",
+      "duration": 2.0
+    },
+    {
+      "speaker": "Friend",
+      "content": "Liv! Wake up!",
+      "duration": 2.0
+    }
+    
+    
+  ]
+}
