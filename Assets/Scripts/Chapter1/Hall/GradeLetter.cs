@@ -43,6 +43,7 @@ public class GradeLetter : Interactable
                     dialogGameObject.SetActive(false);
                     _userInput.canMove = true;
                     //gameObject.GetComponent<BoxCollider2D>().enabled = false;
+                    canInteract = true;
                 }));
             }));
     }
