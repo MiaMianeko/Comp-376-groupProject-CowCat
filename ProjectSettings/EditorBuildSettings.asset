@@ -30,7 +30,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Chapter1/ClassroomScene.unity
     guid: bb603290456f02b4db1b8c7c026df1e3
   - enabled: 1
-    path: Assets/Scenes/Chapter1/Hallway1.unity
+    path: Assets/Scenes/Chapter1/HallScene.unity
     guid: 4ac1d86c60c3d5c4a8e16a29671ad02c
   - enabled: 1
     path: Assets/Scenes/Chapter1/Hallway2.unity

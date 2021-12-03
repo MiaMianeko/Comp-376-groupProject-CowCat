@@ -163,6 +163,6 @@ public class ChapterOneClassRoomGameManager : MonoBehaviour
 
     public void LoadScene()
     {
-        SceneManager.LoadScene("Hallway1");
+        SceneManager.LoadScene("Scenes/Chapter1/HallScene");
     }
 }
