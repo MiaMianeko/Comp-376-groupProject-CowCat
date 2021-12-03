@@ -33,19 +33,19 @@ public class ChasingSceneGameManager : MonoBehaviour
     {
         if (playerGameObject.transform.position.x >=  15f && playerGameObject.transform.position.x < 38f)
         {
-            talk.GetComponent<Text>().text = "IS SOMETHING CHASING US?";
+            talk.GetComponent<Text>().text = "WE HAVE TO GET AWAY!!";
         }
         else if(playerGameObject.transform.position.x >= -10f && playerGameObject.transform.position.x < 15f)
         {
-            talk.GetComponent<Text>().text = "DID I FORGET ANYTHING?";
+            talk.GetComponent<Text>().text = "I... I HAVE TO HURRY!!";
         }
         else if(playerGameObject.transform.position.x >= -35f && playerGameObject.transform.position.x < -10f)
         {
-            talk.GetComponent<Text>().text = "WHY ARE WE RUNNING?";
+            talk.GetComponent<Text>().text = "AM I GOING THE RIGHT WAY?";
         }
         else if(playerGameObject.transform.position.x < -35f)
         {
-            talk.GetComponent<Text>().text = "WE ARE GONNA BE LATE TO THE CLASS!";
+            talk.GetComponent<Text>().text = "I'M GONNA BE LATE TO CLASS!";
         }
        
             

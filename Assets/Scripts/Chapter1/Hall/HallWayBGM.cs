@@ -18,5 +18,7 @@ public class HallWayBGM : MonoBehaviour
     public void StopBGM()
     {
         bgmSource.Stop();
+        Destroy(bgmSource);
+        Destroy(this);
     }
 }

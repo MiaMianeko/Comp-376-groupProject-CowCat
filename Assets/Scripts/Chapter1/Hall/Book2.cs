@@ -13,6 +13,8 @@ public class Book2 : Interactable
     [SerializeField] private GameObject notebookpage3;
     [SerializeField] private GameObject shock;
     [SerializeField] private GameObject stairs;
+    [SerializeField] private GameObject lockedDoorObject;
+
     private Dialog _dialog;
     private UserController _userInput;
 
@@ -116,6 +118,7 @@ public class Book2 : Interactable
             Invoke(nameof(LoadDialogue13), 1);
             isInteracted = true;
             door050.GetComponent<BoxCollider2D>().enabled = true;
+            lockedDoorObject.SetActive(false);
         }
     }
 

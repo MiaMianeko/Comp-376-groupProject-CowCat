@@ -64,6 +64,7 @@ public class MaternityDesk : Interactable
                            }
 
                            _userInput.canMove = true;
+                           canInteract = true;
                        }));
                    }));
             }
@@ -96,6 +97,8 @@ public class MaternityDesk : Interactable
                        dialogGameObject.SetActive(false);
                        
                        _userInput.canMove = true;
+
+                       canInteract = true;
                    }));
                }));
     }
@@ -104,7 +107,9 @@ public class MaternityDesk : Interactable
     {
         noteObject.SetActive(false);
         _userInput.canMove = true;
+
         if (!manager.dollsSpawned) spawnDolls();
+        else canInteract = true;
     }
 }
 

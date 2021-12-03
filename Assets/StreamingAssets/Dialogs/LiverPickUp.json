@@ -9,6 +9,11 @@
       "speaker": "Player",
       "content": "I... I enjoyed that way too much... Why am I not grossed out by this?",
       "duration": 3.0
+    },
+    {
+      "speaker": "Player",
+      "content": "I don't need this scalpel anymore... I think I'll leave it here...",
+      "duration": 3.0
     }
   ]
 }

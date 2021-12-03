@@ -1,0 +1,24 @@
+{
+  "data": [
+    {
+      "speaker": "Player",
+      "content": "This man's body is riddled with marks of the disease that afflicted Lev...",
+      "duration": 3.0
+    },
+    {
+      "speaker": "Player",
+      "content": "With the scalpel I have, I should be able to extract its liver and make a cure.",
+      "duration": 3.0
+    },
+    {
+      "speaker": "Player",
+      "content": "Just remember your training, steady hand, continuous cut down the body...",
+      "duration": 3.0
+    },
+    {
+      "speaker": "Player",
+      "content": "... wait what training? Either way, here goes nothing...",
+      "duration": 3.0
+    }
+  ]
+}

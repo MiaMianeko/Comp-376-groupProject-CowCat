@@ -2,19 +2,27 @@
   "data": [
     {
       "speaker": "Player",
-      "content": "uh....."
+      "content": "..."
     },
     {
       "speaker": "Player",
-      "content": "Oh.. It was a dream"
+      "content": "I have to live on..."
     },
     {
       "speaker": "Player",
-      "content": "I think i am not the only one alive"
+      "content": "It's so hard to get out of bed... To face the world..."
     },
     {
       "speaker": "Player",
-      "content": "To make up for the mistakes I have made， I should find them."
+      "content": "The world I destroyed..."
+    },
+    {
+      "speaker": "Player",
+      "content": "But if I survived... There's a chance someone else is alive out there..."
+    },
+    {
+      "speaker": "Player",
+      "content": "The possibility is slim... But I owe it to them to at least try..."
     }
   ]
 }

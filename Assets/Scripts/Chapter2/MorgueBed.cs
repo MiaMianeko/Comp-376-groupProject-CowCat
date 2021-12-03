@@ -28,7 +28,8 @@ public class MorgueBed : Interactable
 
             string fileName;
 
-            if (!manager.hasLiver) fileName = "/Dialogs/HospitalMorgueCorpseCheck.json";
+            if (!manager.hasScalpel) fileName = "/Dialogs/HospitalMorgueCorpseCheck.json";
+            else if (!manager.hasLiver) fileName = "/Dialogs/HospitalMorgueCorpsePuzzleStart.json";
             else fileName = "/Dialogs/HospitalMorgueCorpseCheckAlreadyTaken.json";
 
             StartCoroutine(FileReader.GetText(
@@ -40,8 +41,12 @@ public class MorgueBed : Interactable
                       {
                          dialogGameObject.SetActive(false);
                           if (manager.hasScalpel && !manager.hasLiver)
-                            puzzles.StartGame();
-                          else _userInput.canMove = true;
+                              puzzles.StartGame();
+                          else
+                          {
+                              _userInput.canMove = true;
+                              canInteract = true;
+                          }
                       }));
                }));
              

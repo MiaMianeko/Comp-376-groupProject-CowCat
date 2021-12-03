@@ -31,6 +31,8 @@ public class LiverExtractionGame : MonoBehaviour
 
     private UserController _userInput;
 
+    MorgueBed bedClassObject;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,6 +40,7 @@ public class LiverExtractionGame : MonoBehaviour
         _userInput = FindObjectOfType<UserController>();
         manager = FindObjectOfType<HospitalManager>();
         inventory = FindObjectOfType<InventoryManager>();
+        bedClassObject = FindObjectOfType<MorgueBed>();
     }
 
     // Update is called once per frame
@@ -48,7 +51,29 @@ public class LiverExtractionGame : MonoBehaviour
             round++;
             round1Object.SetActive(false);
             round2Object.SetActive(true);
+
+
+
+
+            dialogObject.SetActive(true);
+            _dialog = FindObjectOfType<Dialog>();
+
+            string fileName = "/Dialogs/BugLevel.json";
+
+
+            StartCoroutine(FileReader.GetText(
+                Application.streamingAssetsPath + fileName,
+                jsonData =>
+                {
+                    DialogData dialogData = JsonUtility.FromJson<DialogData>(jsonData);
+                    StartCoroutine(_dialog.OutputDialog(dialogData, () =>
+                    {
+                        dialogObject.SetActive(false);
+
+                    }));
+                }));
         }
+    
         else if (round == 2 && round2Game.solved)
         {
             round++;
@@ -84,6 +109,7 @@ public class LiverExtractionGame : MonoBehaviour
                         dialogObject.SetActive(false);
                         round3Object.SetActive(false);
                         _userInput.canMove = true;
+                        bedClassObject.canInteract = true;
                     }));
                 }));
         }

@@ -27,11 +27,15 @@ public class MachinePuzzle : MonoBehaviour
 
     bool isSolved;
 
+
+    MachineObject machineClass;
+
     // Start is called before the first frame update
     void Start()
     {
         manager = FindObjectOfType<HospitalManager>();
         player = FindObjectOfType<UserController>();
+        machineClass = FindObjectOfType<MachineObject>();
     }
 
     // Update is called once per frame
@@ -176,6 +180,7 @@ public class MachinePuzzle : MonoBehaviour
                 dialogGameObject.SetActive(false);
                 this.gameObject.SetActive(false);
                 player.canMove = true;
+                machineClass.canInteract = true;
             }));
         }));
 

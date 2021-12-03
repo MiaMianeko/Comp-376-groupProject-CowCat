@@ -1,0 +1,25 @@
+
+{
+  "data": [
+    {
+      "speaker": "Friend",
+      "content": "Liv! There you are! Come with me!"
+    },
+    {
+      "speaker": "EvilFriend",
+      "content": "NOT REAL! HE IS A LIE YOU CREATED!! "
+    },
+    {
+      "speaker": "Friend",
+      "content": "It's ok... You don't need to worry... Come back to class..."
+    },
+    {
+      "speaker": "Player",
+      "content": "I... I... "
+    },
+    {
+      "speaker": "Friend",
+      "content": "Look how happy we were... I still have this picture of you..."
+    }
+  ]
+}

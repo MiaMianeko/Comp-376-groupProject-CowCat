@@ -1,0 +1,28 @@
+ {
+  "data": [
+    {
+      "speaker": "Player",
+      "content": "I... I can't keep lying to myself... I know what I did..."
+    },
+    {
+      "speaker": "Player",
+      "content": "Time to leave this made up fantasy behind... and accept the truth..."
+    },
+    {
+      "speaker": "Friend",
+      "content": "No!! Liv!! Don't leave me!!"
+    },
+    {
+      "speaker": "Player",
+      "content": "I... I killed you... I have to let you go!"
+    },
+    {
+      "speaker": "Friend",
+      "content": "YOU CAN'T ABANDON"
+    },
+    {
+      "speaker": "Monster",
+      "content": "ME"
+    }
+  ]
+}

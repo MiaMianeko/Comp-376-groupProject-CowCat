@@ -25,6 +25,7 @@ public class Locker : Interactable
         {
             shock.SetActive(true);
             Invoke(nameof(LoadDialogue20), 2);
+            canInteract = false;
         }
     }
 

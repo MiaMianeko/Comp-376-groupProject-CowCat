@@ -1,0 +1,24 @@
+ {
+  "data": [
+    {
+      "speaker": "EvilFriend",
+      "content": "CHOOSE!"
+    },
+    {
+      "speaker": "Friend",
+      "content": "CHOOSE!"
+    },
+    {
+      "speaker": "Player",
+      "content": "I..."
+    },
+    {
+      "speaker": "EvilFriend",
+      "content": "YOU CANNOT FORGET! YOU MUST ACCEPT THE TRUTH! OPEN THE DOOR!!"
+    },
+    {
+      "speaker": "Friend",
+      "content": "Come back with me... We can be happy..."
+    }
+  ]
+}

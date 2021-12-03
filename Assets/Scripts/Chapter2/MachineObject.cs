@@ -32,7 +32,7 @@ public class MachineObject : Interactable
             }
             else if (!(manager.hasAntibiotic && manager.hasLiver))
             {
-
+                player.canMove = false;
                 canInteract = false;
                 dialogGameObject.SetActive(true);
                 _dialog = FindObjectOfType<Dialog>();
@@ -47,11 +47,14 @@ public class MachineObject : Interactable
                         dialogGameObject.SetActive(false);
 
                         player.canMove = true;
+
+                        canInteract = true;
                     }));
                 }));
             }
             else
             {
+                canInteract = false;
                 manager.endChapter();
             }
 
