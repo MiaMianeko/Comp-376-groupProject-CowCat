@@ -790,11 +790,19 @@ MonoBehaviour:
     m_LineSpacing: 2
   m_Text: 'STAFF
 
-    AbaAba
+    Antoine Dufour-Blain
 
-    AbaAba
+    Honggeer
 
-    ABaAba'
+    Tianxiang Ying
+
+    Yuxin
+    Wang
+
+    Yihen Yan
+
+
+    Thanks For Your Playing'
 --- !u!222 &1537885100
 CanvasRenderer:
   m_ObjectHideFlags: 0
