@@ -85,6 +85,7 @@ public class LieOrTruthGameManager : MonoBehaviour
         if (number == 1)
         {
             // Correct answer
+            _userInput.canMove = false; 
             backgroundGameObject.GetComponent<SpriteRenderer>().sprite = spriteBackground2;
             Destroy(painting1TriggerGameObject);
             roundNumber++;
@@ -103,6 +104,7 @@ public class LieOrTruthGameManager : MonoBehaviour
         }
         else
         {
+            _userInput.canMove = false;
             // Wrong answer
             StartCoroutine(FileReader.GetText(
                 Application.streamingAssetsPath + "/Dialogs/Chapter1LieOrTruthDialog5.json",
@@ -144,7 +146,7 @@ public class LieOrTruthGameManager : MonoBehaviour
         if (number == 3)
         {
             // Correct answer
-
+            _userInput.canMove = false;
             Destroy(painting3TriggerGameObject);
             Destroy(painting5TriggerGameObject);
             roundNumber++;
@@ -165,6 +167,7 @@ public class LieOrTruthGameManager : MonoBehaviour
         else
         {
             // Wrong answer
+            _userInput.canMove = false;
             StartCoroutine(FileReader.GetText(
                 Application.streamingAssetsPath + "/Dialogs/Chapter1LieOrTruthDialog5.json",
                 jsonData =>
@@ -203,6 +206,7 @@ public class LieOrTruthGameManager : MonoBehaviour
         Destroy(painting4TriggerGameObject);
         if (number == 2)
         {
+            _userInput.canMove = false;
             // Left
             backgroundGameObject.GetComponent<SpriteRenderer>().sprite = spriteBackground4;
             StartCoroutine(FileReader.GetText(
@@ -220,6 +224,7 @@ public class LieOrTruthGameManager : MonoBehaviour
         }
         else
         {
+            _userInput.canMove = false;
             backgroundGameObject.GetComponent<SpriteRenderer>().sprite = spriteBackground5;
             // Right
             StartCoroutine(FileReader.GetText(

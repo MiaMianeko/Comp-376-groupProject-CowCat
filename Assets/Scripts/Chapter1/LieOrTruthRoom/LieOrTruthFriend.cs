@@ -38,6 +38,7 @@ public class LieOrTruthFriend : Interactable
                             {
                                 dialogGameObject.SetActive(false);
                                 _userInput.canMove = true;
+                                canInteract = true;
                                 roundNumber++;
                                 FindObjectOfType<LieOrTruthGameManager>().ReleasePaintingBlock();
                                 FindObjectOfType<FriendController>().isFacingRight = false;
