@@ -1,0 +1,24 @@
+ {
+  "data": [
+    {
+      "speaker": "Friend",
+      "content": "I'm glad you came to your senses!"
+    },
+    {
+      "speaker": "Player",
+      "content": "Lev... I can't leave you again..."
+    },
+    {
+      "speaker": "EvilFriend",
+      "content": "YOU CANNOT OUTRUN WHAT HAS HAPPENED!!"
+    },
+    {
+      "speaker": "EvilFriend",
+      "content": "YOU CANNOT OUTRUN..."
+    },
+    {
+      "speaker": "Monster",
+      "content": "ME"
+    }
+  ]
+}

@@ -63,6 +63,7 @@ public class Newspaper : Interactable
     {
         newspaper.SetActive(false);
         _userInput.canMove = true;
+        canInteract = true;
     }
 
     

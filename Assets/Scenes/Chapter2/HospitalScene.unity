@@ -1896,6 +1896,7 @@ MonoBehaviour:
   unknownFriendSprite: {fileID: 21300000, guid: 171b8c4dc3426674580ea34c1edce2fc, type: 3}
   evilFriendSprite: {fileID: 21300000, guid: 06f4cb848ac15ce46ae32087d8e9f4a1, type: 3}
   speakerImage: {fileID: 1088786615}
+  monsterSprite: {fileID: 0}
 --- !u!114 &195147886
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5579,6 +5580,7 @@ MonoBehaviour:
   dollSpawn: {fileID: 8300000, guid: 96ec5ee570cb40042a14fc5f8b3f3c22, type: 3}
   heartbeatSound: {fileID: 8300000, guid: 98a1b842710ebe7409e0b86d82395d08, type: 3}
   bottleBreak: {fileID: 8300000, guid: 558e89e91f7f39a408ca0a88a11c5acb, type: 3}
+  monsterShriek: {fileID: 8300000, guid: 27f018b96e5f8fa428b9e5add7e3ea87, type: 3}
   atCrib: 0
   cribNumber: 0
   dollSelected: 0
@@ -8602,7 +8604,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &705797243
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13176,7 +13178,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 932597068}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -23.944626, y: -3.7596445, z: 274.8683}
+  m_LocalPosition: {x: -24.840487, y: -3.7603831, z: 274.8683}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 516349784}
@@ -21291,7 +21293,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &1694868822
@@ -21875,7 +21877,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1724226916
 RectTransform:
   m_ObjectHideFlags: 0

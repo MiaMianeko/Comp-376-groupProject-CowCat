@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.SceneManagement;
+
 public class RevelationsManager : MonoBehaviour
 {
     [SerializeField] GameObject giantHead;
@@ -18,6 +20,7 @@ public class RevelationsManager : MonoBehaviour
     AudioSource audio;
     [SerializeField] AudioClip stinger;
     [SerializeField] AudioClip stomp;
+    [SerializeField] AudioClip monsterScream;
     FriendController friendController;
     MurdererManager murdererManager;
 
@@ -30,6 +33,11 @@ public class RevelationsManager : MonoBehaviour
     [SerializeField] GameObject FindTheLiars;
 
     [SerializeField] GameObject goodGameTrigger;
+    [SerializeField] GameObject badEndingMonster;
+    [SerializeField] GameObject goodEndingMonster;
+
+    [SerializeField] GameObject blackScreen;
+    
 
     UserController player;
     // Start is called before the first frame update
@@ -145,11 +153,45 @@ public class RevelationsManager : MonoBehaviour
                     playEndGameDialog("Revelations12.json");
                     break;
                 case 22:
-                    goodGameTrigger.SetActive(true);
-                    playEndGameDialog("Revelations12.json");
+                    player.canMove = true;
                     break;
                 case 23:
-                    player.canMove = true;
+                    playEndGameDialog("Revelations13.json");
+                    break;
+                case 24:
+                    badEndingMonster.SetActive(true);
+                    goodGameTrigger.SetActive(false);
+                    badEndingMonster.transform.Translate(Vector3.left * Time.deltaTime * (giantHeadSpeed*3));
+                    if(badEndingMonster.transform.position.x < -0.5f) stepsOfEnding++; 
+                    break;
+                case 25:
+                    blackScreen.SetActive(true);
+                    audio.PlayOneShot(monsterScream);
+                    timer = Time.time;
+                    stepsOfEnding++;
+                    break;
+                case 26:
+                    if(Time.time > timer + 1)
+                    SceneManager.LoadScene("Scenes/Epilogue/BE/ChasingScene");
+                    break;
+                case 50:
+                    playEndGameDialog("Revelations14.json");
+                    break;
+                case 51:
+                    goodEndingMonster.SetActive(true);
+                    friendGameObject.SetActive(false);
+                    goodEndingMonster.transform.Translate(Vector3.right * Time.deltaTime * (giantHeadSpeed * 3));
+                    if (goodEndingMonster.transform.position.x > 2.1f) stepsOfEnding++;
+                    break;
+                case 52:
+                    blackScreen.SetActive(true);
+                    audio.PlayOneShot(monsterScream);
+                    timer = Time.time;
+                    stepsOfEnding++;
+                    break;
+                case 53:
+                    if (Time.time > timer + 1)
+                        SceneManager.LoadScene("Scenes/Epilogue/TE/ChasingScene");
                     break;
             }
     }
@@ -185,11 +227,16 @@ public class RevelationsManager : MonoBehaviour
     }
     public void chooseBadEnding()
     {
+        player.canMove = false;
+        stepsOfEnding++;
+        timer = Time.time;
 
     }
     public void chooseGoodEnding()
     {
         player.canMove = false;
+        stepsOfEnding = 50;
+        timer = Time.time;
     }
 
 }

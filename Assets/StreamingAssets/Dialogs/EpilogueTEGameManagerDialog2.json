@@ -1,8 +1,24 @@
 {
   "data": [
     {
+      "speaker": "Player",
+      "content": "I can't keep running away... I know what I did...  I have to accept it and ... move on..."
+    },
+    {
       "speaker": "Monster",
-      "content": "You have no where to go.... because i belongs to you...."
+      "content": "You can't! I HATE YOU! YOU HATE YOURSELF!"
+    },
+    {
+      "speaker": "Player",
+      "content": "I do... I think I always will... How can I possibly forget what I've done?"
+    },
+    {
+      "speaker": "Player",
+      "content": "But... there might be someone out there... If I give up now... Why am I still alive?"
+    },
+    {
+      "speaker": "Player",
+      "content": "Time... to wake up at last..."
     }
   ]
 }

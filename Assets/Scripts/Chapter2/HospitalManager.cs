@@ -41,7 +41,7 @@ public class HospitalManager : MonoBehaviour
     [SerializeField] AudioClip dollSpawn;
     [SerializeField] AudioClip heartbeatSound;
     [SerializeField] AudioClip bottleBreak;
-
+    [SerializeField] AudioClip monsterShriek;
 
     public bool atCrib;
     public int cribNumber;
@@ -197,13 +197,14 @@ public class HospitalManager : MonoBehaviour
                     {
                         flashlight.SetActive(false);
                         endStage = 12;
+                        endTriggeredTime = Time.time;
                     }
 
                     break;
                 case 12:
                     if (Time.time > endTriggeredTime + 0.5f)
                     {
-                        // SceneManager.LoadScene("");
+                        SceneManager.LoadScene("Scenes/Epilogue/RevelationsScene");
                     }
 
                     break;
