@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+using UnityEngine.UI;
 public class ChasingSceneGameManager : MonoBehaviour
 {
     [SerializeField] private GameObject friendGameObject;
@@ -11,8 +11,10 @@ public class ChasingSceneGameManager : MonoBehaviour
     private UserController _player;
 
     [SerializeField] private GameObject dialogGameObject;
-
+    [SerializeField] private Text talk;
+    
     private Dialog _dialog;
+    
     // [SerializeField] private GameObject gameOverGameObject;
 
     [SerializeField] private AudioSource bgmAudio;
@@ -29,6 +31,27 @@ public class ChasingSceneGameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (playerGameObject.transform.position.x >=  15f && playerGameObject.transform.position.x < 38f)
+        {
+            talk.GetComponent<Text>().text = "IS SOMETHING CHASING US?";
+        }
+        else if(playerGameObject.transform.position.x >= -10f && playerGameObject.transform.position.x < 15f)
+        {
+            talk.GetComponent<Text>().text = "DID I FORGET ANYTHING?";
+        }
+        else if(playerGameObject.transform.position.x >= -35f && playerGameObject.transform.position.x < -10f)
+        {
+            talk.GetComponent<Text>().text = "WHY ARE WE RUNNING?";
+        }
+        else if(playerGameObject.transform.position.x < -35f)
+        {
+            talk.GetComponent<Text>().text = "WE ARE GONNA BE LATE TO THE CLASS!";
+        }
+       
+            
+    
+        
+
     }
 
     public void LoadDialog1()
