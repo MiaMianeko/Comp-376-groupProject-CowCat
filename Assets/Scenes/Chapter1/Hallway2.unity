@@ -6656,7 +6656,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canInteract: 0
   isInteracted: 0
-  dialogObject: {fileID: 0}
+  dialogObject: {fileID: 310011605}
 --- !u!61 &1904562227
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6915,7 +6915,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canInteract: 0
   isInteracted: 0
-  dialogObject: {fileID: 0}
+  dialogObject: {fileID: 310011605}
 --- !u!61 &2104857961
 BoxCollider2D:
   m_ObjectHideFlags: 0
