@@ -62,7 +62,7 @@ public class TEChasingSceneGameManager : MonoBehaviour
     {
         dialogGameObject.SetActive(true);
         _dialog = FindObjectOfType<Dialog>();
-
+        _player.canMove = false;
 
         StartCoroutine(FileReader.GetText(
             Application.streamingAssetsPath + "/Dialogs/EpilogueTEGameManagerDialog2.json",
