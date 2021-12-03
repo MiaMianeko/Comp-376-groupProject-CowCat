@@ -1,0 +1,19 @@
+{
+  "data": [
+    {
+      "speaker": "Player",
+      "content": "I already took his liver... That felt really easy...",
+      "duration": 3.0
+    },
+    {
+      "speaker": "Player",
+      "content": "Why did it feel like it wasn't my first time doing that?",
+      "duration": 3.0
+    },
+    {
+      "speaker": "Player",
+      "content": "I don't feel... like I remember everything anymore...",
+      "duration": 3.0
+    }
+  ]
+}

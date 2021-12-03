@@ -1,0 +1,25 @@
+
+{
+  "data": [
+    {
+      "speaker": "Friend",
+      "content": "I kept it all this time..."
+    },
+    {
+      "speaker": "Player",
+      "content": "Oh... Is that... me?"
+    },
+    {
+      "speaker": "Friend",
+      "content": "Do you remember before you met me? In that class room?"
+    },
+    {
+      "speaker": "Player",
+      "content": "How could you possibly..."
+    },
+    {
+      "speaker": "Friend",
+      "content": "That picture of me... you kept it right? You didn't remember why but you kept it..."
+    }
+  ]
+}

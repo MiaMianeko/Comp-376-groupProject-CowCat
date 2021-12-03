@@ -1,0 +1,25 @@
+{
+  "data": [
+    {
+      "speaker": "Player",
+      "content": "There's a letter here...",
+      "duration": 3.0
+    },
+    {
+      "speaker": "Player",
+      "content": "'Mr Hong, we are unable to change your grade for ENGR 213, at this time the F will remain unless you choose to retake the class.'",
+      "duration": 3.0
+    },
+    {
+      "speaker": "Player",
+      "content": "Engr 213? Man what an idiot... That class is was super easy!",
+      "duration": 3.0
+    },
+    {
+      "speaker": "Player",
+      "content": "Wait what did I just say? I... I've never taken it...",
+      "duration": 3.0
+    }
+    
+  ]
+}

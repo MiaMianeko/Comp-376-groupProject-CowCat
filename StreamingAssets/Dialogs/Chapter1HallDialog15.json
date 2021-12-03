@@ -1,0 +1,19 @@
+{
+  "data": [
+    {
+      "speaker": "Player",
+      "content": "It's a note book with the name 'Dominique' on it. That's a name you don't hear often in media...",
+      "duration": 2.0
+    },
+    {
+      "speaker": "Player",
+      "content": "They should make a game with a protagonist named Dominique.",
+      "duration": 2.0
+    },
+    {
+      "speaker": "Player",
+      "content": "Not me, though. I'm Liv.",
+      "duration": 2.0
+    }
+  ]
+}

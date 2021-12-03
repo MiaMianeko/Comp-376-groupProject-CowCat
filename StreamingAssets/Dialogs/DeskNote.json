@@ -1,0 +1,27 @@
+{
+  "data": [
+    {
+      "speaker": "Player",
+      "content": "The drawer is locked... There is a journal on the desk, however.",
+      "duration": 3.0
+    },
+        {
+      "speaker": "Player",
+      "content": "It reads: \" I lost the desk key feeding the one eyed crybaby in the middle. It just won't shut up!",
+	
+      "duration": 3.0
+    },
+    {
+      "speaker": "Player",
+      "content": "I might be able to find it if I remember which bed each other baby was in when I lost them...",
+	
+      "duration": 3.0
+    },
+    {
+      "speaker": "Player",
+      "content": "I'm gonna get in so much trouble... Maybe I can blame it on the night nurse?\"",
+	
+      "duration": 3.0
+    }
+  ]
+}

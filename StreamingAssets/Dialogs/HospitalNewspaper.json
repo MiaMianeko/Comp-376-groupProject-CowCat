@@ -1,0 +1,40 @@
+{
+  "data": [
+    {
+      "speaker": "Player",
+      "content": "It's an old newspaper... The pages are almost falling apart...",
+      "duration": 4.0
+    },
+    {
+      "speaker": "Player",
+      "content": "(Title:Virus continues to spread)",
+      "duration": 4.0
+    },
+    {
+      "speaker": "Player",
+      "content": "(\"December 5th 2024,  The spread of the Montreal virus shows no sign of stopping.\")",
+      "duration": 4.0
+    },
+    {
+      "speaker": "Player",
+      "content": "(\"Border closures continue, with the UN security council convening for what may be the last time today.\")",
+      "duration": 4.0
+    },
+    {
+      "speaker": "Player",
+      "content": "(\"Death toll having reached 3 billion people today...\")",
+      "duration": 4.0
+    },
+    {
+      "speaker": "Player",
+      "content": "A newspaper dated 3 years in the future about a cataclysmic world ending event?",
+      "duration": 4.0
+    },
+    {
+      "speaker": "Player",
+      "content": "Someone's twisted idea of a practical joke, I guess...",
+      "duration": 4.0
+    }
+    
+  ]
+}

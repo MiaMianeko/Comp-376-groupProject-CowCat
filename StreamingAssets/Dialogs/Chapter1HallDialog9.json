@@ -1,0 +1,20 @@
+{
+  "data": [
+    {
+      "speaker": "Player",
+      "content": "Oh no....B-060",
+      "duration": 2.0
+    },
+    {
+      "speaker": "Player",
+      "content": "I can't seem to escape that damn classroom...",
+      "duration": 2.0
+    },
+    {
+      "speaker": "Player",
+      "content": "I guess it's not the only thing that's the same...",
+      "duration": 2.0
+    }
+    
+  ]
+}

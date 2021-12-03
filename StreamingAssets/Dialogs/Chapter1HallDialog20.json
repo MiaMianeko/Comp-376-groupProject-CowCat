@@ -1,0 +1,35 @@
+{
+  "data": [
+    {
+      "speaker": "Player",
+      "content": "This wasn't open before... Was it?",
+      "duration": 2.0
+    },
+    {
+      "speaker": "Player",
+      "content": "It's filled with blood? Something messed up is going on around here.",
+      "duration": 2.0
+    },
+    {
+      "speaker": "Player",
+      "content": "It looks like something broke out of here...",
+      "duration": 2.0
+    },
+    {
+      "speaker": "Player",
+      "content": "Whatever it was, it went towards the stairs.",
+      "duration": 2.0
+    },
+    {
+      "speaker": "Player",
+      "content": "...",
+      "duration": 2.0
+    },
+    {
+      "speaker": "Player",
+      "content": "The stairs... They feel different now...",
+      "duration": 2.0
+    }
+    
+  ]
+}

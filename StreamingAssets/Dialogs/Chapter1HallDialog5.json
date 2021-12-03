@@ -1,0 +1,15 @@
+{
+  "data": [
+    {
+      "speaker": "Player",
+      "content": "Who the hell wrote this?",
+      "duration": 3.0
+    },
+    {
+      "speaker": "Player",
+      "content": "Ok, unimportant... If it isn't helping me get out, it's a waste of time.",
+      "duration": 4.0
+    }
+    
+  ]
+}

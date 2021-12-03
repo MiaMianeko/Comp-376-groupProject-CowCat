@@ -1,0 +1,22 @@
+{
+  "data": [
+
+    {
+      "speaker": "Player",
+      "content": "The same floor again??",
+      "duration": 2.0
+    },
+    {
+      "speaker": "Player",
+      "content": "Why can't I leave?",
+      "duration": 2.0
+    },
+    {
+      "speaker": "Player",
+      "content": "I should make sure nothing else changed on this floor...",
+      "duration": 2.0
+    }
+    
+
+  ]
+}

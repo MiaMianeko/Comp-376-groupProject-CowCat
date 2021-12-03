@@ -1,0 +1,47 @@
+{
+  "data": [
+    {
+      "speaker": "Friend",
+      "content": "Hey, you ok? Class just ended.",
+      "duration": 2.0
+    },
+    {
+      "speaker": "Player",
+      "content": "Oh my god! I'm so embarrassed... I can't believe I slept through my first class!",
+      "duration": 2.0
+    },
+    {
+      "speaker": "Friend",
+      "content": "No worries, you didn't miss much. We can go over my notes together if you want.",
+      "duration": 2.0
+    },
+    {
+      "speaker": "Player",
+      "content": "Really? You're a lifesaver!",
+      "duration": 2.0
+    },
+    {
+      "speaker": "Friend",
+      "content": "I'm Lev by the way. ^_^",
+      "duration": 2.0
+    },
+    {
+      "speaker": "Player",
+      "content": "My name is Liv, nice to meet you!",
+      "duration": 2.0
+    },
+    {
+      "speaker": "Friend",
+      "content": "Haha, oh it's lunch time, I remember there is a nice chinese restaurant upstairs, you wanna eat together?",
+      "duration": 2.0
+    },
+    
+    {
+      "speaker": "Player",
+      "content": "Why not? I am starving now, let's go!",
+      "duration": 2.0
+    }
+    
+    
+  ]
+}

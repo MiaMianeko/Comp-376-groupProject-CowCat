@@ -1,0 +1,33 @@
+{
+  "data": [
+    {
+      "speaker": "Friend",
+      "content": "Con... Congra... Congratu..."
+    },
+    {
+      "speaker": "Player",
+      "content": "Hey man, I really think you should take it easy..."
+    },
+    {
+      "speaker": "Friend",
+      "content": "It's... it's you... You did.... this..."
+    },
+    {
+      "speaker": "Player",
+      "content": "Dude, you look like you're gonna faint! Please sit..."
+    },
+    {
+      "speaker": "Friend",
+      "content": "Stay away from... guh... I... The floor..."
+    },
+    {
+      "speaker": "Player",
+      "content": "When we're out of here, I'm taking you to a hospital!"
+    },
+    {
+      "speaker": "Friend",
+      "content": "The floor... it's... giving out..."
+    }
+   
+  ]
+}

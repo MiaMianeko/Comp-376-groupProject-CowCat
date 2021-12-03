@@ -1,0 +1,24 @@
+{
+  "data": [
+    {
+      "speaker": "Player",
+      "content": "Oh n... no..",
+      "duration": 3.0
+    },
+    {
+      "speaker": "EvilFriend",
+      "content": "It hurts... Olivia why?",
+      "duration": 3.0
+    },
+    {
+      "speaker": "Player",
+      "content": "I didn't...",
+      "duration": 3.0
+    },
+    {
+      "speaker": "EvilFriend",
+      "content": "MAKE IT STOP!!",
+      "duration": 3.0
+    }
+  ]
+}

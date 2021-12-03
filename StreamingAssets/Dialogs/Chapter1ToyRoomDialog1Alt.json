@@ -1,0 +1,28 @@
+{
+  "data": [
+    {
+      "speaker": "Player",
+      "content": "Oh God! What now??... hang on..."
+    },
+    {
+      "speaker": "Player",
+      "content": "What's with all these Teddies? How did we even get here... again?"
+    },
+    {
+      "speaker": "Player",
+      "content": "Have we been here before, Lev?"
+    },
+    {
+      "speaker": "Friend",
+      "content": "I certainly haven't! You know this place?"
+    },
+    {
+      "speaker": "Player",
+      "content": "I know this... How... How do I know this?"
+    },
+    {
+      "speaker": "Friend",
+      "content": "There has to be a clue... around... *cough* around here..."
+    }
+  ]
+}

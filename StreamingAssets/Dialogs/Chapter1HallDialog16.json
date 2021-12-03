@@ -1,0 +1,31 @@
+{
+  "data": [
+    {
+      "speaker": "Player",
+      "content": "'Stern's Introductory Plant Biology', if I recall correctly, it's the textbook for BIOL 510.",
+      "duration": 2.0
+    },
+    {
+      "speaker": "Player",
+      "content": "I guess there was a biology class going on in here... Gross...",
+      "duration": 2.0
+    },
+    {
+      "speaker": "Player",
+      "content": "I really hate biology... I'm... not sure why...",
+      "duration": 4.0
+    },
+    {
+      "speaker": "Player",
+      "content": "The idea of being stuck in a lab all day sounds absolutely dreadful.",
+      "duration": 2.0
+    },
+    {
+      "speaker": "Player",
+      "content": "Huh? Something fell out",
+      "duration": 2.0
+    }
+    
+    
+  ]
+}
