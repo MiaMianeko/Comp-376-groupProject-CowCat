@@ -43,7 +43,7 @@ public class FindTheLiars : MonoBehaviour
             solvedTime = Time.time;
             solved = true;
         }
-        if(solved && Time.time> solvedTime + 2)
+        if(solved && Time.time> solvedTime + 1)
         {
             manager.incrementSteps();
         }

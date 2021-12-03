@@ -28,12 +28,17 @@ public class RevelationsManager : MonoBehaviour
     [SerializeField] GameObject friendGameObject;
 
     [SerializeField] GameObject FindTheLiars;
+
+    [SerializeField] GameObject goodGameTrigger;
+
+    UserController player;
     // Start is called before the first frame update
     void Start()
     {
         audio = GetComponent<AudioSource>();
         murdererManager = FindObjectOfType<MurdererManager>();
         friendController = FindObjectOfType<FriendController>();
+        player = FindObjectOfType<UserController>();
     }
 
     // Update is called once per frame
@@ -131,7 +136,21 @@ public class RevelationsManager : MonoBehaviour
                     levPic.SetActive(false);
                     playEndGameDialog("Revelations10.json");
                     break;
-
+                case 20:
+                    wholePic.SetActive(false);
+                    playEndGameDialog("Revelations11.json");
+                    break;
+                case 21:
+                    goodGameTrigger.SetActive(true);
+                    playEndGameDialog("Revelations12.json");
+                    break;
+                case 22:
+                    goodGameTrigger.SetActive(true);
+                    playEndGameDialog("Revelations12.json");
+                    break;
+                case 23:
+                    player.canMove = true;
+                    break;
             }
     }
 
@@ -164,6 +183,15 @@ public class RevelationsManager : MonoBehaviour
         friendController.direction = Vector3.zero;
         callback();
     }
+    public void chooseBadEnding()
+    {
+
+    }
+    public void chooseGoodEnding()
+    {
+        player.canMove = false;
+    }
+
 }
 
 
