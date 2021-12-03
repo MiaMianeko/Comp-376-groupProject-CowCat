@@ -59,4 +59,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Epilogue/TE/ChasingScene.unity
     guid: e30e4d174815449d588fc931af543005
+  - enabled: 1
+    path: Assets/Scenes/Epilogue/BE/ChasingScene.unity
+    guid: f4fc43baf7def46da95a2917852afdf0
   m_configObjects: {}
