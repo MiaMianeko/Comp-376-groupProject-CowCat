@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DoorEnding : Interactable
 {
@@ -13,12 +14,13 @@ public class DoorEnding : Interactable
     [SerializeField] private GameObject block;
     [SerializeField] private GameObject tvSound;
     [SerializeField] private GameObject bgm;
+    [SerializeField] private GameObject sleepForvevr;
     private Dialog _dialog;
     void Start()
     {
         blackFlash.SetActive(false);
         bgm.SetActive(false);
-        
+        sleepForvevr.SetActive(false);
     }
 
     // Update is called once per frame
@@ -73,10 +75,16 @@ public class DoorEnding : Interactable
         tvSound.GetComponent<AudioSource>().Play();
         block.SetActive(true);
         
+        Invoke(nameof(ShowSF),2);
     }
 
+    public void ShowSF()
+    {
+        sleepForvevr.SetActive(true);
+        Invoke(nameof(ChangeScene),5);
+    }
     public void ChangeScene()
     {
-        
+        SceneManager.LoadScene("Staff");
     }
 }
