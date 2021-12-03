@@ -2,11 +2,15 @@
   "data": [
     {
       "speaker": "Friend",
-      "content": "Here! This is the classroom B060!"
+      "content": "Here! Classroom B060!"
     },
     {
       "speaker": "Friend",
-      "content": "It's gonna be late! Come! Let's go inside the classroom!"
+      "content": "We barely made it on time! I don't think it's started yet..."
+    },
+    {
+      "speaker": "Player",
+      "content": "I feel like I'm forgetting something... Probably just first day anxiety..."
     }
   ]
 }
