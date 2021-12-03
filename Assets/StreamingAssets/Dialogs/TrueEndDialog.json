@@ -2,11 +2,19 @@
   "data": [
     {
       "speaker": "Player",
-      "content": "AbaAbaAba"
+      "content": "uh....."
     },
     {
       "speaker": "Player",
-      "content": "AbaAbaAba..."
+      "content": "Oh.. It was a dream"
+    },
+    {
+      "speaker": "Player",
+      "content": "I think i am not the only one alive"
+    },
+    {
+      "speaker": "Player",
+      "content": "To make up for the mistakes I have made， I should find them."
     }
   ]
 }

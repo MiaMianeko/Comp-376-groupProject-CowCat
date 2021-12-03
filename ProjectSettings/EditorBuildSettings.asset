@@ -53,4 +53,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Chapter2/HospitalScene.unity
     guid: 29b7f831ead9e3e439fca1a6b407348f
+  - enabled: 1
+    path: Assets/Scenes/Epilogue/TE/TEHospitalScene.unity
+    guid: 3888b2ff0e0fe49bfb356e348a8246e4
+  - enabled: 1
+    path: Assets/Scenes/Epilogue/TE/ChasingScene.unity
+    guid: e30e4d174815449d588fc931af543005
   m_configObjects: {}

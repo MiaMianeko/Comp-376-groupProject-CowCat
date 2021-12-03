@@ -9,33 +9,32 @@ public class FriendAgent : MonoBehaviour
     private NavMeshAgent friendAgent;
 
     private Vector3 lastPosition;
-    
+
     public bool isMove = false;
     public bool isFacingRight = false;
     public bool isFacingLeft = false;
     public bool isFacingUp = false;
     public bool isFacingDown = false;
 
+    private bool isFirst = true;
+
     // Start is called before the first frame update
     void Start()
     {
-        
         friendAgent = GetComponent<NavMeshAgent>();
         friendAgent.updateRotation = false;
         friendAgent.updateUpAxis = false;
-       
+
 
         lastPosition = transform.position;
-
     }
 
     // Update is called once per frame
     void Update()
     {
-        print(transform.position - lastPosition);
         Vector3 direction = transform.position - lastPosition;
         lastPosition = transform.position;
-        
+
         if (direction.x < 0)
         {
             isMove = true;
@@ -82,6 +81,16 @@ public class FriendAgent : MonoBehaviour
         GetComponent<Animator>().SetBool("isFacingUp", isFacingUp);
         GetComponent<Animator>().SetBool("isFacingRight", isFacingRight);
         GetComponent<Animator>().SetBool("isMove", isMove);
+
+
+        if (transform.position.x <= -57f)
+        {
+            if (isFirst)
+            {
+                FindObjectOfType<ChasingSceneGameManager>().LoadDialog2();
+                isFirst = false;
+            }
+        }
     }
 
     public void FriendMove()
