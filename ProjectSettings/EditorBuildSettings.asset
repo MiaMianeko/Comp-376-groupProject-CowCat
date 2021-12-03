@@ -62,4 +62,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Epilogue/BE/ChasingScene.unity
     guid: f4fc43baf7def46da95a2917852afdf0
+  - enabled: 1
+    path: Assets/Scenes/Epilogue/RevelationsScene.unity
+    guid: cdf8e3b16043e8b41a3cb4ffbcc76f22
   m_configObjects: {}
