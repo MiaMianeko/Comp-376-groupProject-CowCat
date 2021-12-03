@@ -11,10 +11,12 @@ public class DoorEnding : Interactable
     [SerializeField] private GameObject darkClass;
     [SerializeField] private GameObject dialogGameObject;
     [SerializeField] private GameObject block;
+    [SerializeField] private GameObject tvSound;
     private Dialog _dialog;
     void Start()
     {
         blackFlash.SetActive(false);
+        
         
     }
 
@@ -61,7 +63,9 @@ public class DoorEnding : Interactable
     public void End()
     {
         Destroy(friend);
+        tvSound.GetComponent<AudioSource>().Play();
         block.SetActive(true);
+        
     }
 
     public void ChangeScene()
