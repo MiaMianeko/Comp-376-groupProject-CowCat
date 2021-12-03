@@ -57,15 +57,15 @@ public class TEMonsterAgent : MonoBehaviour
         {
             playerKilled = true;
             gameOverGameObject.SetActive(true);
-            Invoke(nameof(BackToMainMenu), 3.0f);
+            Invoke(nameof(Reload), 3.0f);
         }
     }
 
-    public void BackToMainMenu()
+    public void Reload()
     {
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("Scenes/Epilogue/TE/ChasingScene");
     }
-    
+
 }
 
 

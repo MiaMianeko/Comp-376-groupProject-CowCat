@@ -22,23 +22,19 @@
     },
     {
       "speaker": "Friend",
-      "content": "I'm Lev by the way. ^_^",
+      "content": "You hungry? There's a killer noodle spot upstairs in the food court",
       "duration": 2.0
     },
+
     {
       "speaker": "Player",
-      "content": "My name is Liv, nice to meet you!",
-      "duration": 2.0
-    },
-    {
-      "speaker": "Friend",
-      "content": "Haha, oh it's lunch time, I remember there is a nice chinese restaurant upstairs, you wanna eat together?",
+      "content": "Sounds great! I'll catch up.",
       "duration": 2.0
     },
     
     {
-      "speaker": "Player",
-      "content": "Why not? I am starving now, let's go!",
+      "speaker": "Friend",
+      "content": "Awesome! I'm Lev by the way",
       "duration": 2.0
     }
     

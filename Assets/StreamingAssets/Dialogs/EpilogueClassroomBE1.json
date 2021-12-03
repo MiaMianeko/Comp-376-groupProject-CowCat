@@ -2,22 +2,17 @@
   "data": [
     {
       "speaker": "Friend",
-      "content": "Wake up!",
+      "content": "... Hey?",
       "duration": 2.0
     },
     {
       "speaker": "Friend",
-      "content": "...",
+      "content": "Class is over. Wake up...",
       "duration": 2.0
     },
     {
       "speaker": "Friend",
-      "content": "Wake up, wake up!",
-      "duration": 2.0
-    },
-    {
-      "speaker": "Friend",
-      "content": "Liv! Wake up!",
+      "content": "WAKE UP!",
       "duration": 2.0
     }
     
