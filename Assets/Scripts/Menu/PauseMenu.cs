@@ -35,6 +35,7 @@ public class PauseMenu : MonoBehaviour
 
     public void pauseGame()
     {
+        player.canMove = false;
         menu.SetActive(true);
         menuIsActive = true;
         mainButtons.SetActive(true);
@@ -80,7 +81,7 @@ public class PauseMenu : MonoBehaviour
         saveMenu.SetActive(false);
         quitConfirm.SetActive(false);
         mainButtons.SetActive(false);
-
+        player.canMove = true;
         menu.gameObject.SetActive(false);
     }
 }
