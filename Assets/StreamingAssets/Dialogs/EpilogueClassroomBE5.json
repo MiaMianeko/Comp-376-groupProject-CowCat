@@ -1,0 +1,30 @@
+{
+  "data": [
+    {
+      "speaker": "Friend",
+      "content": "...",
+      "duration": 2.0
+    },
+    {
+      "speaker": "Friend",
+      "content": "Don't worry Liv, my best friend, I will always be with you.",
+      "duration": 2.0
+    },
+    {
+      "speaker": "Friend",
+      "content": "I will always remind you when you try to forget me.",
+      "duration": 2.0
+    },
+    {
+      "speaker": "Friend",
+      "content": "I won't let you forget me.",
+      "duration": 2.0
+    },
+    {
+      "speaker": "Friend",
+      "content": "I won't.",
+      "duration": 2.0
+    }
+    
+  ]
+}

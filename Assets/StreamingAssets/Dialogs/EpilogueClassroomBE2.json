@@ -1,0 +1,29 @@
+{
+  "data": [
+    {
+      "speaker": "Player",
+      "content": "Oh, how long did I sleep? I seem to have had a really long dream.",
+      "duration": 2.0
+    },
+    {
+      "speaker": "Player",
+      "content": "Looks like the class is over, all the students left. I feel ashamed for being sleep during the whole class on my first day...",
+      "duration": 2.0
+    },
+    {
+      "speaker": "Player",
+      "content": "I think I get to study harder at home to catch up on.",
+      "duration": 2.0
+    },
+    {
+      "speaker": "Player",
+      "content": "I am starving right now, I remember there's a Chinese restaurant upstairs, I want to try the Dandan noodles this time:)",
+      "duration": 2.0
+    },
+    {
+      "speaker": "Player",
+      "content": "Let's go!",
+      "duration": 2.0
+    }
+  ]
+}
