@@ -204,7 +204,15 @@ public class ToyRoomGameManager : MonoBehaviour
 
                     progress.beenThereBefore = true;
                     string jsonProgress = progress.SaveToString();
-                    File.WriteAllText(Application.streamingAssetsPath + "/ProgressData.json", jsonProgress);
+                    try
+                    {
+                        File.WriteAllText(Application.streamingAssetsPath + "/ProgressData.json", jsonProgress);
+                    }
+                    catch (Exception e)
+                    {
+                        print(e);
+                    }
+
                     StartCoroutine(GameOverAnimation());
                 }));
             }));
